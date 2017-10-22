@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC  -Wl,--version-script=/home/zhaov/rhsa/hsacore.so.def -shared -Wl,-soname,libhsa-runtime64.so.1 -o libhsa-runtime64.so.1.1.6 CMakeFiles/hsa-runtime64.dir/init.cc.o 

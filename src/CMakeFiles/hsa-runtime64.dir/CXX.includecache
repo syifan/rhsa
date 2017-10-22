@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/hsa.h
+stddef.h
+-
+stdint.h
+-
+stdbool.h
+-
+
+/home/zhaov/rhsa/src/init.cc
+hsa.h
+/home/zhaov/rhsa/src/hsa.h
+stdio.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+cstring
+-
+
