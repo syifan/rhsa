@@ -1,3 +1,0 @@
-/home/zhaov/rhsa/src/CMakeFiles/edit_cache.dir
-/home/zhaov/rhsa/src/CMakeFiles/rebuild_cache.dir
-/home/zhaov/rhsa/src/CMakeFiles/hsa-runtime64.dir
