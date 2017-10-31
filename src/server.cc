@@ -4,6 +4,8 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <cstring>
+#include "../include/hsa.h"
+#include <iostream>
 
 #define PORT 9001
 
@@ -45,6 +47,11 @@ int main()
 		return 1;
 	}
 	valread = read(new_socket, buffer, 1024);
-	printf("%s\n",buffer );
+	std::cout << std::strncmp(buffer, "init", 4);
+	if (std::strncmp(buffer, "init", 4) == 0)
+	{
+		std::cout << "HSA_STATUS_SUCCESS";
+		send(new_socket, "HSA_STATUS_SUCCESS", 1024, 0);
+	}
 	return 0;
 }
