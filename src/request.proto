@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package rhsa;
+
+import "init.proto";
+
+message Request {
+
+		oneof Payload {
+			InitResponse initResponse = 1;
+		}
+}

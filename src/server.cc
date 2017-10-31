@@ -6,6 +6,7 @@
 #include <cstring>
 #include "../include/hsa.h"
 #include <iostream>
+#include "request.pb.h"
 
 #define PORT 9001
 
@@ -48,10 +49,14 @@ int main()
 	}
 	valread = read(new_socket, buffer, 1024);
 	std::cout << std::strncmp(buffer, "init", 4);
+	
 	if (std::strncmp(buffer, "init", 4) == 0)
 	{
-		std::cout << "HSA_STATUS_SUCCESS";
-		send(new_socket, "HSA_STATUS_SUCCESS", 1024, 0);
+		Request *request = new rhsa::Request();
+		InitResponse *initresponse = new rhsa::InitResponse();
+		initresponse->set_type(rhsa::InitResponse::HSA_STATUS_SUCCESS);
+		request->set_allocated_initresponse(initresponse);
+		send(new_socket, serialized, 1024, 0);
 	}
 	return 0;
 }

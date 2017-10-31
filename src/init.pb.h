@@ -34,6 +34,7 @@ void  protobuf_AddDesc_init_2eproto();
 void protobuf_AssignDesc_init_2eproto();
 void protobuf_ShutdownFile_init_2eproto();
 
+class InitRequest;
 class InitResponse;
 
 enum InitResponse_InitMessage {
@@ -57,6 +58,75 @@ inline bool InitResponse_InitMessage_Parse(
     InitResponse_InitMessage_descriptor(), name, value);
 }
 // ===================================================================
+
+class InitRequest : public ::google::protobuf::Message {
+ public:
+  InitRequest();
+  virtual ~InitRequest();
+
+  InitRequest(const InitRequest& from);
+
+  inline InitRequest& operator=(const InitRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const InitRequest& default_instance();
+
+  void Swap(InitRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  InitRequest* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const InitRequest& from);
+  void MergeFrom(const InitRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:hsa_init.InitRequest)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_init_2eproto();
+  friend void protobuf_AssignDesc_init_2eproto();
+  friend void protobuf_ShutdownFile_init_2eproto();
+
+  void InitAsDefaultInstance();
+  static InitRequest* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class InitResponse : public ::google::protobuf::Message {
  public:
@@ -164,6 +234,10 @@ class InitResponse : public ::google::protobuf::Message {
 
 
 // ===================================================================
+
+// InitRequest
+
+// -------------------------------------------------------------------
 
 // InitResponse
 
