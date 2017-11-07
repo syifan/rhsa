@@ -27,8 +27,6 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
-namespace hsa_init {
-
 // Internal implementation detail -- do not call these.
 void  protobuf_AddDesc_init_2eproto();
 void protobuf_AssignDesc_init_2eproto();
@@ -112,7 +110,7 @@ class InitRequest : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // @@protoc_insertion_point(class_scope:hsa_init.InitRequest)
+  // @@protoc_insertion_point(class_scope:InitRequest)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
@@ -206,14 +204,14 @@ class InitResponse : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .hsa_init.InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
+  // required .InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
   inline bool has_type() const;
   inline void clear_type();
   static const int kTypeFieldNumber = 1;
-  inline ::hsa_init::InitResponse_InitMessage type() const;
-  inline void set_type(::hsa_init::InitResponse_InitMessage value);
+  inline ::InitResponse_InitMessage type() const;
+  inline void set_type(::InitResponse_InitMessage value);
 
-  // @@protoc_insertion_point(class_scope:hsa_init.InitResponse)
+  // @@protoc_insertion_point(class_scope:InitResponse)
  private:
   inline void set_has_type();
   inline void clear_has_type();
@@ -241,7 +239,7 @@ class InitResponse : public ::google::protobuf::Message {
 
 // InitResponse
 
-// required .hsa_init.InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
+// required .InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
 inline bool InitResponse::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -255,30 +253,28 @@ inline void InitResponse::clear_type() {
   type_ = 1;
   clear_has_type();
 }
-inline ::hsa_init::InitResponse_InitMessage InitResponse::type() const {
-  // @@protoc_insertion_point(field_get:hsa_init.InitResponse.type)
-  return static_cast< ::hsa_init::InitResponse_InitMessage >(type_);
+inline ::InitResponse_InitMessage InitResponse::type() const {
+  // @@protoc_insertion_point(field_get:InitResponse.type)
+  return static_cast< ::InitResponse_InitMessage >(type_);
 }
-inline void InitResponse::set_type(::hsa_init::InitResponse_InitMessage value) {
-  assert(::hsa_init::InitResponse_InitMessage_IsValid(value));
+inline void InitResponse::set_type(::InitResponse_InitMessage value) {
+  assert(::InitResponse_InitMessage_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:hsa_init.InitResponse.type)
+  // @@protoc_insertion_point(field_set:InitResponse.type)
 }
 
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace hsa_init
-
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::hsa_init::InitResponse_InitMessage> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::InitResponse_InitMessage> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::hsa_init::InitResponse_InitMessage>() {
-  return ::hsa_init::InitResponse_InitMessage_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::InitResponse_InitMessage>() {
+  return ::InitResponse_InitMessage_descriptor();
 }
 
 }  // namespace google
