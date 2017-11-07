@@ -19,3 +19,8 @@ add_library(${HSA_RUNTIME_NAME} SHARED src/init.cc)
 set_property(TARGET ${HSA_RUNTIME_NAME} PROPERTY VERSION ${LIB_VERSION_STRING})
 set_property(TARGET ${HSA_RUNTIME_NAME} PROPERTY SOVERSION "${VERSION_MAJOR}")
 
+find_library(PROTOBUF protobuf)
+message(${PROTOBUF})
+add_executable(server
+  src/request.pb.cc src/init.pb.cc src/server.cc)
+target_link_libraries(server ${PROTOBUF})
