@@ -41,9 +41,11 @@ extern "C"
 	}
 
 
-	hsa_status_t receiveStatus ()
+	std::string receiveStatus ()
 	{
-		recv(sock, buffer, sizeof(hsa_status_t), 0);
-		std::cout << buffer;
+		int reslength = recv(sock, buffer, sizeof(hsa_status_t), 0);
+		for (int i=0;i<reslength;i++) {
+			printf("%02x ", buffer[i]);
+		}
 	}
 }

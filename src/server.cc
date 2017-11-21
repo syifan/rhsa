@@ -16,10 +16,10 @@ int sock;
 struct sockaddr_in connection;
 int connlen = sizeof(connection);
 
-void AddSuccess(rhsa::Request r) {
-	InitResponse* response;
+void AddSuccess(rhsa::Request* r) {
+	InitResponse* response = new InitResponse();
 	response->set_type(InitResponse::HSA_STATUS_SUCCESS);
-	r.set_allocated_initresponse(response);
+	r->set_allocated_initresponse(response);
 }
 
 int main() 
@@ -60,11 +60,12 @@ int main()
 	
 	if (strncmp(buffer, "init", 4) == 0)
 	{
-		string* sresponse;
+		string sresponse;
 		rhsa::Request request;
-		AddSuccess(request);
-		request.SerializeToString(sresponse);
-		send(new_socket, sresponse, 1024, 0);
+		AddSuccess(&request);
+		request.SerializeToString(&sresponse);
+		printf(sresponse.c_str());
+		send(new_socket, sresponse.c_str(), 1024, 0);
 	}
 	return 0;
 }
