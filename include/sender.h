@@ -5,9 +5,10 @@
 #include <unistd.h>
 #include <cstring>
 #include "hsa.h"
+#include "../src/request.pb.h"
 #include <iostream>
 
-extern "C" 
+class Connectio
 {
 	int sock;
 	struct sockaddr_in connection;
@@ -41,11 +42,9 @@ extern "C"
 	}
 
 
-	std::string receiveStatus ()
+	rhsa::Request receiveResponse ()
 	{
-		int reslength = recv(sock, buffer, sizeof(hsa_status_t), 0);
-		for (int i=0;i<reslength;i++) {
-			printf("%02x ", buffer[i]);
-		}
+		int reslength = recv(sock, buffer, sizeof(), 0);
+		
 	}
 }
