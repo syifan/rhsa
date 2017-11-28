@@ -62,7 +62,7 @@ class Request : public ::google::protobuf::Message {
   static const Request& default_instance();
 
   enum PayloadCase {
-    kInitResponse = 1,
+    kInitResponse = 1000,
     PAYLOAD_NOT_SET = 0,
   };
 
@@ -96,18 +96,27 @@ class Request : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .InitResponse initResponse = 1;
+  // optional bool init = 1;
+  inline bool has_init() const;
+  inline void clear_init();
+  static const int kInitFieldNumber = 1;
+  inline bool init() const;
+  inline void set_init(bool value);
+
+  // optional .rhsa.InitResponse initResponse = 1000;
   inline bool has_initresponse() const;
   inline void clear_initresponse();
-  static const int kInitResponseFieldNumber = 1;
-  inline const ::InitResponse& initresponse() const;
-  inline ::InitResponse* mutable_initresponse();
-  inline ::InitResponse* release_initresponse();
-  inline void set_allocated_initresponse(::InitResponse* initresponse);
+  static const int kInitResponseFieldNumber = 1000;
+  inline const ::rhsa::InitResponse& initresponse() const;
+  inline ::rhsa::InitResponse* mutable_initresponse();
+  inline ::rhsa::InitResponse* release_initresponse();
+  inline void set_allocated_initresponse(::rhsa::InitResponse* initresponse);
 
   inline PayloadCase Payload_case() const;
   // @@protoc_insertion_point(class_scope:rhsa.Request)
  private:
+  inline void set_has_init();
+  inline void clear_has_init();
   inline void set_has_initresponse();
 
   inline bool has_Payload();
@@ -118,8 +127,9 @@ class Request : public ::google::protobuf::Message {
 
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
+  bool init_;
   union PayloadUnion {
-    ::InitResponse* initresponse_;
+    ::rhsa::InitResponse* initresponse_;
   } Payload_;
   ::google::protobuf::uint32 _oneof_case_[1];
 
@@ -137,7 +147,31 @@ class Request : public ::google::protobuf::Message {
 
 // Request
 
-// optional .InitResponse initResponse = 1;
+// optional bool init = 1;
+inline bool Request::has_init() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Request::set_has_init() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Request::clear_has_init() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Request::clear_init() {
+  init_ = false;
+  clear_has_init();
+}
+inline bool Request::init() const {
+  // @@protoc_insertion_point(field_get:rhsa.Request.init)
+  return init_;
+}
+inline void Request::set_init(bool value) {
+  set_has_init();
+  init_ = value;
+  // @@protoc_insertion_point(field_set:rhsa.Request.init)
+}
+
+// optional .rhsa.InitResponse initResponse = 1000;
 inline bool Request::has_initresponse() const {
   return Payload_case() == kInitResponse;
 }
@@ -150,29 +184,29 @@ inline void Request::clear_initresponse() {
     clear_has_Payload();
   }
 }
-inline const ::InitResponse& Request::initresponse() const {
+inline const ::rhsa::InitResponse& Request::initresponse() const {
   return has_initresponse() ? *Payload_.initresponse_
-                      : ::InitResponse::default_instance();
+                      : ::rhsa::InitResponse::default_instance();
 }
-inline ::InitResponse* Request::mutable_initresponse() {
+inline ::rhsa::InitResponse* Request::mutable_initresponse() {
   if (!has_initresponse()) {
     clear_Payload();
     set_has_initresponse();
-    Payload_.initresponse_ = new ::InitResponse;
+    Payload_.initresponse_ = new ::rhsa::InitResponse;
   }
   return Payload_.initresponse_;
 }
-inline ::InitResponse* Request::release_initresponse() {
+inline ::rhsa::InitResponse* Request::release_initresponse() {
   if (has_initresponse()) {
     clear_has_Payload();
-    ::InitResponse* temp = Payload_.initresponse_;
+    ::rhsa::InitResponse* temp = Payload_.initresponse_;
     Payload_.initresponse_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void Request::set_allocated_initresponse(::InitResponse* initresponse) {
+inline void Request::set_allocated_initresponse(::rhsa::InitResponse* initresponse) {
   clear_Payload();
   if (initresponse) {
     set_has_initresponse();

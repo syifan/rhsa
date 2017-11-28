@@ -15,11 +15,13 @@ set(DRVDEF "${CMAKE_CURRENT_SOURCE_DIR}/hsacore.so.def")
 
 set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--version-script=${DRVDEF}")
 
-add_library(${HSA_RUNTIME_NAME} SHARED src/init.cc)
+find_library(PROTOBUF protobuf)
+
+add_library(${HSA_RUNTIME_NAME} SHARED src/init.cc src/request.pb.cc src/init.pb.cc)
 set_property(TARGET ${HSA_RUNTIME_NAME} PROPERTY VERSION ${LIB_VERSION_STRING})
 set_property(TARGET ${HSA_RUNTIME_NAME} PROPERTY SOVERSION "${VERSION_MAJOR}")
+target_link_libraries(${HSA_RUNTIME_NAME} ${PROTOBUF})
 
-find_library(PROTOBUF protobuf)
 message(${PROTOBUF})
 add_executable(server
   src/request.pb.cc src/init.pb.cc src/server.cc)

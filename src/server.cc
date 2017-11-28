@@ -17,8 +17,8 @@ struct sockaddr_in connection;
 int connlen = sizeof(connection);
 
 void AddSuccess(rhsa::Request* r) {
-	InitResponse* response = new InitResponse();
-	response->set_type(InitResponse::HSA_STATUS_SUCCESS);
+	rhsa::InitResponse* response = new rhsa::InitResponse();
+	response->set_type(rhsa::InitResponse::HSA_STATUS_SUCCESS);
 	r->set_allocated_initresponse(response);
 }
 
@@ -56,15 +56,21 @@ int main()
 		return 1;
 	}
 	valread = read(new_socket, buffer, 1024);
-	cout << strncmp(buffer, "init", 4);
 	
-	if (strncmp(buffer, "init", 4) == 0)
+	rhsa::Request request;
+	request.ParseFromString(buffer);
+
+	string sresponse;
+	
+	if (request.init())
 	{
-		string sresponse;
-		rhsa::Request request;
 		AddSuccess(&request);
 		request.SerializeToString(&sresponse);
 		printf(sresponse.c_str());
+	}
+
+	if (!(sresponse.empty()))
+	{	
 		send(new_socket, sresponse.c_str(), 1024, 0);
 	}
 	return 0;

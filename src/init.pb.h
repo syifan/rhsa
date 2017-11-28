@@ -27,12 +27,13 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
+namespace rhsa {
+
 // Internal implementation detail -- do not call these.
 void  protobuf_AddDesc_init_2eproto();
 void protobuf_AssignDesc_init_2eproto();
 void protobuf_ShutdownFile_init_2eproto();
 
-class InitRequest;
 class InitResponse;
 
 enum InitResponse_InitMessage {
@@ -56,75 +57,6 @@ inline bool InitResponse_InitMessage_Parse(
     InitResponse_InitMessage_descriptor(), name, value);
 }
 // ===================================================================
-
-class InitRequest : public ::google::protobuf::Message {
- public:
-  InitRequest();
-  virtual ~InitRequest();
-
-  InitRequest(const InitRequest& from);
-
-  inline InitRequest& operator=(const InitRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const InitRequest& default_instance();
-
-  void Swap(InitRequest* other);
-
-  // implements Message ----------------------------------------------
-
-  InitRequest* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const InitRequest& from);
-  void MergeFrom(const InitRequest& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:InitRequest)
- private:
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
-  friend void  protobuf_AddDesc_init_2eproto();
-  friend void protobuf_AssignDesc_init_2eproto();
-  friend void protobuf_ShutdownFile_init_2eproto();
-
-  void InitAsDefaultInstance();
-  static InitRequest* default_instance_;
-};
-// -------------------------------------------------------------------
 
 class InitResponse : public ::google::protobuf::Message {
  public:
@@ -204,14 +136,14 @@ class InitResponse : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required .InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
+  // required .rhsa.InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
   inline bool has_type() const;
   inline void clear_type();
   static const int kTypeFieldNumber = 1;
-  inline ::InitResponse_InitMessage type() const;
-  inline void set_type(::InitResponse_InitMessage value);
+  inline ::rhsa::InitResponse_InitMessage type() const;
+  inline void set_type(::rhsa::InitResponse_InitMessage value);
 
-  // @@protoc_insertion_point(class_scope:InitResponse)
+  // @@protoc_insertion_point(class_scope:rhsa.InitResponse)
  private:
   inline void set_has_type();
   inline void clear_has_type();
@@ -233,13 +165,9 @@ class InitResponse : public ::google::protobuf::Message {
 
 // ===================================================================
 
-// InitRequest
-
-// -------------------------------------------------------------------
-
 // InitResponse
 
-// required .InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
+// required .rhsa.InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
 inline bool InitResponse::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -253,28 +181,30 @@ inline void InitResponse::clear_type() {
   type_ = 1;
   clear_has_type();
 }
-inline ::InitResponse_InitMessage InitResponse::type() const {
-  // @@protoc_insertion_point(field_get:InitResponse.type)
-  return static_cast< ::InitResponse_InitMessage >(type_);
+inline ::rhsa::InitResponse_InitMessage InitResponse::type() const {
+  // @@protoc_insertion_point(field_get:rhsa.InitResponse.type)
+  return static_cast< ::rhsa::InitResponse_InitMessage >(type_);
 }
-inline void InitResponse::set_type(::InitResponse_InitMessage value) {
-  assert(::InitResponse_InitMessage_IsValid(value));
+inline void InitResponse::set_type(::rhsa::InitResponse_InitMessage value) {
+  assert(::rhsa::InitResponse_InitMessage_IsValid(value));
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:InitResponse.type)
+  // @@protoc_insertion_point(field_set:rhsa.InitResponse.type)
 }
 
 
 // @@protoc_insertion_point(namespace_scope)
 
+}  // namespace rhsa
+
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::InitResponse_InitMessage> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::rhsa::InitResponse_InitMessage> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::InitResponse_InitMessage>() {
-  return ::InitResponse_InitMessage_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::rhsa::InitResponse_InitMessage>() {
+  return ::rhsa::InitResponse_InitMessage_descriptor();
 }
 
 }  // namespace google

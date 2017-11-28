@@ -24,7 +24,7 @@ const ::google::protobuf::Descriptor* Request_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Request_reflection_ = NULL;
 struct RequestOneofInstance {
-  const ::InitResponse* initresponse_;
+  const ::rhsa::InitResponse* initresponse_;
 }* Request_default_oneof_instance_ = NULL;
 
 }  // namespace
@@ -37,7 +37,8 @@ void protobuf_AssignDesc_request_2eproto() {
       "request.proto");
   GOOGLE_CHECK(file != NULL);
   Request_descriptor_ = file->message_type(0);
-  static const int Request_offsets_[2] = {
+  static const int Request_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Request, init_),
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(Request_default_oneof_instance_, initresponse_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Request, Payload_),
   };
@@ -84,11 +85,11 @@ void protobuf_AddDesc_request_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::protobuf_AddDesc_init_2eproto();
+  ::rhsa::protobuf_AddDesc_init_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rrequest.proto\022\004rhsa\032\ninit.proto\";\n\007Req"
-    "uest\022%\n\014initResponse\030\001 \001(\0132\r.InitRespons"
-    "eH\000B\t\n\007Payload", 94);
+    "\n\rrequest.proto\022\004rhsa\032\ninit.proto\"O\n\007Req"
+    "uest\022\014\n\004init\030\001 \001(\010\022+\n\014initResponse\030\350\007 \001("
+    "\0132\022.rhsa.InitResponseH\000B\t\n\007Payload", 114);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "request.proto", &protobuf_RegisterTypes);
   Request::default_instance_ = new Request();
@@ -107,6 +108,7 @@ struct StaticDescriptorInitializer_request_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int Request::kInitFieldNumber;
 const int Request::kInitResponseFieldNumber;
 #endif  // !_MSC_VER
 
@@ -117,7 +119,7 @@ Request::Request()
 }
 
 void Request::InitAsDefaultInstance() {
-  Request_default_oneof_instance_->initresponse_ = const_cast< ::InitResponse*>(&::InitResponse::default_instance());
+  Request_default_oneof_instance_->initresponse_ = const_cast< ::rhsa::InitResponse*>(&::rhsa::InitResponse::default_instance());
 }
 
 Request::Request(const Request& from)
@@ -129,6 +131,7 @@ Request::Request(const Request& from)
 
 void Request::SharedCtor() {
   _cached_size_ = 0;
+  init_ = false;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   clear_has_Payload();
 }
@@ -182,6 +185,7 @@ void Request::clear_Payload() {
 
 
 void Request::Clear() {
+  init_ = false;
   clear_Payload();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -193,13 +197,28 @@ bool Request::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:rhsa.Request)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .InitResponse initResponse = 1;
+      // optional bool init = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &init_)));
+          set_has_init();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(8002)) goto parse_initResponse;
+        break;
+      }
+
+      // optional .rhsa.InitResponse initResponse = 1000;
+      case 1000: {
+        if (tag == 8002) {
+         parse_initResponse:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_initresponse()));
         } else {
@@ -234,10 +253,15 @@ failure:
 void Request::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:rhsa.Request)
-  // optional .InitResponse initResponse = 1;
+  // optional bool init = 1;
+  if (has_init()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->init(), output);
+  }
+
+  // optional .rhsa.InitResponse initResponse = 1000;
   if (has_initresponse()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->initresponse(), output);
+      1000, this->initresponse(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -250,11 +274,16 @@ void Request::SerializeWithCachedSizes(
 ::google::protobuf::uint8* Request::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:rhsa.Request)
-  // optional .InitResponse initResponse = 1;
+  // optional bool init = 1;
+  if (has_init()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->init(), target);
+  }
+
+  // optional .rhsa.InitResponse initResponse = 1000;
   if (has_initresponse()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->initresponse(), target);
+        1000, this->initresponse(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -268,10 +297,17 @@ void Request::SerializeWithCachedSizes(
 int Request::ByteSize() const {
   int total_size = 0;
 
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional bool init = 1;
+    if (has_init()) {
+      total_size += 1 + 1;
+    }
+
+  }
   switch (Payload_case()) {
-    // optional .InitResponse initResponse = 1;
+    // optional .rhsa.InitResponse initResponse = 1000;
     case kInitResponse: {
-      total_size += 1 +
+      total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->initresponse());
       break;
@@ -307,11 +343,16 @@ void Request::MergeFrom(const Request& from) {
   GOOGLE_CHECK_NE(&from, this);
   switch (from.Payload_case()) {
     case kInitResponse: {
-      mutable_initresponse()->::InitResponse::MergeFrom(from.initresponse());
+      mutable_initresponse()->::rhsa::InitResponse::MergeFrom(from.initresponse());
       break;
     }
     case PAYLOAD_NOT_SET: {
       break;
+    }
+  }
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_init()) {
+      set_init(from.init());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -339,6 +380,7 @@ bool Request::IsInitialized() const {
 
 void Request::Swap(Request* other) {
   if (other != this) {
+    std::swap(init_, other->init_);
     std::swap(Payload_, other->Payload_);
     std::swap(_oneof_case_[0], other->_oneof_case_[0]);
     std::swap(_has_bits_[0], other->_has_bits_[0]);

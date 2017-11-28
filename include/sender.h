@@ -13,7 +13,7 @@ extern "C"
 	struct sockaddr_in connection;
 	char buffer[1024];
 
-	void sendCommand (int port, char* address, char* message)
+	void sendCommand (int port, char* address, const char* message)
 	{
 		printf("Begin server connection...\n");
 		memset(&connection, 0, sizeof(connection));

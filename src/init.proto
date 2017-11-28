@@ -1,7 +1,6 @@
 syntax = "proto2";
 
-message InitRequest {
-}
+package rhsa;
 
 message InitResponse {
 
