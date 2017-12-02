@@ -31,5 +31,9 @@ target_link_libraries(${HSA_RUNTIME_NAME} ${PROTOBUF})
 
 message(${PROTOBUF})
 add_executable(server
-  src/request.pb.cc src/init.pb.cc src/server.cc)
+  src/conn/listener.cc
+  src/conn/conn.cc
+  src/conn/connector.cc
+  src/server/server.cc
+)
 target_link_libraries(server ${PROTOBUF})
