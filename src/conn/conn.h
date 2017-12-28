@@ -17,9 +17,12 @@ class TCPConnection : public Connection {
 
   TCPConnection(int sock);
 
-  void SendMessage(Message *message);
-  Message* RecvMessage ();
-  void Close();
+  void SendMessage(Message *message) override;
+  Message* RecvMessage () override;
+  void Close() override;
+  ~TCPConnection() {
+    // Free resources;
+  }
 };
 
 }

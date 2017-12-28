@@ -15,6 +15,8 @@ class Connector {
    * Connect establish a connection to the server that is hosted at IP address
    * ip and using port port. This function returns the connection to the
    * server.
+   *
+   * @param ip IP address
    */
   virtual std::unique_ptr<Connection> Connect(const std::string &ip,
                                               int port) = 0;
