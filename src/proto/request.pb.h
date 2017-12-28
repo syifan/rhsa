@@ -34,18 +34,18 @@ void  protobuf_AddDesc_request_2eproto();
 void protobuf_AssignDesc_request_2eproto();
 void protobuf_ShutdownFile_request_2eproto();
 
-class Request;
+class RequestMessage;
 
 // ===================================================================
 
-class Request : public ::google::protobuf::Message {
+class RequestMessage : public ::google::protobuf::Message {
  public:
-  Request();
-  virtual ~Request();
+  RequestMessage();
+  virtual ~RequestMessage();
 
-  Request(const Request& from);
+  RequestMessage(const RequestMessage& from);
 
-  inline Request& operator=(const Request& from) {
+  inline RequestMessage& operator=(const RequestMessage& from) {
     CopyFrom(from);
     return *this;
   }
@@ -59,22 +59,22 @@ class Request : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Request& default_instance();
+  static const RequestMessage& default_instance();
 
   enum PayloadCase {
-    kInitResponse = 1000,
+    kInit = 1000,
     PAYLOAD_NOT_SET = 0,
   };
 
-  void Swap(Request* other);
+  void Swap(RequestMessage* other);
 
   // implements Message ----------------------------------------------
 
-  Request* New() const;
+  RequestMessage* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Request& from);
-  void MergeFrom(const Request& from);
+  void CopyFrom(const RequestMessage& from);
+  void MergeFrom(const RequestMessage& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -96,28 +96,19 @@ class Request : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional bool init = 1;
+  // optional .rhsa.Init init = 1000;
   inline bool has_init() const;
   inline void clear_init();
-  static const int kInitFieldNumber = 1;
-  inline bool init() const;
-  inline void set_init(bool value);
-
-  // optional .rhsa.InitResponse initResponse = 1000;
-  inline bool has_initresponse() const;
-  inline void clear_initresponse();
-  static const int kInitResponseFieldNumber = 1000;
-  inline const ::rhsa::InitResponse& initresponse() const;
-  inline ::rhsa::InitResponse* mutable_initresponse();
-  inline ::rhsa::InitResponse* release_initresponse();
-  inline void set_allocated_initresponse(::rhsa::InitResponse* initresponse);
+  static const int kInitFieldNumber = 1000;
+  inline const ::rhsa::Init& init() const;
+  inline ::rhsa::Init* mutable_init();
+  inline ::rhsa::Init* release_init();
+  inline void set_allocated_init(::rhsa::Init* init);
 
   inline PayloadCase Payload_case() const;
-  // @@protoc_insertion_point(class_scope:rhsa.Request)
+  // @@protoc_insertion_point(class_scope:rhsa.RequestMessage)
  private:
   inline void set_has_init();
-  inline void clear_has_init();
-  inline void set_has_initresponse();
 
   inline bool has_Payload();
   void clear_Payload();
@@ -127,9 +118,8 @@ class Request : public ::google::protobuf::Message {
 
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  bool init_;
   union PayloadUnion {
-    ::rhsa::InitResponse* initresponse_;
+    ::rhsa::Init* init_;
   } Payload_;
   ::google::protobuf::uint32 _oneof_case_[1];
 
@@ -138,90 +128,66 @@ class Request : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_request_2eproto();
 
   void InitAsDefaultInstance();
-  static Request* default_instance_;
+  static RequestMessage* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// Request
+// RequestMessage
 
-// optional bool init = 1;
-inline bool Request::has_init() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// optional .rhsa.Init init = 1000;
+inline bool RequestMessage::has_init() const {
+  return Payload_case() == kInit;
 }
-inline void Request::set_has_init() {
-  _has_bits_[0] |= 0x00000001u;
+inline void RequestMessage::set_has_init() {
+  _oneof_case_[0] = kInit;
 }
-inline void Request::clear_has_init() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Request::clear_init() {
-  init_ = false;
-  clear_has_init();
-}
-inline bool Request::init() const {
-  // @@protoc_insertion_point(field_get:rhsa.Request.init)
-  return init_;
-}
-inline void Request::set_init(bool value) {
-  set_has_init();
-  init_ = value;
-  // @@protoc_insertion_point(field_set:rhsa.Request.init)
-}
-
-// optional .rhsa.InitResponse initResponse = 1000;
-inline bool Request::has_initresponse() const {
-  return Payload_case() == kInitResponse;
-}
-inline void Request::set_has_initresponse() {
-  _oneof_case_[0] = kInitResponse;
-}
-inline void Request::clear_initresponse() {
-  if (has_initresponse()) {
-    delete Payload_.initresponse_;
+inline void RequestMessage::clear_init() {
+  if (has_init()) {
+    delete Payload_.init_;
     clear_has_Payload();
   }
 }
-inline const ::rhsa::InitResponse& Request::initresponse() const {
-  return has_initresponse() ? *Payload_.initresponse_
-                      : ::rhsa::InitResponse::default_instance();
+inline const ::rhsa::Init& RequestMessage::init() const {
+  return has_init() ? *Payload_.init_
+                      : ::rhsa::Init::default_instance();
 }
-inline ::rhsa::InitResponse* Request::mutable_initresponse() {
-  if (!has_initresponse()) {
+inline ::rhsa::Init* RequestMessage::mutable_init() {
+  if (!has_init()) {
     clear_Payload();
-    set_has_initresponse();
-    Payload_.initresponse_ = new ::rhsa::InitResponse;
+    set_has_init();
+    Payload_.init_ = new ::rhsa::Init;
   }
-  return Payload_.initresponse_;
+  return Payload_.init_;
 }
-inline ::rhsa::InitResponse* Request::release_initresponse() {
-  if (has_initresponse()) {
+inline ::rhsa::Init* RequestMessage::release_init() {
+  if (has_init()) {
     clear_has_Payload();
-    ::rhsa::InitResponse* temp = Payload_.initresponse_;
-    Payload_.initresponse_ = NULL;
+    ::rhsa::Init* temp = Payload_.init_;
+    Payload_.init_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void Request::set_allocated_initresponse(::rhsa::InitResponse* initresponse) {
+inline void RequestMessage::set_allocated_init(::rhsa::Init* init) {
   clear_Payload();
-  if (initresponse) {
-    set_has_initresponse();
-    Payload_.initresponse_ = initresponse;
+  if (init) {
+    set_has_init();
+    Payload_.init_ = init;
   }
 }
 
-inline bool Request::has_Payload() {
+inline bool RequestMessage::has_Payload() {
   return Payload_case() != PAYLOAD_NOT_SET;
 }
-inline void Request::clear_has_Payload() {
+inline void RequestMessage::clear_has_Payload() {
   _oneof_case_[0] = PAYLOAD_NOT_SET;
 }
-inline Request::PayloadCase Request::Payload_case() const {
-  return Request::PayloadCase(_oneof_case_[0]);
+inline RequestMessage::PayloadCase RequestMessage::Payload_case() const {
+  return RequestMessage::PayloadCase(_oneof_case_[0]);
 }
 
 // @@protoc_insertion_point(namespace_scope)

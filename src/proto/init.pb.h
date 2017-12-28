@@ -23,7 +23,6 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
-#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
@@ -34,38 +33,18 @@ void  protobuf_AddDesc_init_2eproto();
 void protobuf_AssignDesc_init_2eproto();
 void protobuf_ShutdownFile_init_2eproto();
 
-class InitResponse;
+class Init;
 
-enum InitResponse_InitMessage {
-  InitResponse_InitMessage_HSA_STATUS_SUCCESS = 1,
-  InitResponse_InitMessage_HSA_STATUS_ERROR_OUT_OF_RESOURCES = 2,
-  InitResponse_InitMessage_HSA_STATUS_ERROR_REFCOUNT_OVERFLOW = 3
-};
-bool InitResponse_InitMessage_IsValid(int value);
-const InitResponse_InitMessage InitResponse_InitMessage_InitMessage_MIN = InitResponse_InitMessage_HSA_STATUS_SUCCESS;
-const InitResponse_InitMessage InitResponse_InitMessage_InitMessage_MAX = InitResponse_InitMessage_HSA_STATUS_ERROR_REFCOUNT_OVERFLOW;
-const int InitResponse_InitMessage_InitMessage_ARRAYSIZE = InitResponse_InitMessage_InitMessage_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* InitResponse_InitMessage_descriptor();
-inline const ::std::string& InitResponse_InitMessage_Name(InitResponse_InitMessage value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    InitResponse_InitMessage_descriptor(), value);
-}
-inline bool InitResponse_InitMessage_Parse(
-    const ::std::string& name, InitResponse_InitMessage* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<InitResponse_InitMessage>(
-    InitResponse_InitMessage_descriptor(), name, value);
-}
 // ===================================================================
 
-class InitResponse : public ::google::protobuf::Message {
+class Init : public ::google::protobuf::Message {
  public:
-  InitResponse();
-  virtual ~InitResponse();
+  Init();
+  virtual ~Init();
 
-  InitResponse(const InitResponse& from);
+  Init(const Init& from);
 
-  inline InitResponse& operator=(const InitResponse& from) {
+  inline Init& operator=(const Init& from) {
     CopyFrom(from);
     return *this;
   }
@@ -79,17 +58,17 @@ class InitResponse : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const InitResponse& default_instance();
+  static const Init& default_instance();
 
-  void Swap(InitResponse* other);
+  void Swap(Init* other);
 
   // implements Message ----------------------------------------------
 
-  InitResponse* New() const;
+  Init* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const InitResponse& from);
-  void MergeFrom(const InitResponse& from);
+  void CopyFrom(const Init& from);
+  void MergeFrom(const Init& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -109,41 +88,16 @@ class InitResponse : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
-  typedef InitResponse_InitMessage InitMessage;
-  static const InitMessage HSA_STATUS_SUCCESS = InitResponse_InitMessage_HSA_STATUS_SUCCESS;
-  static const InitMessage HSA_STATUS_ERROR_OUT_OF_RESOURCES = InitResponse_InitMessage_HSA_STATUS_ERROR_OUT_OF_RESOURCES;
-  static const InitMessage HSA_STATUS_ERROR_REFCOUNT_OVERFLOW = InitResponse_InitMessage_HSA_STATUS_ERROR_REFCOUNT_OVERFLOW;
-  static inline bool InitMessage_IsValid(int value) {
-    return InitResponse_InitMessage_IsValid(value);
-  }
-  static const InitMessage InitMessage_MIN =
-    InitResponse_InitMessage_InitMessage_MIN;
-  static const InitMessage InitMessage_MAX =
-    InitResponse_InitMessage_InitMessage_MAX;
-  static const int InitMessage_ARRAYSIZE =
-    InitResponse_InitMessage_InitMessage_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  InitMessage_descriptor() {
-    return InitResponse_InitMessage_descriptor();
-  }
-  static inline const ::std::string& InitMessage_Name(InitMessage value) {
-    return InitResponse_InitMessage_Name(value);
-  }
-  static inline bool InitMessage_Parse(const ::std::string& name,
-      InitMessage* value) {
-    return InitResponse_InitMessage_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
-  // required .rhsa.InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
+  // required uint32 type = 1;
   inline bool has_type() const;
   inline void clear_type();
   static const int kTypeFieldNumber = 1;
-  inline ::rhsa::InitResponse_InitMessage type() const;
-  inline void set_type(::rhsa::InitResponse_InitMessage value);
+  inline ::google::protobuf::uint32 type() const;
+  inline void set_type(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:rhsa.InitResponse)
+  // @@protoc_insertion_point(class_scope:rhsa.Init)
  private:
   inline void set_has_type();
   inline void clear_has_type();
@@ -152,44 +106,43 @@ class InitResponse : public ::google::protobuf::Message {
 
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  int type_;
+  ::google::protobuf::uint32 type_;
   friend void  protobuf_AddDesc_init_2eproto();
   friend void protobuf_AssignDesc_init_2eproto();
   friend void protobuf_ShutdownFile_init_2eproto();
 
   void InitAsDefaultInstance();
-  static InitResponse* default_instance_;
+  static Init* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// InitResponse
+// Init
 
-// required .rhsa.InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
-inline bool InitResponse::has_type() const {
+// required uint32 type = 1;
+inline bool Init::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void InitResponse::set_has_type() {
+inline void Init::set_has_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void InitResponse::clear_has_type() {
+inline void Init::clear_has_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void InitResponse::clear_type() {
-  type_ = 1;
+inline void Init::clear_type() {
+  type_ = 0u;
   clear_has_type();
 }
-inline ::rhsa::InitResponse_InitMessage InitResponse::type() const {
-  // @@protoc_insertion_point(field_get:rhsa.InitResponse.type)
-  return static_cast< ::rhsa::InitResponse_InitMessage >(type_);
+inline ::google::protobuf::uint32 Init::type() const {
+  // @@protoc_insertion_point(field_get:rhsa.Init.type)
+  return type_;
 }
-inline void InitResponse::set_type(::rhsa::InitResponse_InitMessage value) {
-  assert(::rhsa::InitResponse_InitMessage_IsValid(value));
+inline void Init::set_type(::google::protobuf::uint32 value) {
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:rhsa.InitResponse.type)
+  // @@protoc_insertion_point(field_set:rhsa.Init.type)
 }
 
 
@@ -201,11 +154,6 @@ inline void InitResponse::set_type(::rhsa::InitResponse_InitMessage value) {
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::rhsa::InitResponse_InitMessage> : ::google::protobuf::internal::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::rhsa::InitResponse_InitMessage>() {
-  return ::rhsa::InitResponse_InitMessage_descriptor();
-}
 
 }  // namespace google
 }  // namespace protobuf

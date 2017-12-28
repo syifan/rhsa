@@ -2,13 +2,6 @@ syntax = "proto2";
 
 package rhsa;
 
-message InitResponse {
-
-	enum InitMessage {
-		HSA_STATUS_SUCCESS = 1;
-		HSA_STATUS_ERROR_OUT_OF_RESOURCES = 2;
-		HSA_STATUS_ERROR_REFCOUNT_OVERFLOW = 3;
-	}
-
-	required InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
+message Init {
+	required uint32 type = 1;
 }

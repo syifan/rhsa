@@ -20,10 +20,9 @@ namespace rhsa {
 
 namespace {
 
-const ::google::protobuf::Descriptor* InitResponse_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* Init_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  InitResponse_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* InitResponse_InitMessage_descriptor_ = NULL;
+  Init_reflection_ = NULL;
 
 }  // namespace
 
@@ -34,22 +33,21 @@ void protobuf_AssignDesc_init_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "init.proto");
   GOOGLE_CHECK(file != NULL);
-  InitResponse_descriptor_ = file->message_type(0);
-  static const int InitResponse_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InitResponse, type_),
+  Init_descriptor_ = file->message_type(0);
+  static const int Init_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Init, type_),
   };
-  InitResponse_reflection_ =
+  Init_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      InitResponse_descriptor_,
-      InitResponse::default_instance_,
-      InitResponse_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InitResponse, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InitResponse, _unknown_fields_),
+      Init_descriptor_,
+      Init::default_instance_,
+      Init_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Init, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Init, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(InitResponse));
-  InitResponse_InitMessage_descriptor_ = InitResponse_descriptor_->enum_type(0);
+      sizeof(Init));
 }
 
 namespace {
@@ -63,14 +61,14 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    InitResponse_descriptor_, &InitResponse::default_instance());
+    Init_descriptor_, &Init::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_init_2eproto() {
-  delete InitResponse::default_instance_;
-  delete InitResponse_reflection_;
+  delete Init::default_instance_;
+  delete Init_reflection_;
 }
 
 void protobuf_AddDesc_init_2eproto() {
@@ -80,16 +78,11 @@ void protobuf_AddDesc_init_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\ninit.proto\022\004rhsa\"\306\001\n\014InitResponse\022@\n\004t"
-    "ype\030\001 \002(\0162\036.rhsa.InitResponse.InitMessag"
-    "e:\022HSA_STATUS_SUCCESS\"t\n\013InitMessage\022\026\n\022"
-    "HSA_STATUS_SUCCESS\020\001\022%\n!HSA_STATUS_ERROR"
-    "_OUT_OF_RESOURCES\020\002\022&\n\"HSA_STATUS_ERROR_"
-    "REFCOUNT_OVERFLOW\020\003", 219);
+    "\n\ninit.proto\022\004rhsa\"\024\n\004Init\022\014\n\004type\030\001 \002(\r", 40);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "init.proto", &protobuf_RegisterTypes);
-  InitResponse::default_instance_ = new InitResponse();
-  InitResponse::default_instance_->InitAsDefaultInstance();
+  Init::default_instance_ = new Init();
+  Init::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_init_2eproto);
 }
 
@@ -102,114 +95,86 @@ struct StaticDescriptorInitializer_init_2eproto {
 
 // ===================================================================
 
-const ::google::protobuf::EnumDescriptor* InitResponse_InitMessage_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return InitResponse_InitMessage_descriptor_;
-}
-bool InitResponse_InitMessage_IsValid(int value) {
-  switch(value) {
-    case 1:
-    case 2:
-    case 3:
-      return true;
-    default:
-      return false;
-  }
-}
-
 #ifndef _MSC_VER
-const InitResponse_InitMessage InitResponse::HSA_STATUS_SUCCESS;
-const InitResponse_InitMessage InitResponse::HSA_STATUS_ERROR_OUT_OF_RESOURCES;
-const InitResponse_InitMessage InitResponse::HSA_STATUS_ERROR_REFCOUNT_OVERFLOW;
-const InitResponse_InitMessage InitResponse::InitMessage_MIN;
-const InitResponse_InitMessage InitResponse::InitMessage_MAX;
-const int InitResponse::InitMessage_ARRAYSIZE;
-#endif  // _MSC_VER
-#ifndef _MSC_VER
-const int InitResponse::kTypeFieldNumber;
+const int Init::kTypeFieldNumber;
 #endif  // !_MSC_VER
 
-InitResponse::InitResponse()
+Init::Init()
   : ::google::protobuf::Message() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:rhsa.InitResponse)
+  // @@protoc_insertion_point(constructor:rhsa.Init)
 }
 
-void InitResponse::InitAsDefaultInstance() {
+void Init::InitAsDefaultInstance() {
 }
 
-InitResponse::InitResponse(const InitResponse& from)
+Init::Init(const Init& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:rhsa.InitResponse)
+  // @@protoc_insertion_point(copy_constructor:rhsa.Init)
 }
 
-void InitResponse::SharedCtor() {
+void Init::SharedCtor() {
   _cached_size_ = 0;
-  type_ = 1;
+  type_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-InitResponse::~InitResponse() {
-  // @@protoc_insertion_point(destructor:rhsa.InitResponse)
+Init::~Init() {
+  // @@protoc_insertion_point(destructor:rhsa.Init)
   SharedDtor();
 }
 
-void InitResponse::SharedDtor() {
+void Init::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void InitResponse::SetCachedSize(int size) const {
+void Init::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* InitResponse::descriptor() {
+const ::google::protobuf::Descriptor* Init::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return InitResponse_descriptor_;
+  return Init_descriptor_;
 }
 
-const InitResponse& InitResponse::default_instance() {
+const Init& Init::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_init_2eproto();
   return *default_instance_;
 }
 
-InitResponse* InitResponse::default_instance_ = NULL;
+Init* Init::default_instance_ = NULL;
 
-InitResponse* InitResponse::New() const {
-  return new InitResponse;
+Init* Init::New() const {
+  return new Init;
 }
 
-void InitResponse::Clear() {
-  type_ = 1;
+void Init::Clear() {
+  type_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool InitResponse::MergePartialFromCodedStream(
+bool Init::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:rhsa.InitResponse)
+  // @@protoc_insertion_point(parse_start:rhsa.Init)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .rhsa.InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
+      // required uint32 type = 1;
       case 1: {
         if (tag == 8) {
-          int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::rhsa::InitResponse_InitMessage_IsValid(value)) {
-            set_type(static_cast< ::rhsa::InitResponse_InitMessage >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &type_)));
+          set_has_type();
         } else {
           goto handle_unusual;
         }
@@ -231,55 +196,54 @@ bool InitResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:rhsa.InitResponse)
+  // @@protoc_insertion_point(parse_success:rhsa.Init)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:rhsa.InitResponse)
+  // @@protoc_insertion_point(parse_failure:rhsa.Init)
   return false;
 #undef DO_
 }
 
-void InitResponse::SerializeWithCachedSizes(
+void Init::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:rhsa.InitResponse)
-  // required .rhsa.InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
+  // @@protoc_insertion_point(serialize_start:rhsa.Init)
+  // required uint32 type = 1;
   if (has_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->type(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->type(), output);
   }
 
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:rhsa.InitResponse)
+  // @@protoc_insertion_point(serialize_end:rhsa.Init)
 }
 
-::google::protobuf::uint8* InitResponse::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Init::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:rhsa.InitResponse)
-  // required .rhsa.InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
+  // @@protoc_insertion_point(serialize_to_array_start:rhsa.Init)
+  // required uint32 type = 1;
   if (has_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->type(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->type(), target);
   }
 
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:rhsa.InitResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:rhsa.Init)
   return target;
 }
 
-int InitResponse::ByteSize() const {
+int Init::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .rhsa.InitResponse.InitMessage type = 1 [default = HSA_STATUS_SUCCESS];
+    // required uint32 type = 1;
     if (has_type()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->type());
     }
 
   }
@@ -294,10 +258,10 @@ int InitResponse::ByteSize() const {
   return total_size;
 }
 
-void InitResponse::MergeFrom(const ::google::protobuf::Message& from) {
+void Init::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const InitResponse* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const InitResponse*>(
+  const Init* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Init*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -306,7 +270,7 @@ void InitResponse::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void InitResponse::MergeFrom(const InitResponse& from) {
+void Init::MergeFrom(const Init& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_type()) {
@@ -316,25 +280,25 @@ void InitResponse::MergeFrom(const InitResponse& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void InitResponse::CopyFrom(const ::google::protobuf::Message& from) {
+void Init::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void InitResponse::CopyFrom(const InitResponse& from) {
+void Init::CopyFrom(const Init& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool InitResponse::IsInitialized() const {
+bool Init::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   return true;
 }
 
-void InitResponse::Swap(InitResponse* other) {
+void Init::Swap(Init* other) {
   if (other != this) {
     std::swap(type_, other->type_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -343,11 +307,11 @@ void InitResponse::Swap(InitResponse* other) {
   }
 }
 
-::google::protobuf::Metadata InitResponse::GetMetadata() const {
+::google::protobuf::Metadata Init::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = InitResponse_descriptor_;
-  metadata.reflection = InitResponse_reflection_;
+  metadata.descriptor = Init_descriptor_;
+  metadata.reflection = Init_reflection_;
   return metadata;
 }
 

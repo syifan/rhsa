@@ -1,15 +1,17 @@
 #include "src/conn/conn.h"
 
+#include "src/request/request.h"
+
 namespace rhsa {
 
 TCPConnection::TCPConnection(int sock) {
   this->sock = sock;
 }
 
-void TCPConnection::SendMessage(Message *message) {
+void TCPConnection::Send(Request *request) {
 }
 
-Message *TCPConnection::RecvMessage() {
+Request *TCPConnection::Recv() {
   return nullptr;
 }
 

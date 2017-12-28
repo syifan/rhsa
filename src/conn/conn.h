@@ -1,11 +1,11 @@
 namespace rhsa {
 
-class Message;
+class Request;
 
 class Connection {
  public:
-  virtual void SendMessage(Message* message) = 0;
-  virtual Message* RecvMessage() = 0;
+  virtual void Send(Request* req) = 0;
+  virtual Request* Recv() = 0;
   virtual void Close() = 0;
   virtual ~Connection() {}
 };
@@ -17,8 +17,8 @@ class TCPConnection : public Connection {
 
   TCPConnection(int sock);
 
-  void SendMessage(Message *message) override;
-  Message* RecvMessage () override;
+  void Send(Request *req) override;
+  Request* Recv() override;
   void Close() override;
   ~TCPConnection() {
     // Free resources;

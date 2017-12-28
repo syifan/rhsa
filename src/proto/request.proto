@@ -4,10 +4,8 @@ package rhsa;
 
 import "init.proto";
 
-message Request {
-		optional bool init = 1;
-
+message RequestMessage {
 		oneof Payload {
-			InitResponse initResponse = 1000;
+			Init init = 1000;
 		}
 }
