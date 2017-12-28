@@ -9,8 +9,10 @@ namespace rhsa {
 class Message {
   Request *req_;
  public:
+  Message() = default;
   Message(const std::string &req);
-  std::string Encode();
+  virtual ~Message();
+  void Encode(std::string *req);
 }
 
 }
