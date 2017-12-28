@@ -33,18 +33,18 @@ void  protobuf_AddDesc_init_2eproto();
 void protobuf_AssignDesc_init_2eproto();
 void protobuf_ShutdownFile_init_2eproto();
 
-class Init;
+class InitMessage;
 
 // ===================================================================
 
-class Init : public ::google::protobuf::Message {
+class InitMessage : public ::google::protobuf::Message {
  public:
-  Init();
-  virtual ~Init();
+  InitMessage();
+  virtual ~InitMessage();
 
-  Init(const Init& from);
+  InitMessage(const InitMessage& from);
 
-  inline Init& operator=(const Init& from) {
+  inline InitMessage& operator=(const InitMessage& from) {
     CopyFrom(from);
     return *this;
   }
@@ -58,17 +58,17 @@ class Init : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Init& default_instance();
+  static const InitMessage& default_instance();
 
-  void Swap(Init* other);
+  void Swap(InitMessage* other);
 
   // implements Message ----------------------------------------------
 
-  Init* New() const;
+  InitMessage* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Init& from);
-  void MergeFrom(const Init& from);
+  void CopyFrom(const InitMessage& from);
+  void MergeFrom(const InitMessage& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -97,7 +97,7 @@ class Init : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 type() const;
   inline void set_type(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:rhsa.Init)
+  // @@protoc_insertion_point(class_scope:rhsa.InitMessage)
  private:
   inline void set_has_type();
   inline void clear_has_type();
@@ -112,37 +112,37 @@ class Init : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_init_2eproto();
 
   void InitAsDefaultInstance();
-  static Init* default_instance_;
+  static InitMessage* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// Init
+// InitMessage
 
 // required uint32 type = 1;
-inline bool Init::has_type() const {
+inline bool InitMessage::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Init::set_has_type() {
+inline void InitMessage::set_has_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Init::clear_has_type() {
+inline void InitMessage::clear_has_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Init::clear_type() {
+inline void InitMessage::clear_type() {
   type_ = 0u;
   clear_has_type();
 }
-inline ::google::protobuf::uint32 Init::type() const {
-  // @@protoc_insertion_point(field_get:rhsa.Init.type)
+inline ::google::protobuf::uint32 InitMessage::type() const {
+  // @@protoc_insertion_point(field_get:rhsa.InitMessage.type)
   return type_;
 }
-inline void Init::set_type(::google::protobuf::uint32 value) {
+inline void InitMessage::set_type(::google::protobuf::uint32 value) {
   set_has_type();
   type_ = value;
-  // @@protoc_insertion_point(field_set:rhsa.Init.type)
+  // @@protoc_insertion_point(field_set:rhsa.InitMessage.type)
 }
 
 

@@ -24,7 +24,7 @@ const ::google::protobuf::Descriptor* RequestMessage_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RequestMessage_reflection_ = NULL;
 struct RequestMessageOneofInstance {
-  const ::rhsa::Init* init_;
+  const ::rhsa::InitMessage* init_;
 }* RequestMessage_default_oneof_instance_ = NULL;
 
 }  // namespace
@@ -86,9 +86,9 @@ void protobuf_AddDesc_request_2eproto() {
 
   ::rhsa::protobuf_AddDesc_init_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rrequest.proto\022\004rhsa\032\ninit.proto\"8\n\016Req"
-    "uestMessage\022\033\n\004init\030\350\007 \001(\0132\n.rhsa.InitH\000"
-    "B\t\n\007Payload", 91);
+    "\n\rrequest.proto\022\004rhsa\032\ninit.proto\"\?\n\016Req"
+    "uestMessage\022\"\n\004init\030\350\007 \001(\0132\021.rhsa.InitMe"
+    "ssageH\000B\t\n\007Payload", 98);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "request.proto", &protobuf_RegisterTypes);
   RequestMessage::default_instance_ = new RequestMessage();
@@ -117,7 +117,7 @@ RequestMessage::RequestMessage()
 }
 
 void RequestMessage::InitAsDefaultInstance() {
-  RequestMessage_default_oneof_instance_->init_ = const_cast< ::rhsa::Init*>(&::rhsa::Init::default_instance());
+  RequestMessage_default_oneof_instance_->init_ = const_cast< ::rhsa::InitMessage*>(&::rhsa::InitMessage::default_instance());
 }
 
 RequestMessage::RequestMessage(const RequestMessage& from)
@@ -197,7 +197,7 @@ bool RequestMessage::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .rhsa.Init init = 1000;
+      // optional .rhsa.InitMessage init = 1000;
       case 1000: {
         if (tag == 8002) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
@@ -234,7 +234,7 @@ failure:
 void RequestMessage::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:rhsa.RequestMessage)
-  // optional .rhsa.Init init = 1000;
+  // optional .rhsa.InitMessage init = 1000;
   if (has_init()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1000, this->init(), output);
@@ -250,7 +250,7 @@ void RequestMessage::SerializeWithCachedSizes(
 ::google::protobuf::uint8* RequestMessage::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:rhsa.RequestMessage)
-  // optional .rhsa.Init init = 1000;
+  // optional .rhsa.InitMessage init = 1000;
   if (has_init()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -269,7 +269,7 @@ int RequestMessage::ByteSize() const {
   int total_size = 0;
 
   switch (Payload_case()) {
-    // optional .rhsa.Init init = 1000;
+    // optional .rhsa.InitMessage init = 1000;
     case kInit: {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -307,7 +307,7 @@ void RequestMessage::MergeFrom(const RequestMessage& from) {
   GOOGLE_CHECK_NE(&from, this);
   switch (from.Payload_case()) {
     case kInit: {
-      mutable_init()->::rhsa::Init::MergeFrom(from.init());
+      mutable_init()->::rhsa::InitMessage::MergeFrom(from.init());
       break;
     }
     case PAYLOAD_NOT_SET: {

@@ -96,14 +96,14 @@ class RequestMessage : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .rhsa.Init init = 1000;
+  // optional .rhsa.InitMessage init = 1000;
   inline bool has_init() const;
   inline void clear_init();
   static const int kInitFieldNumber = 1000;
-  inline const ::rhsa::Init& init() const;
-  inline ::rhsa::Init* mutable_init();
-  inline ::rhsa::Init* release_init();
-  inline void set_allocated_init(::rhsa::Init* init);
+  inline const ::rhsa::InitMessage& init() const;
+  inline ::rhsa::InitMessage* mutable_init();
+  inline ::rhsa::InitMessage* release_init();
+  inline void set_allocated_init(::rhsa::InitMessage* init);
 
   inline PayloadCase Payload_case() const;
   // @@protoc_insertion_point(class_scope:rhsa.RequestMessage)
@@ -119,7 +119,7 @@ class RequestMessage : public ::google::protobuf::Message {
   ::google::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   union PayloadUnion {
-    ::rhsa::Init* init_;
+    ::rhsa::InitMessage* init_;
   } Payload_;
   ::google::protobuf::uint32 _oneof_case_[1];
 
@@ -137,7 +137,7 @@ class RequestMessage : public ::google::protobuf::Message {
 
 // RequestMessage
 
-// optional .rhsa.Init init = 1000;
+// optional .rhsa.InitMessage init = 1000;
 inline bool RequestMessage::has_init() const {
   return Payload_case() == kInit;
 }
@@ -150,29 +150,29 @@ inline void RequestMessage::clear_init() {
     clear_has_Payload();
   }
 }
-inline const ::rhsa::Init& RequestMessage::init() const {
+inline const ::rhsa::InitMessage& RequestMessage::init() const {
   return has_init() ? *Payload_.init_
-                      : ::rhsa::Init::default_instance();
+                      : ::rhsa::InitMessage::default_instance();
 }
-inline ::rhsa::Init* RequestMessage::mutable_init() {
+inline ::rhsa::InitMessage* RequestMessage::mutable_init() {
   if (!has_init()) {
     clear_Payload();
     set_has_init();
-    Payload_.init_ = new ::rhsa::Init;
+    Payload_.init_ = new ::rhsa::InitMessage;
   }
   return Payload_.init_;
 }
-inline ::rhsa::Init* RequestMessage::release_init() {
+inline ::rhsa::InitMessage* RequestMessage::release_init() {
   if (has_init()) {
     clear_has_Payload();
-    ::rhsa::Init* temp = Payload_.init_;
+    ::rhsa::InitMessage* temp = Payload_.init_;
     Payload_.init_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void RequestMessage::set_allocated_init(::rhsa::Init* init) {
+inline void RequestMessage::set_allocated_init(::rhsa::InitMessage* init) {
   clear_Payload();
   if (init) {
     set_has_init();

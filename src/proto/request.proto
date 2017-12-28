@@ -6,6 +6,6 @@ import "init.proto";
 
 message RequestMessage {
 		oneof Payload {
-			Init init = 1000;
+			InitMessage init = 1000;
 		}
 }
