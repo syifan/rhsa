@@ -1,6 +1,6 @@
-namespace rhsa {
-
 #include "src/proto/request.pb.h"
+
+namespace rhsa {
 
 /**
  * Message is the unit that comminicate between the client and the server.
@@ -12,7 +12,8 @@ class Message {
   Message() = default;
   Message(const std::string &req);
   virtual ~Message();
+
   void Encode(std::string *req);
-}
+};
 
 }

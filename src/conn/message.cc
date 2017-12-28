@@ -1,5 +1,7 @@
 #include "message.h"
 
+#include <google/protobuf/message.h>
+
 namespace rhsa {
 
 Message::Message(const std::string &req) {
@@ -11,8 +13,8 @@ Message::~Message() {
   delete req_;
 }
 
-void Encode(std::string *req) {
-  req_->SerializeToString(req)
+void Message::Encode(std::string *req) {
+  req_->SerializeToString(req);
 }
 
 }

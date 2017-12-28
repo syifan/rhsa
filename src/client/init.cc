@@ -12,6 +12,8 @@ hsa_status_t hsa_init() {
 
   TCPConnector connector;
   connector.Connect("127.0.0.1", 9001);
+
+  return HSA_STATUS_SUCCESS;
 }
 
 }

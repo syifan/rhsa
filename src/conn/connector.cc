@@ -35,6 +35,7 @@ std::unique_ptr<Connection> TCPConnector::Connect(const std::string &ip,
 
   auto conn = std::make_unique<TCPConnection>(sock);
 
-  return conn;
+  return std::move(conn);
 }
+
 }
