@@ -14,3 +14,4 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 find_library(PROTOBUF protobuf)
 
 add_subdirectory(src)
+add_subdirectory(gtest)
