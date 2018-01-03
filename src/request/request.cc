@@ -23,7 +23,7 @@ std::unique_ptr<uint8_t []> Request::Encode() {
 
   google::protobuf::io::ArrayOutputStream aos(buf.get(), size);
   google::protobuf::io::CodedOutputStream coded_output(&aos);
-  coded_output.WriteVarint64(req_->ByteSize());
+  coded_output.WriteLittleEndian64(req_->ByteSize());
   req_->SerializeToCodedStream(&coded_output);
 
   return std::move(buf);

@@ -18,7 +18,7 @@ hsa_status_t hsa_init() {
   auto init_req = std::make_unique<InitRequest>();
   conn->Send(init_req.get());
 
-  conn->Recv();
+  // conn->Recv();
 
   return HSA_STATUS_SUCCESS;
 }

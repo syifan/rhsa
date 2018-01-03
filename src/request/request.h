@@ -26,6 +26,8 @@ class Request {
    */
   int ByteSize() { return req_->ByteSize() + 8; }
 
+  int GetPayloadCase() { return (int)req_->Payload_case(); } 
+
   std::unique_ptr<uint8_t[]> Encode();
 };
 
