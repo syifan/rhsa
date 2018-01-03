@@ -33,6 +33,7 @@ class InitRequest : public Request {
  public:
   InitRequest() : Request() {
     InitMessage *init_msg = new InitMessage();
+	init_msg->set_type(1);
     req_->set_allocated_init(init_msg);
   }
 };
