@@ -25,6 +25,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
   RequestMessage_reflection_ = NULL;
 struct RequestMessageOneofInstance {
   const ::rhsa::InitMessage* init_;
+  const ::rhsa::QueryAgents* queryagent_;
 }* RequestMessage_default_oneof_instance_ = NULL;
 
 }  // namespace
@@ -37,8 +38,9 @@ void protobuf_AssignDesc_request_2eproto() {
       "request.proto");
   GOOGLE_CHECK(file != NULL);
   RequestMessage_descriptor_ = file->message_type(0);
-  static const int RequestMessage_offsets_[2] = {
+  static const int RequestMessage_offsets_[3] = {
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(RequestMessage_default_oneof_instance_, init_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(RequestMessage_default_oneof_instance_, queryagent_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RequestMessage, Payload_),
   };
   RequestMessage_reflection_ =
@@ -85,10 +87,12 @@ void protobuf_AddDesc_request_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::rhsa::protobuf_AddDesc_init_2eproto();
+  ::rhsa::protobuf_AddDesc_agent_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rrequest.proto\022\004rhsa\032\ninit.proto\"\?\n\016Req"
-    "uestMessage\022\"\n\004init\030\350\007 \001(\0132\021.rhsa.InitMe"
-    "ssageH\000B\t\n\007Payload", 98);
+    "\n\rrequest.proto\022\004rhsa\032\ninit.proto\032\013agent"
+    ".proto\"i\n\016RequestMessage\022\"\n\004init\030\350\007 \001(\0132"
+    "\021.rhsa.InitMessageH\000\022(\n\nqueryAgent\030\320\017 \001("
+    "\0132\021.rhsa.QueryAgentsH\000B\t\n\007Payload", 153);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "request.proto", &protobuf_RegisterTypes);
   RequestMessage::default_instance_ = new RequestMessage();
@@ -108,6 +112,7 @@ struct StaticDescriptorInitializer_request_2eproto {
 
 #ifndef _MSC_VER
 const int RequestMessage::kInitFieldNumber;
+const int RequestMessage::kQueryAgentFieldNumber;
 #endif  // !_MSC_VER
 
 RequestMessage::RequestMessage()
@@ -118,6 +123,7 @@ RequestMessage::RequestMessage()
 
 void RequestMessage::InitAsDefaultInstance() {
   RequestMessage_default_oneof_instance_->init_ = const_cast< ::rhsa::InitMessage*>(&::rhsa::InitMessage::default_instance());
+  RequestMessage_default_oneof_instance_->queryagent_ = const_cast< ::rhsa::QueryAgents*>(&::rhsa::QueryAgents::default_instance());
 }
 
 RequestMessage::RequestMessage(const RequestMessage& from)
@@ -173,6 +179,10 @@ void RequestMessage::clear_Payload() {
       delete Payload_.init_;
       break;
     }
+    case kQueryAgent: {
+      delete Payload_.queryagent_;
+      break;
+    }
     case PAYLOAD_NOT_SET: {
       break;
     }
@@ -202,6 +212,19 @@ bool RequestMessage::MergePartialFromCodedStream(
         if (tag == 8002) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_init()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16002)) goto parse_queryAgent;
+        break;
+      }
+
+      // optional .rhsa.QueryAgents queryAgent = 2000;
+      case 2000: {
+        if (tag == 16002) {
+         parse_queryAgent:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_queryagent()));
         } else {
           goto handle_unusual;
         }
@@ -240,6 +263,12 @@ void RequestMessage::SerializeWithCachedSizes(
       1000, this->init(), output);
   }
 
+  // optional .rhsa.QueryAgents queryAgent = 2000;
+  if (has_queryagent()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2000, this->queryagent(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -255,6 +284,13 @@ void RequestMessage::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1000, this->init(), target);
+  }
+
+  // optional .rhsa.QueryAgents queryAgent = 2000;
+  if (has_queryagent()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2000, this->queryagent(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -274,6 +310,13 @@ int RequestMessage::ByteSize() const {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->init());
+      break;
+    }
+    // optional .rhsa.QueryAgents queryAgent = 2000;
+    case kQueryAgent: {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->queryagent());
       break;
     }
     case PAYLOAD_NOT_SET: {
@@ -310,6 +353,10 @@ void RequestMessage::MergeFrom(const RequestMessage& from) {
       mutable_init()->::rhsa::InitMessage::MergeFrom(from.init());
       break;
     }
+    case kQueryAgent: {
+      mutable_queryagent()->::rhsa::QueryAgents::MergeFrom(from.queryagent());
+      break;
+    }
     case PAYLOAD_NOT_SET: {
       break;
     }
@@ -333,6 +380,9 @@ bool RequestMessage::IsInitialized() const {
 
   if (has_init()) {
     if (!this->init().IsInitialized()) return false;
+  }
+  if (has_queryagent()) {
+    if (!this->queryagent().IsInitialized()) return false;
   }
   return true;
 }

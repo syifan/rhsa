@@ -3,9 +3,12 @@ syntax = "proto2";
 package rhsa;
 
 import "init.proto";
+import "agent.proto";
 
 message RequestMessage {
 		oneof Payload {
 			InitMessage init = 1000;
+
+      QueryAgents queryAgent = 2000;
 		}
 }

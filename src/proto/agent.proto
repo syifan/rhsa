@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package rhsa;
+
+message Agent {
+  required string name = 100;
+  required string vendor_name = 101;
+  required int32 grid_max_dim = 102;
+}
+
+message QueryAgents {
+  repeated Agent agents = 1;
+}

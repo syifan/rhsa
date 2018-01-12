@@ -25,6 +25,7 @@
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "init.pb.h"
+#include "agent.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace rhsa {
@@ -63,6 +64,7 @@ class RequestMessage : public ::google::protobuf::Message {
 
   enum PayloadCase {
     kInit = 1000,
+    kQueryAgent = 2000,
     PAYLOAD_NOT_SET = 0,
   };
 
@@ -105,10 +107,20 @@ class RequestMessage : public ::google::protobuf::Message {
   inline ::rhsa::InitMessage* release_init();
   inline void set_allocated_init(::rhsa::InitMessage* init);
 
+  // optional .rhsa.QueryAgents queryAgent = 2000;
+  inline bool has_queryagent() const;
+  inline void clear_queryagent();
+  static const int kQueryAgentFieldNumber = 2000;
+  inline const ::rhsa::QueryAgents& queryagent() const;
+  inline ::rhsa::QueryAgents* mutable_queryagent();
+  inline ::rhsa::QueryAgents* release_queryagent();
+  inline void set_allocated_queryagent(::rhsa::QueryAgents* queryagent);
+
   inline PayloadCase Payload_case() const;
   // @@protoc_insertion_point(class_scope:rhsa.RequestMessage)
  private:
   inline void set_has_init();
+  inline void set_has_queryagent();
 
   inline bool has_Payload();
   void clear_Payload();
@@ -120,6 +132,7 @@ class RequestMessage : public ::google::protobuf::Message {
   mutable int _cached_size_;
   union PayloadUnion {
     ::rhsa::InitMessage* init_;
+    ::rhsa::QueryAgents* queryagent_;
   } Payload_;
   ::google::protobuf::uint32 _oneof_case_[1];
 
@@ -177,6 +190,49 @@ inline void RequestMessage::set_allocated_init(::rhsa::InitMessage* init) {
   if (init) {
     set_has_init();
     Payload_.init_ = init;
+  }
+}
+
+// optional .rhsa.QueryAgents queryAgent = 2000;
+inline bool RequestMessage::has_queryagent() const {
+  return Payload_case() == kQueryAgent;
+}
+inline void RequestMessage::set_has_queryagent() {
+  _oneof_case_[0] = kQueryAgent;
+}
+inline void RequestMessage::clear_queryagent() {
+  if (has_queryagent()) {
+    delete Payload_.queryagent_;
+    clear_has_Payload();
+  }
+}
+inline const ::rhsa::QueryAgents& RequestMessage::queryagent() const {
+  return has_queryagent() ? *Payload_.queryagent_
+                      : ::rhsa::QueryAgents::default_instance();
+}
+inline ::rhsa::QueryAgents* RequestMessage::mutable_queryagent() {
+  if (!has_queryagent()) {
+    clear_Payload();
+    set_has_queryagent();
+    Payload_.queryagent_ = new ::rhsa::QueryAgents;
+  }
+  return Payload_.queryagent_;
+}
+inline ::rhsa::QueryAgents* RequestMessage::release_queryagent() {
+  if (has_queryagent()) {
+    clear_has_Payload();
+    ::rhsa::QueryAgents* temp = Payload_.queryagent_;
+    Payload_.queryagent_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void RequestMessage::set_allocated_queryagent(::rhsa::QueryAgents* queryagent) {
+  clear_Payload();
+  if (queryagent) {
+    set_has_queryagent();
+    Payload_.queryagent_ = queryagent;
   }
 }
 
