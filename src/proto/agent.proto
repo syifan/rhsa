@@ -6,7 +6,7 @@ syntax = "proto2";
 
 package rhsa;
 
-message Agent {
+message AgentMesg {
 	required string name = 100;
 	required string vendor_name = 101;
 	enum Feature {
@@ -61,5 +61,5 @@ message Agent {
 }
 
 message QueryAgents {
-	repeated Agent agents = 1;
+	repeated AgentMesg agents = 1;
 }

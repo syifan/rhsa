@@ -20,15 +20,15 @@ namespace rhsa {
 
 namespace {
 
-const ::google::protobuf::Descriptor* Agent_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* AgentMesg_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Agent_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* Agent_Feature_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* Agent_Machine_model_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* Agent_Profile_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* Agent_Default_float_rounding_mode_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* Agent_Queue_type_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* Agent_Device_type_descriptor_ = NULL;
+  AgentMesg_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* AgentMesg_Feature_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* AgentMesg_Machine_model_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* AgentMesg_Profile_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* AgentMesg_Default_float_rounding_mode_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* AgentMesg_Queue_type_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* AgentMesg_Device_type_descriptor_ = NULL;
 const ::google::protobuf::Descriptor* QueryAgents_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   QueryAgents_reflection_ = NULL;
@@ -42,52 +42,52 @@ void protobuf_AssignDesc_agent_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "agent.proto");
   GOOGLE_CHECK(file != NULL);
-  Agent_descriptor_ = file->message_type(0);
-  static const int Agent_offsets_[26] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, vendor_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, feature_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, machine_model_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, profile_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, default_float_rounding_mode_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, fast_f16_operation_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, wavefront_size_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, workgroup_max_dim_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, workgroup_max_size_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, grid_max_dim_x_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, grid_max_dim_y_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, grid_max_dim_z_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, grid_max_size_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, fbarrier_max_size_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, queues_max_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, queue_min_size_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, queue_max_size_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, queue_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, node_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, device_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, cache_size_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, isa_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, agent_extensions_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, version_major_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, version_minor_),
+  AgentMesg_descriptor_ = file->message_type(0);
+  static const int AgentMesg_offsets_[26] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, vendor_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, feature_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, machine_model_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, profile_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, default_float_rounding_mode_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, fast_f16_operation_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, wavefront_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, workgroup_max_dim_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, workgroup_max_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, grid_max_dim_x_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, grid_max_dim_y_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, grid_max_dim_z_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, grid_max_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, fbarrier_max_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, queues_max_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, queue_min_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, queue_max_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, queue_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, node_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, device_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, cache_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, isa_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, agent_extensions_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, version_major_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, version_minor_),
   };
-  Agent_reflection_ =
+  AgentMesg_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Agent_descriptor_,
-      Agent::default_instance_,
-      Agent_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, _unknown_fields_),
+      AgentMesg_descriptor_,
+      AgentMesg::default_instance_,
+      AgentMesg_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Agent));
-  Agent_Feature_descriptor_ = Agent_descriptor_->enum_type(0);
-  Agent_Machine_model_descriptor_ = Agent_descriptor_->enum_type(1);
-  Agent_Profile_descriptor_ = Agent_descriptor_->enum_type(2);
-  Agent_Default_float_rounding_mode_descriptor_ = Agent_descriptor_->enum_type(3);
-  Agent_Queue_type_descriptor_ = Agent_descriptor_->enum_type(4);
-  Agent_Device_type_descriptor_ = Agent_descriptor_->enum_type(5);
+      sizeof(AgentMesg));
+  AgentMesg_Feature_descriptor_ = AgentMesg_descriptor_->enum_type(0);
+  AgentMesg_Machine_model_descriptor_ = AgentMesg_descriptor_->enum_type(1);
+  AgentMesg_Profile_descriptor_ = AgentMesg_descriptor_->enum_type(2);
+  AgentMesg_Default_float_rounding_mode_descriptor_ = AgentMesg_descriptor_->enum_type(3);
+  AgentMesg_Queue_type_descriptor_ = AgentMesg_descriptor_->enum_type(4);
+  AgentMesg_Device_type_descriptor_ = AgentMesg_descriptor_->enum_type(5);
   QueryAgents_descriptor_ = file->message_type(1);
   static const int QueryAgents_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(QueryAgents, agents_),
@@ -116,7 +116,7 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Agent_descriptor_, &Agent::default_instance());
+    AgentMesg_descriptor_, &AgentMesg::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     QueryAgents_descriptor_, &QueryAgents::default_instance());
 }
@@ -124,8 +124,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_agent_2eproto() {
-  delete Agent::default_instance_;
-  delete Agent_reflection_;
+  delete AgentMesg::default_instance_;
+  delete AgentMesg_reflection_;
   delete QueryAgents::default_instance_;
   delete QueryAgents_reflection_;
 }
@@ -137,38 +137,39 @@ void protobuf_AddDesc_agent_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013agent.proto\022\004rhsa\"\347\007\n\005Agent\022\014\n\004name\030d "
-    "\002(\t\022\023\n\013vendor_name\030e \002(\t\022$\n\007feature\030f \002("
-    "\0162\023.rhsa.Agent.Feature\0220\n\rmachine_model\030"
-    "g \002(\0162\031.rhsa.Agent.Machine_model\022$\n\007prof"
-    "ile\030h \002(\0162\023.rhsa.Agent.Profile\022L\n\033defaul"
-    "t_float_rounding_mode\030i \002(\0162\'.rhsa.Agent"
-    ".Default_float_rounding_mode\022\032\n\022fast_f16"
-    "_operation\030j \002(\010\022\026\n\016wavefront_size\030k \002(\r"
-    "\022\031\n\021workgroup_max_dim\030l \002(\r\022\032\n\022workgroup"
-    "_max_size\030m \002(\r\022\026\n\016grid_max_dim_x\030n \002(\r\022"
-    "\026\n\016grid_max_dim_y\030o \002(\r\022\026\n\016grid_max_dim_"
-    "z\030p \002(\r\022\025\n\rgrid_max_size\030q \002(\r\022\031\n\021fbarri"
-    "er_max_size\030r \002(\r\022\022\n\nqueues_max\030s \002(\r\022\026\n"
-    "\016queue_min_size\030t \002(\r\022\026\n\016queue_max_size\030"
-    "u \002(\r\022*\n\nqueue_type\030v \002(\0162\026.rhsa.Agent.Q"
-    "ueue_type\022\014\n\004node\030w \002(\r\022\'\n\006device\030x \002(\0162"
-    "\027.rhsa.Agent.Device_type\022\022\n\ncache_size\030y"
-    " \003(\r\022\013\n\003isa\030z \002(\004\022\030\n\020agent_extensions\030{ "
-    "\003(\r\022\025\n\rversion_major\030| \002(\r\022\025\n\rversion_mi"
-    "nor\030} \002(\r\"2\n\007Feature\022\023\n\017kernel_dispatch\020"
-    "\001\022\022\n\016agent_dispatch\020\002\"%\n\rMachine_model\022\t"
-    "\n\005small\020\000\022\t\n\005large\020\001\"\035\n\007Profile\022\010\n\004base\020"
-    "\000\022\010\n\004full\020\001\"1\n\033Default_float_rounding_mo"
-    "de\022\010\n\004zero\020\001\022\010\n\004near\020\002\"#\n\nQueue_type\022\t\n\005"
-    "multi\020\000\022\n\n\006single\020\001\"(\n\013Device_type\022\007\n\003cp"
-    "u\020\000\022\007\n\003gpu\020\001\022\007\n\003dsp\020\002\"*\n\013QueryAgents\022\033\n\006"
-    "agents\030\001 \003(\0132\013.rhsa.Agent", 1065);
+    "\n\013agent.proto\022\004rhsa\"\203\010\n\tAgentMesg\022\014\n\004nam"
+    "e\030d \002(\t\022\023\n\013vendor_name\030e \002(\t\022(\n\007feature\030"
+    "f \002(\0162\027.rhsa.AgentMesg.Feature\0224\n\rmachin"
+    "e_model\030g \002(\0162\035.rhsa.AgentMesg.Machine_m"
+    "odel\022(\n\007profile\030h \002(\0162\027.rhsa.AgentMesg.P"
+    "rofile\022P\n\033default_float_rounding_mode\030i "
+    "\002(\0162+.rhsa.AgentMesg.Default_float_round"
+    "ing_mode\022\032\n\022fast_f16_operation\030j \002(\010\022\026\n\016"
+    "wavefront_size\030k \002(\r\022\031\n\021workgroup_max_di"
+    "m\030l \002(\r\022\032\n\022workgroup_max_size\030m \002(\r\022\026\n\016g"
+    "rid_max_dim_x\030n \002(\r\022\026\n\016grid_max_dim_y\030o "
+    "\002(\r\022\026\n\016grid_max_dim_z\030p \002(\r\022\025\n\rgrid_max_"
+    "size\030q \002(\r\022\031\n\021fbarrier_max_size\030r \002(\r\022\022\n"
+    "\nqueues_max\030s \002(\r\022\026\n\016queue_min_size\030t \002("
+    "\r\022\026\n\016queue_max_size\030u \002(\r\022.\n\nqueue_type\030"
+    "v \002(\0162\032.rhsa.AgentMesg.Queue_type\022\014\n\004nod"
+    "e\030w \002(\r\022+\n\006device\030x \002(\0162\033.rhsa.AgentMesg"
+    ".Device_type\022\022\n\ncache_size\030y \003(\r\022\013\n\003isa\030"
+    "z \002(\004\022\030\n\020agent_extensions\030{ \003(\r\022\025\n\rversi"
+    "on_major\030| \002(\r\022\025\n\rversion_minor\030} \002(\r\"2\n"
+    "\007Feature\022\023\n\017kernel_dispatch\020\001\022\022\n\016agent_d"
+    "ispatch\020\002\"%\n\rMachine_model\022\t\n\005small\020\000\022\t\n"
+    "\005large\020\001\"\035\n\007Profile\022\010\n\004base\020\000\022\010\n\004full\020\001\""
+    "1\n\033Default_float_rounding_mode\022\010\n\004zero\020\001"
+    "\022\010\n\004near\020\002\"#\n\nQueue_type\022\t\n\005multi\020\000\022\n\n\006s"
+    "ingle\020\001\"(\n\013Device_type\022\007\n\003cpu\020\000\022\007\n\003gpu\020\001"
+    "\022\007\n\003dsp\020\002\".\n\013QueryAgents\022\037\n\006agents\030\001 \003(\013"
+    "2\017.rhsa.AgentMesg", 1097);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "agent.proto", &protobuf_RegisterTypes);
-  Agent::default_instance_ = new Agent();
+  AgentMesg::default_instance_ = new AgentMesg();
   QueryAgents::default_instance_ = new QueryAgents();
-  Agent::default_instance_->InitAsDefaultInstance();
+  AgentMesg::default_instance_->InitAsDefaultInstance();
   QueryAgents::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_agent_2eproto);
 }
@@ -182,11 +183,11 @@ struct StaticDescriptorInitializer_agent_2eproto {
 
 // ===================================================================
 
-const ::google::protobuf::EnumDescriptor* Agent_Feature_descriptor() {
+const ::google::protobuf::EnumDescriptor* AgentMesg_Feature_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Agent_Feature_descriptor_;
+  return AgentMesg_Feature_descriptor_;
 }
-bool Agent_Feature_IsValid(int value) {
+bool AgentMesg_Feature_IsValid(int value) {
   switch(value) {
     case 1:
     case 2:
@@ -197,17 +198,17 @@ bool Agent_Feature_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
-const Agent_Feature Agent::kernel_dispatch;
-const Agent_Feature Agent::agent_dispatch;
-const Agent_Feature Agent::Feature_MIN;
-const Agent_Feature Agent::Feature_MAX;
-const int Agent::Feature_ARRAYSIZE;
+const AgentMesg_Feature AgentMesg::kernel_dispatch;
+const AgentMesg_Feature AgentMesg::agent_dispatch;
+const AgentMesg_Feature AgentMesg::Feature_MIN;
+const AgentMesg_Feature AgentMesg::Feature_MAX;
+const int AgentMesg::Feature_ARRAYSIZE;
 #endif  // _MSC_VER
-const ::google::protobuf::EnumDescriptor* Agent_Machine_model_descriptor() {
+const ::google::protobuf::EnumDescriptor* AgentMesg_Machine_model_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Agent_Machine_model_descriptor_;
+  return AgentMesg_Machine_model_descriptor_;
 }
-bool Agent_Machine_model_IsValid(int value) {
+bool AgentMesg_Machine_model_IsValid(int value) {
   switch(value) {
     case 0:
     case 1:
@@ -218,17 +219,17 @@ bool Agent_Machine_model_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
-const Agent_Machine_model Agent::small;
-const Agent_Machine_model Agent::large;
-const Agent_Machine_model Agent::Machine_model_MIN;
-const Agent_Machine_model Agent::Machine_model_MAX;
-const int Agent::Machine_model_ARRAYSIZE;
+const AgentMesg_Machine_model AgentMesg::small;
+const AgentMesg_Machine_model AgentMesg::large;
+const AgentMesg_Machine_model AgentMesg::Machine_model_MIN;
+const AgentMesg_Machine_model AgentMesg::Machine_model_MAX;
+const int AgentMesg::Machine_model_ARRAYSIZE;
 #endif  // _MSC_VER
-const ::google::protobuf::EnumDescriptor* Agent_Profile_descriptor() {
+const ::google::protobuf::EnumDescriptor* AgentMesg_Profile_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Agent_Profile_descriptor_;
+  return AgentMesg_Profile_descriptor_;
 }
-bool Agent_Profile_IsValid(int value) {
+bool AgentMesg_Profile_IsValid(int value) {
   switch(value) {
     case 0:
     case 1:
@@ -239,17 +240,17 @@ bool Agent_Profile_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
-const Agent_Profile Agent::base;
-const Agent_Profile Agent::full;
-const Agent_Profile Agent::Profile_MIN;
-const Agent_Profile Agent::Profile_MAX;
-const int Agent::Profile_ARRAYSIZE;
+const AgentMesg_Profile AgentMesg::base;
+const AgentMesg_Profile AgentMesg::full;
+const AgentMesg_Profile AgentMesg::Profile_MIN;
+const AgentMesg_Profile AgentMesg::Profile_MAX;
+const int AgentMesg::Profile_ARRAYSIZE;
 #endif  // _MSC_VER
-const ::google::protobuf::EnumDescriptor* Agent_Default_float_rounding_mode_descriptor() {
+const ::google::protobuf::EnumDescriptor* AgentMesg_Default_float_rounding_mode_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Agent_Default_float_rounding_mode_descriptor_;
+  return AgentMesg_Default_float_rounding_mode_descriptor_;
 }
-bool Agent_Default_float_rounding_mode_IsValid(int value) {
+bool AgentMesg_Default_float_rounding_mode_IsValid(int value) {
   switch(value) {
     case 1:
     case 2:
@@ -260,17 +261,17 @@ bool Agent_Default_float_rounding_mode_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
-const Agent_Default_float_rounding_mode Agent::zero;
-const Agent_Default_float_rounding_mode Agent::near;
-const Agent_Default_float_rounding_mode Agent::Default_float_rounding_mode_MIN;
-const Agent_Default_float_rounding_mode Agent::Default_float_rounding_mode_MAX;
-const int Agent::Default_float_rounding_mode_ARRAYSIZE;
+const AgentMesg_Default_float_rounding_mode AgentMesg::zero;
+const AgentMesg_Default_float_rounding_mode AgentMesg::near;
+const AgentMesg_Default_float_rounding_mode AgentMesg::Default_float_rounding_mode_MIN;
+const AgentMesg_Default_float_rounding_mode AgentMesg::Default_float_rounding_mode_MAX;
+const int AgentMesg::Default_float_rounding_mode_ARRAYSIZE;
 #endif  // _MSC_VER
-const ::google::protobuf::EnumDescriptor* Agent_Queue_type_descriptor() {
+const ::google::protobuf::EnumDescriptor* AgentMesg_Queue_type_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Agent_Queue_type_descriptor_;
+  return AgentMesg_Queue_type_descriptor_;
 }
-bool Agent_Queue_type_IsValid(int value) {
+bool AgentMesg_Queue_type_IsValid(int value) {
   switch(value) {
     case 0:
     case 1:
@@ -281,17 +282,17 @@ bool Agent_Queue_type_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
-const Agent_Queue_type Agent::multi;
-const Agent_Queue_type Agent::single;
-const Agent_Queue_type Agent::Queue_type_MIN;
-const Agent_Queue_type Agent::Queue_type_MAX;
-const int Agent::Queue_type_ARRAYSIZE;
+const AgentMesg_Queue_type AgentMesg::multi;
+const AgentMesg_Queue_type AgentMesg::single;
+const AgentMesg_Queue_type AgentMesg::Queue_type_MIN;
+const AgentMesg_Queue_type AgentMesg::Queue_type_MAX;
+const int AgentMesg::Queue_type_ARRAYSIZE;
 #endif  // _MSC_VER
-const ::google::protobuf::EnumDescriptor* Agent_Device_type_descriptor() {
+const ::google::protobuf::EnumDescriptor* AgentMesg_Device_type_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Agent_Device_type_descriptor_;
+  return AgentMesg_Device_type_descriptor_;
 }
-bool Agent_Device_type_IsValid(int value) {
+bool AgentMesg_Device_type_IsValid(int value) {
   switch(value) {
     case 0:
     case 1:
@@ -303,59 +304,59 @@ bool Agent_Device_type_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
-const Agent_Device_type Agent::cpu;
-const Agent_Device_type Agent::gpu;
-const Agent_Device_type Agent::dsp;
-const Agent_Device_type Agent::Device_type_MIN;
-const Agent_Device_type Agent::Device_type_MAX;
-const int Agent::Device_type_ARRAYSIZE;
+const AgentMesg_Device_type AgentMesg::cpu;
+const AgentMesg_Device_type AgentMesg::gpu;
+const AgentMesg_Device_type AgentMesg::dsp;
+const AgentMesg_Device_type AgentMesg::Device_type_MIN;
+const AgentMesg_Device_type AgentMesg::Device_type_MAX;
+const int AgentMesg::Device_type_ARRAYSIZE;
 #endif  // _MSC_VER
 #ifndef _MSC_VER
-const int Agent::kNameFieldNumber;
-const int Agent::kVendorNameFieldNumber;
-const int Agent::kFeatureFieldNumber;
-const int Agent::kMachineModelFieldNumber;
-const int Agent::kProfileFieldNumber;
-const int Agent::kDefaultFloatRoundingModeFieldNumber;
-const int Agent::kFastF16OperationFieldNumber;
-const int Agent::kWavefrontSizeFieldNumber;
-const int Agent::kWorkgroupMaxDimFieldNumber;
-const int Agent::kWorkgroupMaxSizeFieldNumber;
-const int Agent::kGridMaxDimXFieldNumber;
-const int Agent::kGridMaxDimYFieldNumber;
-const int Agent::kGridMaxDimZFieldNumber;
-const int Agent::kGridMaxSizeFieldNumber;
-const int Agent::kFbarrierMaxSizeFieldNumber;
-const int Agent::kQueuesMaxFieldNumber;
-const int Agent::kQueueMinSizeFieldNumber;
-const int Agent::kQueueMaxSizeFieldNumber;
-const int Agent::kQueueTypeFieldNumber;
-const int Agent::kNodeFieldNumber;
-const int Agent::kDeviceFieldNumber;
-const int Agent::kCacheSizeFieldNumber;
-const int Agent::kIsaFieldNumber;
-const int Agent::kAgentExtensionsFieldNumber;
-const int Agent::kVersionMajorFieldNumber;
-const int Agent::kVersionMinorFieldNumber;
+const int AgentMesg::kNameFieldNumber;
+const int AgentMesg::kVendorNameFieldNumber;
+const int AgentMesg::kFeatureFieldNumber;
+const int AgentMesg::kMachineModelFieldNumber;
+const int AgentMesg::kProfileFieldNumber;
+const int AgentMesg::kDefaultFloatRoundingModeFieldNumber;
+const int AgentMesg::kFastF16OperationFieldNumber;
+const int AgentMesg::kWavefrontSizeFieldNumber;
+const int AgentMesg::kWorkgroupMaxDimFieldNumber;
+const int AgentMesg::kWorkgroupMaxSizeFieldNumber;
+const int AgentMesg::kGridMaxDimXFieldNumber;
+const int AgentMesg::kGridMaxDimYFieldNumber;
+const int AgentMesg::kGridMaxDimZFieldNumber;
+const int AgentMesg::kGridMaxSizeFieldNumber;
+const int AgentMesg::kFbarrierMaxSizeFieldNumber;
+const int AgentMesg::kQueuesMaxFieldNumber;
+const int AgentMesg::kQueueMinSizeFieldNumber;
+const int AgentMesg::kQueueMaxSizeFieldNumber;
+const int AgentMesg::kQueueTypeFieldNumber;
+const int AgentMesg::kNodeFieldNumber;
+const int AgentMesg::kDeviceFieldNumber;
+const int AgentMesg::kCacheSizeFieldNumber;
+const int AgentMesg::kIsaFieldNumber;
+const int AgentMesg::kAgentExtensionsFieldNumber;
+const int AgentMesg::kVersionMajorFieldNumber;
+const int AgentMesg::kVersionMinorFieldNumber;
 #endif  // !_MSC_VER
 
-Agent::Agent()
+AgentMesg::AgentMesg()
   : ::google::protobuf::Message() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:rhsa.Agent)
+  // @@protoc_insertion_point(constructor:rhsa.AgentMesg)
 }
 
-void Agent::InitAsDefaultInstance() {
+void AgentMesg::InitAsDefaultInstance() {
 }
 
-Agent::Agent(const Agent& from)
+AgentMesg::AgentMesg(const AgentMesg& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:rhsa.Agent)
+  // @@protoc_insertion_point(copy_constructor:rhsa.AgentMesg)
 }
 
-void Agent::SharedCtor() {
+void AgentMesg::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   name_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -385,12 +386,12 @@ void Agent::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Agent::~Agent() {
-  // @@protoc_insertion_point(destructor:rhsa.Agent)
+AgentMesg::~AgentMesg() {
+  // @@protoc_insertion_point(destructor:rhsa.AgentMesg)
   SharedDtor();
 }
 
-void Agent::SharedDtor() {
+void AgentMesg::SharedDtor() {
   if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete name_;
   }
@@ -401,30 +402,30 @@ void Agent::SharedDtor() {
   }
 }
 
-void Agent::SetCachedSize(int size) const {
+void AgentMesg::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Agent::descriptor() {
+const ::google::protobuf::Descriptor* AgentMesg::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Agent_descriptor_;
+  return AgentMesg_descriptor_;
 }
 
-const Agent& Agent::default_instance() {
+const AgentMesg& AgentMesg::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_agent_2eproto();
   return *default_instance_;
 }
 
-Agent* Agent::default_instance_ = NULL;
+AgentMesg* AgentMesg::default_instance_ = NULL;
 
-Agent* Agent::New() const {
-  return new Agent;
+AgentMesg* AgentMesg::New() const {
+  return new AgentMesg;
 }
 
-void Agent::Clear() {
+void AgentMesg::Clear() {
 #define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<Agent*>(16)->f) - \
+  &reinterpret_cast<AgentMesg*>(16)->f) - \
    reinterpret_cast<char*>(16))
 
 #define ZR_(first, last) do {                              \
@@ -470,11 +471,11 @@ void Agent::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool Agent::MergePartialFromCodedStream(
+bool AgentMesg::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:rhsa.Agent)
+  // @@protoc_insertion_point(parse_start:rhsa.AgentMesg)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
     tag = p.first;
@@ -513,7 +514,7 @@ bool Agent::MergePartialFromCodedStream(
         break;
       }
 
-      // required .rhsa.Agent.Feature feature = 102;
+      // required .rhsa.AgentMesg.Feature feature = 102;
       case 102: {
         if (tag == 816) {
          parse_feature:
@@ -521,8 +522,8 @@ bool Agent::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::rhsa::Agent_Feature_IsValid(value)) {
-            set_feature(static_cast< ::rhsa::Agent_Feature >(value));
+          if (::rhsa::AgentMesg_Feature_IsValid(value)) {
+            set_feature(static_cast< ::rhsa::AgentMesg_Feature >(value));
           } else {
             mutable_unknown_fields()->AddVarint(102, value);
           }
@@ -533,7 +534,7 @@ bool Agent::MergePartialFromCodedStream(
         break;
       }
 
-      // required .rhsa.Agent.Machine_model machine_model = 103;
+      // required .rhsa.AgentMesg.Machine_model machine_model = 103;
       case 103: {
         if (tag == 824) {
          parse_machine_model:
@@ -541,8 +542,8 @@ bool Agent::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::rhsa::Agent_Machine_model_IsValid(value)) {
-            set_machine_model(static_cast< ::rhsa::Agent_Machine_model >(value));
+          if (::rhsa::AgentMesg_Machine_model_IsValid(value)) {
+            set_machine_model(static_cast< ::rhsa::AgentMesg_Machine_model >(value));
           } else {
             mutable_unknown_fields()->AddVarint(103, value);
           }
@@ -553,7 +554,7 @@ bool Agent::MergePartialFromCodedStream(
         break;
       }
 
-      // required .rhsa.Agent.Profile profile = 104;
+      // required .rhsa.AgentMesg.Profile profile = 104;
       case 104: {
         if (tag == 832) {
          parse_profile:
@@ -561,8 +562,8 @@ bool Agent::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::rhsa::Agent_Profile_IsValid(value)) {
-            set_profile(static_cast< ::rhsa::Agent_Profile >(value));
+          if (::rhsa::AgentMesg_Profile_IsValid(value)) {
+            set_profile(static_cast< ::rhsa::AgentMesg_Profile >(value));
           } else {
             mutable_unknown_fields()->AddVarint(104, value);
           }
@@ -573,7 +574,7 @@ bool Agent::MergePartialFromCodedStream(
         break;
       }
 
-      // required .rhsa.Agent.Default_float_rounding_mode default_float_rounding_mode = 105;
+      // required .rhsa.AgentMesg.Default_float_rounding_mode default_float_rounding_mode = 105;
       case 105: {
         if (tag == 840) {
          parse_default_float_rounding_mode:
@@ -581,8 +582,8 @@ bool Agent::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::rhsa::Agent_Default_float_rounding_mode_IsValid(value)) {
-            set_default_float_rounding_mode(static_cast< ::rhsa::Agent_Default_float_rounding_mode >(value));
+          if (::rhsa::AgentMesg_Default_float_rounding_mode_IsValid(value)) {
+            set_default_float_rounding_mode(static_cast< ::rhsa::AgentMesg_Default_float_rounding_mode >(value));
           } else {
             mutable_unknown_fields()->AddVarint(105, value);
           }
@@ -773,7 +774,7 @@ bool Agent::MergePartialFromCodedStream(
         break;
       }
 
-      // required .rhsa.Agent.Queue_type queue_type = 118;
+      // required .rhsa.AgentMesg.Queue_type queue_type = 118;
       case 118: {
         if (tag == 944) {
          parse_queue_type:
@@ -781,8 +782,8 @@ bool Agent::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::rhsa::Agent_Queue_type_IsValid(value)) {
-            set_queue_type(static_cast< ::rhsa::Agent_Queue_type >(value));
+          if (::rhsa::AgentMesg_Queue_type_IsValid(value)) {
+            set_queue_type(static_cast< ::rhsa::AgentMesg_Queue_type >(value));
           } else {
             mutable_unknown_fields()->AddVarint(118, value);
           }
@@ -808,7 +809,7 @@ bool Agent::MergePartialFromCodedStream(
         break;
       }
 
-      // required .rhsa.Agent.Device_type device = 120;
+      // required .rhsa.AgentMesg.Device_type device = 120;
       case 120: {
         if (tag == 960) {
          parse_device:
@@ -816,8 +817,8 @@ bool Agent::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::rhsa::Agent_Device_type_IsValid(value)) {
-            set_device(static_cast< ::rhsa::Agent_Device_type >(value));
+          if (::rhsa::AgentMesg_Device_type_IsValid(value)) {
+            set_device(static_cast< ::rhsa::AgentMesg_Device_type >(value));
           } else {
             mutable_unknown_fields()->AddVarint(120, value);
           }
@@ -925,17 +926,17 @@ bool Agent::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:rhsa.Agent)
+  // @@protoc_insertion_point(parse_success:rhsa.AgentMesg)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:rhsa.Agent)
+  // @@protoc_insertion_point(parse_failure:rhsa.AgentMesg)
   return false;
 #undef DO_
 }
 
-void Agent::SerializeWithCachedSizes(
+void AgentMesg::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:rhsa.Agent)
+  // @@protoc_insertion_point(serialize_start:rhsa.AgentMesg)
   // required string name = 100;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -956,25 +957,25 @@ void Agent::SerializeWithCachedSizes(
       101, this->vendor_name(), output);
   }
 
-  // required .rhsa.Agent.Feature feature = 102;
+  // required .rhsa.AgentMesg.Feature feature = 102;
   if (has_feature()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       102, this->feature(), output);
   }
 
-  // required .rhsa.Agent.Machine_model machine_model = 103;
+  // required .rhsa.AgentMesg.Machine_model machine_model = 103;
   if (has_machine_model()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       103, this->machine_model(), output);
   }
 
-  // required .rhsa.Agent.Profile profile = 104;
+  // required .rhsa.AgentMesg.Profile profile = 104;
   if (has_profile()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       104, this->profile(), output);
   }
 
-  // required .rhsa.Agent.Default_float_rounding_mode default_float_rounding_mode = 105;
+  // required .rhsa.AgentMesg.Default_float_rounding_mode default_float_rounding_mode = 105;
   if (has_default_float_rounding_mode()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       105, this->default_float_rounding_mode(), output);
@@ -1040,7 +1041,7 @@ void Agent::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(117, this->queue_max_size(), output);
   }
 
-  // required .rhsa.Agent.Queue_type queue_type = 118;
+  // required .rhsa.AgentMesg.Queue_type queue_type = 118;
   if (has_queue_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       118, this->queue_type(), output);
@@ -1051,7 +1052,7 @@ void Agent::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(119, this->node(), output);
   }
 
-  // required .rhsa.Agent.Device_type device = 120;
+  // required .rhsa.AgentMesg.Device_type device = 120;
   if (has_device()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       120, this->device(), output);
@@ -1088,12 +1089,12 @@ void Agent::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:rhsa.Agent)
+  // @@protoc_insertion_point(serialize_end:rhsa.AgentMesg)
 }
 
-::google::protobuf::uint8* Agent::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* AgentMesg::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:rhsa.Agent)
+  // @@protoc_insertion_point(serialize_to_array_start:rhsa.AgentMesg)
   // required string name = 100;
   if (has_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -1116,25 +1117,25 @@ void Agent::SerializeWithCachedSizes(
         101, this->vendor_name(), target);
   }
 
-  // required .rhsa.Agent.Feature feature = 102;
+  // required .rhsa.AgentMesg.Feature feature = 102;
   if (has_feature()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       102, this->feature(), target);
   }
 
-  // required .rhsa.Agent.Machine_model machine_model = 103;
+  // required .rhsa.AgentMesg.Machine_model machine_model = 103;
   if (has_machine_model()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       103, this->machine_model(), target);
   }
 
-  // required .rhsa.Agent.Profile profile = 104;
+  // required .rhsa.AgentMesg.Profile profile = 104;
   if (has_profile()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       104, this->profile(), target);
   }
 
-  // required .rhsa.Agent.Default_float_rounding_mode default_float_rounding_mode = 105;
+  // required .rhsa.AgentMesg.Default_float_rounding_mode default_float_rounding_mode = 105;
   if (has_default_float_rounding_mode()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       105, this->default_float_rounding_mode(), target);
@@ -1200,7 +1201,7 @@ void Agent::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(117, this->queue_max_size(), target);
   }
 
-  // required .rhsa.Agent.Queue_type queue_type = 118;
+  // required .rhsa.AgentMesg.Queue_type queue_type = 118;
   if (has_queue_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       118, this->queue_type(), target);
@@ -1211,7 +1212,7 @@ void Agent::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(119, this->node(), target);
   }
 
-  // required .rhsa.Agent.Device_type device = 120;
+  // required .rhsa.AgentMesg.Device_type device = 120;
   if (has_device()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       120, this->device(), target);
@@ -1248,11 +1249,11 @@ void Agent::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:rhsa.Agent)
+  // @@protoc_insertion_point(serialize_to_array_end:rhsa.AgentMesg)
   return target;
 }
 
-int Agent::ByteSize() const {
+int AgentMesg::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -1270,25 +1271,25 @@ int Agent::ByteSize() const {
           this->vendor_name());
     }
 
-    // required .rhsa.Agent.Feature feature = 102;
+    // required .rhsa.AgentMesg.Feature feature = 102;
     if (has_feature()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->feature());
     }
 
-    // required .rhsa.Agent.Machine_model machine_model = 103;
+    // required .rhsa.AgentMesg.Machine_model machine_model = 103;
     if (has_machine_model()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->machine_model());
     }
 
-    // required .rhsa.Agent.Profile profile = 104;
+    // required .rhsa.AgentMesg.Profile profile = 104;
     if (has_profile()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->profile());
     }
 
-    // required .rhsa.Agent.Default_float_rounding_mode default_float_rounding_mode = 105;
+    // required .rhsa.AgentMesg.Default_float_rounding_mode default_float_rounding_mode = 105;
     if (has_default_float_rounding_mode()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->default_float_rounding_mode());
@@ -1380,7 +1381,7 @@ int Agent::ByteSize() const {
           this->queue_max_size());
     }
 
-    // required .rhsa.Agent.Queue_type queue_type = 118;
+    // required .rhsa.AgentMesg.Queue_type queue_type = 118;
     if (has_queue_type()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->queue_type());
@@ -1393,7 +1394,7 @@ int Agent::ByteSize() const {
           this->node());
     }
 
-    // required .rhsa.Agent.Device_type device = 120;
+    // required .rhsa.AgentMesg.Device_type device = 120;
     if (has_device()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->device());
@@ -1454,10 +1455,10 @@ int Agent::ByteSize() const {
   return total_size;
 }
 
-void Agent::MergeFrom(const ::google::protobuf::Message& from) {
+void AgentMesg::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Agent* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Agent*>(
+  const AgentMesg* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const AgentMesg*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1466,7 +1467,7 @@ void Agent::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Agent::MergeFrom(const Agent& from) {
+void AgentMesg::MergeFrom(const AgentMesg& from) {
   GOOGLE_CHECK_NE(&from, this);
   cache_size_.MergeFrom(from.cache_size_);
   agent_extensions_.MergeFrom(from.agent_extensions_);
@@ -1553,25 +1554,25 @@ void Agent::MergeFrom(const Agent& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Agent::CopyFrom(const ::google::protobuf::Message& from) {
+void AgentMesg::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Agent::CopyFrom(const Agent& from) {
+void AgentMesg::CopyFrom(const AgentMesg& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Agent::IsInitialized() const {
+bool AgentMesg::IsInitialized() const {
   if ((_has_bits_[0] & 0x035fffff) != 0x035fffff) return false;
 
   return true;
 }
 
-void Agent::Swap(Agent* other) {
+void AgentMesg::Swap(AgentMesg* other) {
   if (other != this) {
     std::swap(name_, other->name_);
     std::swap(vendor_name_, other->vendor_name_);
@@ -1605,11 +1606,11 @@ void Agent::Swap(Agent* other) {
   }
 }
 
-::google::protobuf::Metadata Agent::GetMetadata() const {
+::google::protobuf::Metadata AgentMesg::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Agent_descriptor_;
-  metadata.reflection = Agent_reflection_;
+  metadata.descriptor = AgentMesg_descriptor_;
+  metadata.reflection = AgentMesg_reflection_;
   return metadata;
 }
 
@@ -1688,7 +1689,7 @@ bool QueryAgents::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .rhsa.Agent agents = 1;
+      // repeated .rhsa.AgentMesg agents = 1;
       case 1: {
         if (tag == 10) {
          parse_agents:
@@ -1727,7 +1728,7 @@ failure:
 void QueryAgents::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:rhsa.QueryAgents)
-  // repeated .rhsa.Agent agents = 1;
+  // repeated .rhsa.AgentMesg agents = 1;
   for (int i = 0; i < this->agents_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->agents(i), output);
@@ -1743,7 +1744,7 @@ void QueryAgents::SerializeWithCachedSizes(
 ::google::protobuf::uint8* QueryAgents::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:rhsa.QueryAgents)
-  // repeated .rhsa.Agent agents = 1;
+  // repeated .rhsa.AgentMesg agents = 1;
   for (int i = 0; i < this->agents_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1761,7 +1762,7 @@ void QueryAgents::SerializeWithCachedSizes(
 int QueryAgents::ByteSize() const {
   int total_size = 0;
 
-  // repeated .rhsa.Agent agents = 1;
+  // repeated .rhsa.AgentMesg agents = 1;
   total_size += 1 * this->agents_size();
   for (int i = 0; i < this->agents_size(); i++) {
     total_size +=
