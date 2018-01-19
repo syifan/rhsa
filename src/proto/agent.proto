@@ -56,9 +56,9 @@ message Agent {
 		dsp = 2;
 	}
 	required Device_type device = 118;
-	required uint32 cache_size[4] = 119;
+	required uint32[4] cache_size = 119;
 	required uint64 isa = 120;
-	required uint32 agent_extensions[128] = 121;
+	required uint32[128] agent_extensions = 121;
 	required uint32 version_major = 122;
 	required uint32 version_minor = 123;
 }
