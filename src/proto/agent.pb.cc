@@ -23,6 +23,12 @@ namespace {
 const ::google::protobuf::Descriptor* Agent_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Agent_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* Agent_Feature_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* Agent_Machine_model_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* Agent_Profile_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* Agent_Default_float_rounding_mode_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* Agent_Queue_type_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* Agent_Device_type_descriptor_ = NULL;
 const ::google::protobuf::Descriptor* QueryAgents_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   QueryAgents_reflection_ = NULL;
@@ -37,10 +43,33 @@ void protobuf_AssignDesc_agent_2eproto() {
       "agent.proto");
   GOOGLE_CHECK(file != NULL);
   Agent_descriptor_ = file->message_type(0);
-  static const int Agent_offsets_[3] = {
+  static const int Agent_offsets_[26] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, vendor_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, grid_max_dim_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, feature_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, machine_model_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, profile_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, default_float_rounding_mode_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, fast_f16_operation_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, wavefront_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, workgroup_max_dim_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, workgroup_max_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, grid_max_dim_x_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, grid_max_dim_y_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, grid_max_dim_z_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, grid_max_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, fbarrier_max_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, queues_max_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, queue_min_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, queue_max_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, queue_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, node_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, device_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, cache_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, isa_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, agent_extensions_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, version_major_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Agent, version_minor_),
   };
   Agent_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -53,6 +82,12 @@ void protobuf_AssignDesc_agent_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Agent));
+  Agent_Feature_descriptor_ = Agent_descriptor_->enum_type(0);
+  Agent_Machine_model_descriptor_ = Agent_descriptor_->enum_type(1);
+  Agent_Profile_descriptor_ = Agent_descriptor_->enum_type(2);
+  Agent_Default_float_rounding_mode_descriptor_ = Agent_descriptor_->enum_type(3);
+  Agent_Queue_type_descriptor_ = Agent_descriptor_->enum_type(4);
+  Agent_Device_type_descriptor_ = Agent_descriptor_->enum_type(5);
   QueryAgents_descriptor_ = file->message_type(1);
   static const int QueryAgents_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(QueryAgents, agents_),
@@ -102,10 +137,33 @@ void protobuf_AddDesc_agent_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013agent.proto\022\004rhsa\"@\n\005Agent\022\014\n\004name\030d \002"
-    "(\t\022\023\n\013vendor_name\030e \002(\t\022\024\n\014grid_max_dim\030"
-    "f \002(\005\"*\n\013QueryAgents\022\033\n\006agents\030\001 \003(\0132\013.r"
-    "hsa.Agent", 129);
+    "\n\013agent.proto\022\004rhsa\"\347\007\n\005Agent\022\014\n\004name\030d "
+    "\002(\t\022\023\n\013vendor_name\030e \002(\t\022$\n\007feature\030f \002("
+    "\0162\023.rhsa.Agent.Feature\0220\n\rmachine_model\030"
+    "g \002(\0162\031.rhsa.Agent.Machine_model\022$\n\007prof"
+    "ile\030h \002(\0162\023.rhsa.Agent.Profile\022L\n\033defaul"
+    "t_float_rounding_mode\030i \002(\0162\'.rhsa.Agent"
+    ".Default_float_rounding_mode\022\032\n\022fast_f16"
+    "_operation\030j \002(\010\022\026\n\016wavefront_size\030k \002(\r"
+    "\022\031\n\021workgroup_max_dim\030l \002(\r\022\032\n\022workgroup"
+    "_max_size\030m \002(\r\022\026\n\016grid_max_dim_x\030n \002(\r\022"
+    "\026\n\016grid_max_dim_y\030o \002(\r\022\026\n\016grid_max_dim_"
+    "z\030p \002(\r\022\025\n\rgrid_max_size\030q \002(\r\022\031\n\021fbarri"
+    "er_max_size\030r \002(\r\022\022\n\nqueues_max\030s \002(\r\022\026\n"
+    "\016queue_min_size\030t \002(\r\022\026\n\016queue_max_size\030"
+    "u \002(\r\022*\n\nqueue_type\030v \002(\0162\026.rhsa.Agent.Q"
+    "ueue_type\022\014\n\004node\030w \002(\r\022\'\n\006device\030x \002(\0162"
+    "\027.rhsa.Agent.Device_type\022\022\n\ncache_size\030y"
+    " \003(\r\022\013\n\003isa\030z \002(\004\022\030\n\020agent_extensions\030{ "
+    "\003(\r\022\025\n\rversion_major\030| \002(\r\022\025\n\rversion_mi"
+    "nor\030} \002(\r\"2\n\007Feature\022\023\n\017kernel_dispatch\020"
+    "\001\022\022\n\016agent_dispatch\020\002\"%\n\rMachine_model\022\t"
+    "\n\005small\020\000\022\t\n\005large\020\001\"\035\n\007Profile\022\010\n\004base\020"
+    "\000\022\010\n\004full\020\001\"1\n\033Default_float_rounding_mo"
+    "de\022\010\n\004zero\020\001\022\010\n\004near\020\002\"#\n\nQueue_type\022\t\n\005"
+    "multi\020\000\022\n\n\006single\020\001\"(\n\013Device_type\022\007\n\003cp"
+    "u\020\000\022\007\n\003gpu\020\001\022\007\n\003dsp\020\002\"*\n\013QueryAgents\022\033\n\006"
+    "agents\030\001 \003(\0132\013.rhsa.Agent", 1065);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "agent.proto", &protobuf_RegisterTypes);
   Agent::default_instance_ = new Agent();
@@ -124,10 +182,161 @@ struct StaticDescriptorInitializer_agent_2eproto {
 
 // ===================================================================
 
+const ::google::protobuf::EnumDescriptor* Agent_Feature_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Agent_Feature_descriptor_;
+}
+bool Agent_Feature_IsValid(int value) {
+  switch(value) {
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#ifndef _MSC_VER
+const Agent_Feature Agent::kernel_dispatch;
+const Agent_Feature Agent::agent_dispatch;
+const Agent_Feature Agent::Feature_MIN;
+const Agent_Feature Agent::Feature_MAX;
+const int Agent::Feature_ARRAYSIZE;
+#endif  // _MSC_VER
+const ::google::protobuf::EnumDescriptor* Agent_Machine_model_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Agent_Machine_model_descriptor_;
+}
+bool Agent_Machine_model_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#ifndef _MSC_VER
+const Agent_Machine_model Agent::small;
+const Agent_Machine_model Agent::large;
+const Agent_Machine_model Agent::Machine_model_MIN;
+const Agent_Machine_model Agent::Machine_model_MAX;
+const int Agent::Machine_model_ARRAYSIZE;
+#endif  // _MSC_VER
+const ::google::protobuf::EnumDescriptor* Agent_Profile_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Agent_Profile_descriptor_;
+}
+bool Agent_Profile_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#ifndef _MSC_VER
+const Agent_Profile Agent::base;
+const Agent_Profile Agent::full;
+const Agent_Profile Agent::Profile_MIN;
+const Agent_Profile Agent::Profile_MAX;
+const int Agent::Profile_ARRAYSIZE;
+#endif  // _MSC_VER
+const ::google::protobuf::EnumDescriptor* Agent_Default_float_rounding_mode_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Agent_Default_float_rounding_mode_descriptor_;
+}
+bool Agent_Default_float_rounding_mode_IsValid(int value) {
+  switch(value) {
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#ifndef _MSC_VER
+const Agent_Default_float_rounding_mode Agent::zero;
+const Agent_Default_float_rounding_mode Agent::near;
+const Agent_Default_float_rounding_mode Agent::Default_float_rounding_mode_MIN;
+const Agent_Default_float_rounding_mode Agent::Default_float_rounding_mode_MAX;
+const int Agent::Default_float_rounding_mode_ARRAYSIZE;
+#endif  // _MSC_VER
+const ::google::protobuf::EnumDescriptor* Agent_Queue_type_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Agent_Queue_type_descriptor_;
+}
+bool Agent_Queue_type_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#ifndef _MSC_VER
+const Agent_Queue_type Agent::multi;
+const Agent_Queue_type Agent::single;
+const Agent_Queue_type Agent::Queue_type_MIN;
+const Agent_Queue_type Agent::Queue_type_MAX;
+const int Agent::Queue_type_ARRAYSIZE;
+#endif  // _MSC_VER
+const ::google::protobuf::EnumDescriptor* Agent_Device_type_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Agent_Device_type_descriptor_;
+}
+bool Agent_Device_type_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#ifndef _MSC_VER
+const Agent_Device_type Agent::cpu;
+const Agent_Device_type Agent::gpu;
+const Agent_Device_type Agent::dsp;
+const Agent_Device_type Agent::Device_type_MIN;
+const Agent_Device_type Agent::Device_type_MAX;
+const int Agent::Device_type_ARRAYSIZE;
+#endif  // _MSC_VER
 #ifndef _MSC_VER
 const int Agent::kNameFieldNumber;
 const int Agent::kVendorNameFieldNumber;
-const int Agent::kGridMaxDimFieldNumber;
+const int Agent::kFeatureFieldNumber;
+const int Agent::kMachineModelFieldNumber;
+const int Agent::kProfileFieldNumber;
+const int Agent::kDefaultFloatRoundingModeFieldNumber;
+const int Agent::kFastF16OperationFieldNumber;
+const int Agent::kWavefrontSizeFieldNumber;
+const int Agent::kWorkgroupMaxDimFieldNumber;
+const int Agent::kWorkgroupMaxSizeFieldNumber;
+const int Agent::kGridMaxDimXFieldNumber;
+const int Agent::kGridMaxDimYFieldNumber;
+const int Agent::kGridMaxDimZFieldNumber;
+const int Agent::kGridMaxSizeFieldNumber;
+const int Agent::kFbarrierMaxSizeFieldNumber;
+const int Agent::kQueuesMaxFieldNumber;
+const int Agent::kQueueMinSizeFieldNumber;
+const int Agent::kQueueMaxSizeFieldNumber;
+const int Agent::kQueueTypeFieldNumber;
+const int Agent::kNodeFieldNumber;
+const int Agent::kDeviceFieldNumber;
+const int Agent::kCacheSizeFieldNumber;
+const int Agent::kIsaFieldNumber;
+const int Agent::kAgentExtensionsFieldNumber;
+const int Agent::kVersionMajorFieldNumber;
+const int Agent::kVersionMinorFieldNumber;
 #endif  // !_MSC_VER
 
 Agent::Agent()
@@ -151,7 +360,28 @@ void Agent::SharedCtor() {
   _cached_size_ = 0;
   name_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   vendor_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  grid_max_dim_ = 0;
+  feature_ = 1;
+  machine_model_ = 0;
+  profile_ = 0;
+  default_float_rounding_mode_ = 1;
+  fast_f16_operation_ = false;
+  wavefront_size_ = 0u;
+  workgroup_max_dim_ = 0u;
+  workgroup_max_size_ = 0u;
+  grid_max_dim_x_ = 0u;
+  grid_max_dim_y_ = 0u;
+  grid_max_dim_z_ = 0u;
+  grid_max_size_ = 0u;
+  fbarrier_max_size_ = 0u;
+  queues_max_ = 0u;
+  queue_min_size_ = 0u;
+  queue_max_size_ = 0u;
+  queue_type_ = 0;
+  node_ = 0u;
+  device_ = 0;
+  isa_ = GOOGLE_ULONGLONG(0);
+  version_major_ = 0u;
+  version_minor_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -193,7 +423,19 @@ Agent* Agent::New() const {
 }
 
 void Agent::Clear() {
-  if (_has_bits_[0 / 32] & 7) {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<Agent*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 255) {
+    ZR_(machine_model_, profile_);
+    ZR_(fast_f16_operation_, wavefront_size_);
     if (has_name()) {
       if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         name_->clear();
@@ -204,8 +446,26 @@ void Agent::Clear() {
         vendor_name_->clear();
       }
     }
-    grid_max_dim_ = 0;
+    feature_ = 1;
+    default_float_rounding_mode_ = 1;
   }
+  if (_has_bits_[8 / 32] & 65280) {
+    ZR_(workgroup_max_dim_, queues_max_);
+  }
+  if (_has_bits_[16 / 32] & 6225920) {
+    ZR_(queue_min_size_, node_);
+    ZR_(isa_, device_);
+  }
+  if (_has_bits_[24 / 32] & 50331648) {
+    version_major_ = 0u;
+    version_minor_ = 0u;
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  cache_size_.Clear();
+  agent_extensions_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -249,18 +509,401 @@ bool Agent::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(816)) goto parse_grid_max_dim;
+        if (input->ExpectTag(816)) goto parse_feature;
         break;
       }
 
-      // required int32 grid_max_dim = 102;
+      // required .rhsa.Agent.Feature feature = 102;
       case 102: {
         if (tag == 816) {
-         parse_grid_max_dim:
+         parse_feature:
+          int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &grid_max_dim_)));
-          set_has_grid_max_dim();
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::rhsa::Agent_Feature_IsValid(value)) {
+            set_feature(static_cast< ::rhsa::Agent_Feature >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(102, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(824)) goto parse_machine_model;
+        break;
+      }
+
+      // required .rhsa.Agent.Machine_model machine_model = 103;
+      case 103: {
+        if (tag == 824) {
+         parse_machine_model:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::rhsa::Agent_Machine_model_IsValid(value)) {
+            set_machine_model(static_cast< ::rhsa::Agent_Machine_model >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(103, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(832)) goto parse_profile;
+        break;
+      }
+
+      // required .rhsa.Agent.Profile profile = 104;
+      case 104: {
+        if (tag == 832) {
+         parse_profile:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::rhsa::Agent_Profile_IsValid(value)) {
+            set_profile(static_cast< ::rhsa::Agent_Profile >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(104, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(840)) goto parse_default_float_rounding_mode;
+        break;
+      }
+
+      // required .rhsa.Agent.Default_float_rounding_mode default_float_rounding_mode = 105;
+      case 105: {
+        if (tag == 840) {
+         parse_default_float_rounding_mode:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::rhsa::Agent_Default_float_rounding_mode_IsValid(value)) {
+            set_default_float_rounding_mode(static_cast< ::rhsa::Agent_Default_float_rounding_mode >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(105, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(848)) goto parse_fast_f16_operation;
+        break;
+      }
+
+      // required bool fast_f16_operation = 106;
+      case 106: {
+        if (tag == 848) {
+         parse_fast_f16_operation:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &fast_f16_operation_)));
+          set_has_fast_f16_operation();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(856)) goto parse_wavefront_size;
+        break;
+      }
+
+      // required uint32 wavefront_size = 107;
+      case 107: {
+        if (tag == 856) {
+         parse_wavefront_size:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &wavefront_size_)));
+          set_has_wavefront_size();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(864)) goto parse_workgroup_max_dim;
+        break;
+      }
+
+      // required uint32 workgroup_max_dim = 108;
+      case 108: {
+        if (tag == 864) {
+         parse_workgroup_max_dim:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &workgroup_max_dim_)));
+          set_has_workgroup_max_dim();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(872)) goto parse_workgroup_max_size;
+        break;
+      }
+
+      // required uint32 workgroup_max_size = 109;
+      case 109: {
+        if (tag == 872) {
+         parse_workgroup_max_size:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &workgroup_max_size_)));
+          set_has_workgroup_max_size();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(880)) goto parse_grid_max_dim_x;
+        break;
+      }
+
+      // required uint32 grid_max_dim_x = 110;
+      case 110: {
+        if (tag == 880) {
+         parse_grid_max_dim_x:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &grid_max_dim_x_)));
+          set_has_grid_max_dim_x();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(888)) goto parse_grid_max_dim_y;
+        break;
+      }
+
+      // required uint32 grid_max_dim_y = 111;
+      case 111: {
+        if (tag == 888) {
+         parse_grid_max_dim_y:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &grid_max_dim_y_)));
+          set_has_grid_max_dim_y();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(896)) goto parse_grid_max_dim_z;
+        break;
+      }
+
+      // required uint32 grid_max_dim_z = 112;
+      case 112: {
+        if (tag == 896) {
+         parse_grid_max_dim_z:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &grid_max_dim_z_)));
+          set_has_grid_max_dim_z();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(904)) goto parse_grid_max_size;
+        break;
+      }
+
+      // required uint32 grid_max_size = 113;
+      case 113: {
+        if (tag == 904) {
+         parse_grid_max_size:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &grid_max_size_)));
+          set_has_grid_max_size();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(912)) goto parse_fbarrier_max_size;
+        break;
+      }
+
+      // required uint32 fbarrier_max_size = 114;
+      case 114: {
+        if (tag == 912) {
+         parse_fbarrier_max_size:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &fbarrier_max_size_)));
+          set_has_fbarrier_max_size();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(920)) goto parse_queues_max;
+        break;
+      }
+
+      // required uint32 queues_max = 115;
+      case 115: {
+        if (tag == 920) {
+         parse_queues_max:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &queues_max_)));
+          set_has_queues_max();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(928)) goto parse_queue_min_size;
+        break;
+      }
+
+      // required uint32 queue_min_size = 116;
+      case 116: {
+        if (tag == 928) {
+         parse_queue_min_size:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &queue_min_size_)));
+          set_has_queue_min_size();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(936)) goto parse_queue_max_size;
+        break;
+      }
+
+      // required uint32 queue_max_size = 117;
+      case 117: {
+        if (tag == 936) {
+         parse_queue_max_size:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &queue_max_size_)));
+          set_has_queue_max_size();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(944)) goto parse_queue_type;
+        break;
+      }
+
+      // required .rhsa.Agent.Queue_type queue_type = 118;
+      case 118: {
+        if (tag == 944) {
+         parse_queue_type:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::rhsa::Agent_Queue_type_IsValid(value)) {
+            set_queue_type(static_cast< ::rhsa::Agent_Queue_type >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(118, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(952)) goto parse_node;
+        break;
+      }
+
+      // required uint32 node = 119;
+      case 119: {
+        if (tag == 952) {
+         parse_node:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &node_)));
+          set_has_node();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(960)) goto parse_device;
+        break;
+      }
+
+      // required .rhsa.Agent.Device_type device = 120;
+      case 120: {
+        if (tag == 960) {
+         parse_device:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::rhsa::Agent_Device_type_IsValid(value)) {
+            set_device(static_cast< ::rhsa::Agent_Device_type >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(120, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(968)) goto parse_cache_size;
+        break;
+      }
+
+      // repeated uint32 cache_size = 121;
+      case 121: {
+        if (tag == 968) {
+         parse_cache_size:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 2, 968, input, this->mutable_cache_size())));
+        } else if (tag == 970) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, this->mutable_cache_size())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(968)) goto parse_cache_size;
+        if (input->ExpectTag(976)) goto parse_isa;
+        break;
+      }
+
+      // required uint64 isa = 122;
+      case 122: {
+        if (tag == 976) {
+         parse_isa:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &isa_)));
+          set_has_isa();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(984)) goto parse_agent_extensions;
+        break;
+      }
+
+      // repeated uint32 agent_extensions = 123;
+      case 123: {
+        if (tag == 984) {
+         parse_agent_extensions:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 2, 984, input, this->mutable_agent_extensions())));
+        } else if (tag == 986) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, this->mutable_agent_extensions())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(984)) goto parse_agent_extensions;
+        if (input->ExpectTag(992)) goto parse_version_major;
+        break;
+      }
+
+      // required uint32 version_major = 124;
+      case 124: {
+        if (tag == 992) {
+         parse_version_major:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &version_major_)));
+          set_has_version_major();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(1000)) goto parse_version_minor;
+        break;
+      }
+
+      // required uint32 version_minor = 125;
+      case 125: {
+        if (tag == 1000) {
+         parse_version_minor:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &version_minor_)));
+          set_has_version_minor();
         } else {
           goto handle_unusual;
         }
@@ -313,9 +956,132 @@ void Agent::SerializeWithCachedSizes(
       101, this->vendor_name(), output);
   }
 
-  // required int32 grid_max_dim = 102;
-  if (has_grid_max_dim()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(102, this->grid_max_dim(), output);
+  // required .rhsa.Agent.Feature feature = 102;
+  if (has_feature()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      102, this->feature(), output);
+  }
+
+  // required .rhsa.Agent.Machine_model machine_model = 103;
+  if (has_machine_model()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      103, this->machine_model(), output);
+  }
+
+  // required .rhsa.Agent.Profile profile = 104;
+  if (has_profile()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      104, this->profile(), output);
+  }
+
+  // required .rhsa.Agent.Default_float_rounding_mode default_float_rounding_mode = 105;
+  if (has_default_float_rounding_mode()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      105, this->default_float_rounding_mode(), output);
+  }
+
+  // required bool fast_f16_operation = 106;
+  if (has_fast_f16_operation()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(106, this->fast_f16_operation(), output);
+  }
+
+  // required uint32 wavefront_size = 107;
+  if (has_wavefront_size()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(107, this->wavefront_size(), output);
+  }
+
+  // required uint32 workgroup_max_dim = 108;
+  if (has_workgroup_max_dim()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(108, this->workgroup_max_dim(), output);
+  }
+
+  // required uint32 workgroup_max_size = 109;
+  if (has_workgroup_max_size()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(109, this->workgroup_max_size(), output);
+  }
+
+  // required uint32 grid_max_dim_x = 110;
+  if (has_grid_max_dim_x()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(110, this->grid_max_dim_x(), output);
+  }
+
+  // required uint32 grid_max_dim_y = 111;
+  if (has_grid_max_dim_y()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(111, this->grid_max_dim_y(), output);
+  }
+
+  // required uint32 grid_max_dim_z = 112;
+  if (has_grid_max_dim_z()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(112, this->grid_max_dim_z(), output);
+  }
+
+  // required uint32 grid_max_size = 113;
+  if (has_grid_max_size()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(113, this->grid_max_size(), output);
+  }
+
+  // required uint32 fbarrier_max_size = 114;
+  if (has_fbarrier_max_size()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(114, this->fbarrier_max_size(), output);
+  }
+
+  // required uint32 queues_max = 115;
+  if (has_queues_max()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(115, this->queues_max(), output);
+  }
+
+  // required uint32 queue_min_size = 116;
+  if (has_queue_min_size()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(116, this->queue_min_size(), output);
+  }
+
+  // required uint32 queue_max_size = 117;
+  if (has_queue_max_size()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(117, this->queue_max_size(), output);
+  }
+
+  // required .rhsa.Agent.Queue_type queue_type = 118;
+  if (has_queue_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      118, this->queue_type(), output);
+  }
+
+  // required uint32 node = 119;
+  if (has_node()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(119, this->node(), output);
+  }
+
+  // required .rhsa.Agent.Device_type device = 120;
+  if (has_device()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      120, this->device(), output);
+  }
+
+  // repeated uint32 cache_size = 121;
+  for (int i = 0; i < this->cache_size_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(
+      121, this->cache_size(i), output);
+  }
+
+  // required uint64 isa = 122;
+  if (has_isa()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(122, this->isa(), output);
+  }
+
+  // repeated uint32 agent_extensions = 123;
+  for (int i = 0; i < this->agent_extensions_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(
+      123, this->agent_extensions(i), output);
+  }
+
+  // required uint32 version_major = 124;
+  if (has_version_major()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(124, this->version_major(), output);
+  }
+
+  // required uint32 version_minor = 125;
+  if (has_version_minor()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(125, this->version_minor(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -350,9 +1116,132 @@ void Agent::SerializeWithCachedSizes(
         101, this->vendor_name(), target);
   }
 
-  // required int32 grid_max_dim = 102;
-  if (has_grid_max_dim()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(102, this->grid_max_dim(), target);
+  // required .rhsa.Agent.Feature feature = 102;
+  if (has_feature()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      102, this->feature(), target);
+  }
+
+  // required .rhsa.Agent.Machine_model machine_model = 103;
+  if (has_machine_model()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      103, this->machine_model(), target);
+  }
+
+  // required .rhsa.Agent.Profile profile = 104;
+  if (has_profile()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      104, this->profile(), target);
+  }
+
+  // required .rhsa.Agent.Default_float_rounding_mode default_float_rounding_mode = 105;
+  if (has_default_float_rounding_mode()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      105, this->default_float_rounding_mode(), target);
+  }
+
+  // required bool fast_f16_operation = 106;
+  if (has_fast_f16_operation()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(106, this->fast_f16_operation(), target);
+  }
+
+  // required uint32 wavefront_size = 107;
+  if (has_wavefront_size()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(107, this->wavefront_size(), target);
+  }
+
+  // required uint32 workgroup_max_dim = 108;
+  if (has_workgroup_max_dim()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(108, this->workgroup_max_dim(), target);
+  }
+
+  // required uint32 workgroup_max_size = 109;
+  if (has_workgroup_max_size()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(109, this->workgroup_max_size(), target);
+  }
+
+  // required uint32 grid_max_dim_x = 110;
+  if (has_grid_max_dim_x()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(110, this->grid_max_dim_x(), target);
+  }
+
+  // required uint32 grid_max_dim_y = 111;
+  if (has_grid_max_dim_y()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(111, this->grid_max_dim_y(), target);
+  }
+
+  // required uint32 grid_max_dim_z = 112;
+  if (has_grid_max_dim_z()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(112, this->grid_max_dim_z(), target);
+  }
+
+  // required uint32 grid_max_size = 113;
+  if (has_grid_max_size()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(113, this->grid_max_size(), target);
+  }
+
+  // required uint32 fbarrier_max_size = 114;
+  if (has_fbarrier_max_size()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(114, this->fbarrier_max_size(), target);
+  }
+
+  // required uint32 queues_max = 115;
+  if (has_queues_max()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(115, this->queues_max(), target);
+  }
+
+  // required uint32 queue_min_size = 116;
+  if (has_queue_min_size()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(116, this->queue_min_size(), target);
+  }
+
+  // required uint32 queue_max_size = 117;
+  if (has_queue_max_size()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(117, this->queue_max_size(), target);
+  }
+
+  // required .rhsa.Agent.Queue_type queue_type = 118;
+  if (has_queue_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      118, this->queue_type(), target);
+  }
+
+  // required uint32 node = 119;
+  if (has_node()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(119, this->node(), target);
+  }
+
+  // required .rhsa.Agent.Device_type device = 120;
+  if (has_device()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      120, this->device(), target);
+  }
+
+  // repeated uint32 cache_size = 121;
+  for (int i = 0; i < this->cache_size_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteUInt32ToArray(121, this->cache_size(i), target);
+  }
+
+  // required uint64 isa = 122;
+  if (has_isa()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(122, this->isa(), target);
+  }
+
+  // repeated uint32 agent_extensions = 123;
+  for (int i = 0; i < this->agent_extensions_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteUInt32ToArray(123, this->agent_extensions(i), target);
+  }
+
+  // required uint32 version_major = 124;
+  if (has_version_major()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(124, this->version_major(), target);
+  }
+
+  // required uint32 version_minor = 125;
+  if (has_version_minor()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(125, this->version_minor(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -381,14 +1270,179 @@ int Agent::ByteSize() const {
           this->vendor_name());
     }
 
-    // required int32 grid_max_dim = 102;
-    if (has_grid_max_dim()) {
+    // required .rhsa.Agent.Feature feature = 102;
+    if (has_feature()) {
       total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->grid_max_dim());
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->feature());
+    }
+
+    // required .rhsa.Agent.Machine_model machine_model = 103;
+    if (has_machine_model()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->machine_model());
+    }
+
+    // required .rhsa.Agent.Profile profile = 104;
+    if (has_profile()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->profile());
+    }
+
+    // required .rhsa.Agent.Default_float_rounding_mode default_float_rounding_mode = 105;
+    if (has_default_float_rounding_mode()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->default_float_rounding_mode());
+    }
+
+    // required bool fast_f16_operation = 106;
+    if (has_fast_f16_operation()) {
+      total_size += 2 + 1;
+    }
+
+    // required uint32 wavefront_size = 107;
+    if (has_wavefront_size()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->wavefront_size());
     }
 
   }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // required uint32 workgroup_max_dim = 108;
+    if (has_workgroup_max_dim()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->workgroup_max_dim());
+    }
+
+    // required uint32 workgroup_max_size = 109;
+    if (has_workgroup_max_size()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->workgroup_max_size());
+    }
+
+    // required uint32 grid_max_dim_x = 110;
+    if (has_grid_max_dim_x()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->grid_max_dim_x());
+    }
+
+    // required uint32 grid_max_dim_y = 111;
+    if (has_grid_max_dim_y()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->grid_max_dim_y());
+    }
+
+    // required uint32 grid_max_dim_z = 112;
+    if (has_grid_max_dim_z()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->grid_max_dim_z());
+    }
+
+    // required uint32 grid_max_size = 113;
+    if (has_grid_max_size()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->grid_max_size());
+    }
+
+    // required uint32 fbarrier_max_size = 114;
+    if (has_fbarrier_max_size()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->fbarrier_max_size());
+    }
+
+    // required uint32 queues_max = 115;
+    if (has_queues_max()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->queues_max());
+    }
+
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    // required uint32 queue_min_size = 116;
+    if (has_queue_min_size()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->queue_min_size());
+    }
+
+    // required uint32 queue_max_size = 117;
+    if (has_queue_max_size()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->queue_max_size());
+    }
+
+    // required .rhsa.Agent.Queue_type queue_type = 118;
+    if (has_queue_type()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->queue_type());
+    }
+
+    // required uint32 node = 119;
+    if (has_node()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->node());
+    }
+
+    // required .rhsa.Agent.Device_type device = 120;
+    if (has_device()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->device());
+    }
+
+    // required uint64 isa = 122;
+    if (has_isa()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->isa());
+    }
+
+  }
+  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    // required uint32 version_major = 124;
+    if (has_version_major()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->version_major());
+    }
+
+    // required uint32 version_minor = 125;
+    if (has_version_minor()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->version_minor());
+    }
+
+  }
+  // repeated uint32 cache_size = 121;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->cache_size_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        UInt32Size(this->cache_size(i));
+    }
+    total_size += 2 * this->cache_size_size() + data_size;
+  }
+
+  // repeated uint32 agent_extensions = 123;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->agent_extensions_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        UInt32Size(this->agent_extensions(i));
+    }
+    total_size += 2 * this->agent_extensions_size() + data_size;
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -414,6 +1468,8 @@ void Agent::MergeFrom(const ::google::protobuf::Message& from) {
 
 void Agent::MergeFrom(const Agent& from) {
   GOOGLE_CHECK_NE(&from, this);
+  cache_size_.MergeFrom(from.cache_size_);
+  agent_extensions_.MergeFrom(from.agent_extensions_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
       set_name(from.name());
@@ -421,8 +1477,77 @@ void Agent::MergeFrom(const Agent& from) {
     if (from.has_vendor_name()) {
       set_vendor_name(from.vendor_name());
     }
-    if (from.has_grid_max_dim()) {
-      set_grid_max_dim(from.grid_max_dim());
+    if (from.has_feature()) {
+      set_feature(from.feature());
+    }
+    if (from.has_machine_model()) {
+      set_machine_model(from.machine_model());
+    }
+    if (from.has_profile()) {
+      set_profile(from.profile());
+    }
+    if (from.has_default_float_rounding_mode()) {
+      set_default_float_rounding_mode(from.default_float_rounding_mode());
+    }
+    if (from.has_fast_f16_operation()) {
+      set_fast_f16_operation(from.fast_f16_operation());
+    }
+    if (from.has_wavefront_size()) {
+      set_wavefront_size(from.wavefront_size());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_workgroup_max_dim()) {
+      set_workgroup_max_dim(from.workgroup_max_dim());
+    }
+    if (from.has_workgroup_max_size()) {
+      set_workgroup_max_size(from.workgroup_max_size());
+    }
+    if (from.has_grid_max_dim_x()) {
+      set_grid_max_dim_x(from.grid_max_dim_x());
+    }
+    if (from.has_grid_max_dim_y()) {
+      set_grid_max_dim_y(from.grid_max_dim_y());
+    }
+    if (from.has_grid_max_dim_z()) {
+      set_grid_max_dim_z(from.grid_max_dim_z());
+    }
+    if (from.has_grid_max_size()) {
+      set_grid_max_size(from.grid_max_size());
+    }
+    if (from.has_fbarrier_max_size()) {
+      set_fbarrier_max_size(from.fbarrier_max_size());
+    }
+    if (from.has_queues_max()) {
+      set_queues_max(from.queues_max());
+    }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    if (from.has_queue_min_size()) {
+      set_queue_min_size(from.queue_min_size());
+    }
+    if (from.has_queue_max_size()) {
+      set_queue_max_size(from.queue_max_size());
+    }
+    if (from.has_queue_type()) {
+      set_queue_type(from.queue_type());
+    }
+    if (from.has_node()) {
+      set_node(from.node());
+    }
+    if (from.has_device()) {
+      set_device(from.device());
+    }
+    if (from.has_isa()) {
+      set_isa(from.isa());
+    }
+  }
+  if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    if (from.has_version_major()) {
+      set_version_major(from.version_major());
+    }
+    if (from.has_version_minor()) {
+      set_version_minor(from.version_minor());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -441,7 +1566,7 @@ void Agent::CopyFrom(const Agent& from) {
 }
 
 bool Agent::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  if ((_has_bits_[0] & 0x035fffff) != 0x035fffff) return false;
 
   return true;
 }
@@ -450,7 +1575,30 @@ void Agent::Swap(Agent* other) {
   if (other != this) {
     std::swap(name_, other->name_);
     std::swap(vendor_name_, other->vendor_name_);
-    std::swap(grid_max_dim_, other->grid_max_dim_);
+    std::swap(feature_, other->feature_);
+    std::swap(machine_model_, other->machine_model_);
+    std::swap(profile_, other->profile_);
+    std::swap(default_float_rounding_mode_, other->default_float_rounding_mode_);
+    std::swap(fast_f16_operation_, other->fast_f16_operation_);
+    std::swap(wavefront_size_, other->wavefront_size_);
+    std::swap(workgroup_max_dim_, other->workgroup_max_dim_);
+    std::swap(workgroup_max_size_, other->workgroup_max_size_);
+    std::swap(grid_max_dim_x_, other->grid_max_dim_x_);
+    std::swap(grid_max_dim_y_, other->grid_max_dim_y_);
+    std::swap(grid_max_dim_z_, other->grid_max_dim_z_);
+    std::swap(grid_max_size_, other->grid_max_size_);
+    std::swap(fbarrier_max_size_, other->fbarrier_max_size_);
+    std::swap(queues_max_, other->queues_max_);
+    std::swap(queue_min_size_, other->queue_min_size_);
+    std::swap(queue_max_size_, other->queue_max_size_);
+    std::swap(queue_type_, other->queue_type_);
+    std::swap(node_, other->node_);
+    std::swap(device_, other->device_);
+    cache_size_.Swap(&other->cache_size_);
+    std::swap(isa_, other->isa_);
+    agent_extensions_.Swap(&other->agent_extensions_);
+    std::swap(version_major_, other->version_major_);
+    std::swap(version_minor_, other->version_minor_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

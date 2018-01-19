@@ -33,34 +33,31 @@ message Agent {
 	required uint32 wavefront_size = 107;
 	required uint32 workgroup_max_dim = 108;
 	required uint32 workgroup_max_size = 109;
-	struct dim3 {
-		uint32 x;
-		uint32 y;
-		uint32 z;
-	}
-	required dim3 grid_max_dim = 110;
-	required uint32 grid_max_size = 111;
-	required uint32 fbarrier_max_size = 112;
-	required uint32 queues_max = 113;
-	required uint32 queue_min_size = 114;
-	required uint32 queue_max_size = 115;
+	required uint32 grid_max_dim_x = 110;
+	required uint32 grid_max_dim_y = 111;
+	required uint32 grid_max_dim_z = 112;
+	required uint32 grid_max_size = 113;
+	required uint32 fbarrier_max_size = 114;
+	required uint32 queues_max = 115;
+	required uint32 queue_min_size = 116;
+	required uint32 queue_max_size = 117;
 	enum Queue_type {
 		multi = 0;
 		single = 1;
 	}
-	required Queue_type queue_type = 116;
-	required uint32 node = 117;
+	required Queue_type queue_type = 118;
+	required uint32 node = 119;
 	enum Device_type {
 		cpu = 0;
 		gpu = 1;
 		dsp = 2;
 	}
-	required Device_type device = 118;
-	required uint32[4] cache_size = 119;
-	required uint64 isa = 120;
-	required uint32[128] agent_extensions = 121;
-	required uint32 version_major = 122;
-	required uint32 version_minor = 123;
+	required Device_type device = 120;
+	repeated uint32 cache_size = 121;
+	required uint64 isa = 122;
+	repeated uint32 agent_extensions = 123;
+	required uint32 version_major = 124;
+	required uint32 version_minor = 125;
 }
 
 message QueryAgents {
