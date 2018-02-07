@@ -40,3 +40,7 @@ cmake_install.cmake
 
 # vim
 .*.swp
+
+# CLion
+.idea
+
