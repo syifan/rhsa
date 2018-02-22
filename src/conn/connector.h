@@ -1,3 +1,6 @@
+#ifndef SRC_CONN_CONNECTOR_H_
+#define SRC_CONN_CONNECTOR_H_
+
 #include <memory>
 #include <string>
 
@@ -32,3 +35,5 @@ class TCPConnector final : public Connector {
 };
 
 }
+
+#endif  // SRC_CONN_CONNECTOR_H_

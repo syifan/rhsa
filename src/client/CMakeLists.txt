@@ -11,6 +11,7 @@ set(DRVDEF "${CMAKE_CURRENT_SOURCE_DIR}/hsacore.so.def")
 set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--version-script=${DRVDEF}")
 
 add_library(${HSA_RUNTIME_NAME} SHARED
+  agent.cc
   init.cc
 )
 set_property(TARGET ${HSA_RUNTIME_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
