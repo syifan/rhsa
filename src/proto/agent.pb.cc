@@ -29,9 +29,9 @@ const ::google::protobuf::EnumDescriptor* AgentMesg_Profile_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* AgentMesg_Default_float_rounding_mode_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* AgentMesg_Queue_type_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* AgentMesg_Device_type_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* QueryAgents_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* QueryAgent_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  QueryAgents_reflection_ = NULL;
+  QueryAgent_reflection_ = NULL;
 
 }  // namespace
 
@@ -88,21 +88,21 @@ void protobuf_AssignDesc_agent_2eproto() {
   AgentMesg_Default_float_rounding_mode_descriptor_ = AgentMesg_descriptor_->enum_type(3);
   AgentMesg_Queue_type_descriptor_ = AgentMesg_descriptor_->enum_type(4);
   AgentMesg_Device_type_descriptor_ = AgentMesg_descriptor_->enum_type(5);
-  QueryAgents_descriptor_ = file->message_type(1);
-  static const int QueryAgents_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(QueryAgents, agents_),
+  QueryAgent_descriptor_ = file->message_type(1);
+  static const int QueryAgent_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(QueryAgent, agents_),
   };
-  QueryAgents_reflection_ =
+  QueryAgent_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      QueryAgents_descriptor_,
-      QueryAgents::default_instance_,
-      QueryAgents_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(QueryAgents, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(QueryAgents, _unknown_fields_),
+      QueryAgent_descriptor_,
+      QueryAgent::default_instance_,
+      QueryAgent_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(QueryAgent, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(QueryAgent, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(QueryAgents));
+      sizeof(QueryAgent));
 }
 
 namespace {
@@ -118,7 +118,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     AgentMesg_descriptor_, &AgentMesg::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    QueryAgents_descriptor_, &QueryAgents::default_instance());
+    QueryAgent_descriptor_, &QueryAgent::default_instance());
 }
 
 }  // namespace
@@ -126,8 +126,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_agent_2eproto() {
   delete AgentMesg::default_instance_;
   delete AgentMesg_reflection_;
-  delete QueryAgents::default_instance_;
-  delete QueryAgents_reflection_;
+  delete QueryAgent::default_instance_;
+  delete QueryAgent_reflection_;
 }
 
 void protobuf_AddDesc_agent_2eproto() {
@@ -163,14 +163,14 @@ void protobuf_AddDesc_agent_2eproto() {
     "1\n\033Default_float_rounding_mode\022\010\n\004zero\020\001"
     "\022\010\n\004near\020\002\"#\n\nQueue_type\022\t\n\005multi\020\000\022\n\n\006s"
     "ingle\020\001\"(\n\013Device_type\022\007\n\003cpu\020\000\022\007\n\003gpu\020\001"
-    "\022\007\n\003dsp\020\002\".\n\013QueryAgents\022\037\n\006agents\030\001 \003(\013"
-    "2\017.rhsa.AgentMesg", 1097);
+    "\022\007\n\003dsp\020\002\"-\n\nQueryAgent\022\037\n\006agents\030\001 \003(\0132"
+    "\017.rhsa.AgentMesg", 1096);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "agent.proto", &protobuf_RegisterTypes);
   AgentMesg::default_instance_ = new AgentMesg();
-  QueryAgents::default_instance_ = new QueryAgents();
+  QueryAgent::default_instance_ = new QueryAgent();
   AgentMesg::default_instance_->InitAsDefaultInstance();
-  QueryAgents::default_instance_->InitAsDefaultInstance();
+  QueryAgent::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_agent_2eproto);
 }
 
@@ -1618,72 +1618,72 @@ void AgentMesg::Swap(AgentMesg* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int QueryAgents::kAgentsFieldNumber;
+const int QueryAgent::kAgentsFieldNumber;
 #endif  // !_MSC_VER
 
-QueryAgents::QueryAgents()
+QueryAgent::QueryAgent()
   : ::google::protobuf::Message() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:rhsa.QueryAgents)
+  // @@protoc_insertion_point(constructor:rhsa.QueryAgent)
 }
 
-void QueryAgents::InitAsDefaultInstance() {
+void QueryAgent::InitAsDefaultInstance() {
 }
 
-QueryAgents::QueryAgents(const QueryAgents& from)
+QueryAgent::QueryAgent(const QueryAgent& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:rhsa.QueryAgents)
+  // @@protoc_insertion_point(copy_constructor:rhsa.QueryAgent)
 }
 
-void QueryAgents::SharedCtor() {
+void QueryAgent::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-QueryAgents::~QueryAgents() {
-  // @@protoc_insertion_point(destructor:rhsa.QueryAgents)
+QueryAgent::~QueryAgent() {
+  // @@protoc_insertion_point(destructor:rhsa.QueryAgent)
   SharedDtor();
 }
 
-void QueryAgents::SharedDtor() {
+void QueryAgent::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void QueryAgents::SetCachedSize(int size) const {
+void QueryAgent::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* QueryAgents::descriptor() {
+const ::google::protobuf::Descriptor* QueryAgent::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return QueryAgents_descriptor_;
+  return QueryAgent_descriptor_;
 }
 
-const QueryAgents& QueryAgents::default_instance() {
+const QueryAgent& QueryAgent::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_agent_2eproto();
   return *default_instance_;
 }
 
-QueryAgents* QueryAgents::default_instance_ = NULL;
+QueryAgent* QueryAgent::default_instance_ = NULL;
 
-QueryAgents* QueryAgents::New() const {
-  return new QueryAgents;
+QueryAgent* QueryAgent::New() const {
+  return new QueryAgent;
 }
 
-void QueryAgents::Clear() {
+void QueryAgent::Clear() {
   agents_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool QueryAgents::MergePartialFromCodedStream(
+bool QueryAgent::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:rhsa.QueryAgents)
+  // @@protoc_insertion_point(parse_start:rhsa.QueryAgent)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -1717,17 +1717,17 @@ bool QueryAgents::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:rhsa.QueryAgents)
+  // @@protoc_insertion_point(parse_success:rhsa.QueryAgent)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:rhsa.QueryAgents)
+  // @@protoc_insertion_point(parse_failure:rhsa.QueryAgent)
   return false;
 #undef DO_
 }
 
-void QueryAgents::SerializeWithCachedSizes(
+void QueryAgent::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:rhsa.QueryAgents)
+  // @@protoc_insertion_point(serialize_start:rhsa.QueryAgent)
   // repeated .rhsa.AgentMesg agents = 1;
   for (int i = 0; i < this->agents_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
@@ -1738,12 +1738,12 @@ void QueryAgents::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:rhsa.QueryAgents)
+  // @@protoc_insertion_point(serialize_end:rhsa.QueryAgent)
 }
 
-::google::protobuf::uint8* QueryAgents::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* QueryAgent::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:rhsa.QueryAgents)
+  // @@protoc_insertion_point(serialize_to_array_start:rhsa.QueryAgent)
   // repeated .rhsa.AgentMesg agents = 1;
   for (int i = 0; i < this->agents_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
@@ -1755,11 +1755,11 @@ void QueryAgents::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:rhsa.QueryAgents)
+  // @@protoc_insertion_point(serialize_to_array_end:rhsa.QueryAgent)
   return target;
 }
 
-int QueryAgents::ByteSize() const {
+int QueryAgent::ByteSize() const {
   int total_size = 0;
 
   // repeated .rhsa.AgentMesg agents = 1;
@@ -1781,10 +1781,10 @@ int QueryAgents::ByteSize() const {
   return total_size;
 }
 
-void QueryAgents::MergeFrom(const ::google::protobuf::Message& from) {
+void QueryAgent::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const QueryAgents* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const QueryAgents*>(
+  const QueryAgent* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const QueryAgent*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1793,31 +1793,31 @@ void QueryAgents::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void QueryAgents::MergeFrom(const QueryAgents& from) {
+void QueryAgent::MergeFrom(const QueryAgent& from) {
   GOOGLE_CHECK_NE(&from, this);
   agents_.MergeFrom(from.agents_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void QueryAgents::CopyFrom(const ::google::protobuf::Message& from) {
+void QueryAgent::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void QueryAgents::CopyFrom(const QueryAgents& from) {
+void QueryAgent::CopyFrom(const QueryAgent& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool QueryAgents::IsInitialized() const {
+bool QueryAgent::IsInitialized() const {
 
   if (!::google::protobuf::internal::AllAreInitialized(this->agents())) return false;
   return true;
 }
 
-void QueryAgents::Swap(QueryAgents* other) {
+void QueryAgent::Swap(QueryAgent* other) {
   if (other != this) {
     agents_.Swap(&other->agents_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -1826,11 +1826,11 @@ void QueryAgents::Swap(QueryAgents* other) {
   }
 }
 
-::google::protobuf::Metadata QueryAgents::GetMetadata() const {
+::google::protobuf::Metadata QueryAgent::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = QueryAgents_descriptor_;
-  metadata.reflection = QueryAgents_reflection_;
+  metadata.descriptor = QueryAgent_descriptor_;
+  metadata.reflection = QueryAgent_reflection_;
   return metadata;
 }
 

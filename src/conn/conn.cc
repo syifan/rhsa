@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <iostream>
 
+#include "src/conn/disconnect_exception.h"
 #include "src/request/request.h"
 
 namespace rhsa {
@@ -29,8 +30,7 @@ std::unique_ptr<Request> TCPConnection::Recv() {
                      (size_t)(8 - size_buf_fullness));
 
     if (n <= 0) {
-      std::cerr << "Disconnected\n";
-      throw "Network disconnected";
+      throw DisconnectException("Network disconnected");
     }
 
     size_buf_fullness += n;
@@ -46,8 +46,7 @@ std::unique_ptr<Request> TCPConnection::Recv() {
         read(this->sock, req_buf + req_buf_fullness, size - req_buf_fullness);
 
     if (n <= 0) {
-      std::cerr << "Disconnected receving payload\n";
-      throw "Network disconnected";
+      throw DisconnectException("Network disconnected");
     }
 
     req_buf_fullness += n;

@@ -107,14 +107,14 @@ class RequestMessage : public ::google::protobuf::Message {
   inline ::rhsa::InitMessage* release_init();
   inline void set_allocated_init(::rhsa::InitMessage* init);
 
-  // optional .rhsa.QueryAgents queryAgent = 2000;
+  // optional .rhsa.QueryAgent queryAgent = 2000;
   inline bool has_queryagent() const;
   inline void clear_queryagent();
   static const int kQueryAgentFieldNumber = 2000;
-  inline const ::rhsa::QueryAgents& queryagent() const;
-  inline ::rhsa::QueryAgents* mutable_queryagent();
-  inline ::rhsa::QueryAgents* release_queryagent();
-  inline void set_allocated_queryagent(::rhsa::QueryAgents* queryagent);
+  inline const ::rhsa::QueryAgent& queryagent() const;
+  inline ::rhsa::QueryAgent* mutable_queryagent();
+  inline ::rhsa::QueryAgent* release_queryagent();
+  inline void set_allocated_queryagent(::rhsa::QueryAgent* queryagent);
 
   inline PayloadCase Payload_case() const;
   // @@protoc_insertion_point(class_scope:rhsa.RequestMessage)
@@ -132,7 +132,7 @@ class RequestMessage : public ::google::protobuf::Message {
   mutable int _cached_size_;
   union PayloadUnion {
     ::rhsa::InitMessage* init_;
-    ::rhsa::QueryAgents* queryagent_;
+    ::rhsa::QueryAgent* queryagent_;
   } Payload_;
   ::google::protobuf::uint32 _oneof_case_[1];
 
@@ -193,7 +193,7 @@ inline void RequestMessage::set_allocated_init(::rhsa::InitMessage* init) {
   }
 }
 
-// optional .rhsa.QueryAgents queryAgent = 2000;
+// optional .rhsa.QueryAgent queryAgent = 2000;
 inline bool RequestMessage::has_queryagent() const {
   return Payload_case() == kQueryAgent;
 }
@@ -206,29 +206,29 @@ inline void RequestMessage::clear_queryagent() {
     clear_has_Payload();
   }
 }
-inline const ::rhsa::QueryAgents& RequestMessage::queryagent() const {
+inline const ::rhsa::QueryAgent& RequestMessage::queryagent() const {
   return has_queryagent() ? *Payload_.queryagent_
-                      : ::rhsa::QueryAgents::default_instance();
+                      : ::rhsa::QueryAgent::default_instance();
 }
-inline ::rhsa::QueryAgents* RequestMessage::mutable_queryagent() {
+inline ::rhsa::QueryAgent* RequestMessage::mutable_queryagent() {
   if (!has_queryagent()) {
     clear_Payload();
     set_has_queryagent();
-    Payload_.queryagent_ = new ::rhsa::QueryAgents;
+    Payload_.queryagent_ = new ::rhsa::QueryAgent;
   }
   return Payload_.queryagent_;
 }
-inline ::rhsa::QueryAgents* RequestMessage::release_queryagent() {
+inline ::rhsa::QueryAgent* RequestMessage::release_queryagent() {
   if (has_queryagent()) {
     clear_has_Payload();
-    ::rhsa::QueryAgents* temp = Payload_.queryagent_;
+    ::rhsa::QueryAgent* temp = Payload_.queryagent_;
     Payload_.queryagent_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-inline void RequestMessage::set_allocated_queryagent(::rhsa::QueryAgents* queryagent) {
+inline void RequestMessage::set_allocated_queryagent(::rhsa::QueryAgent* queryagent) {
   clear_Payload();
   if (queryagent) {
     set_has_queryagent();

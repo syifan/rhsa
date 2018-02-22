@@ -25,7 +25,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
   RequestMessage_reflection_ = NULL;
 struct RequestMessageOneofInstance {
   const ::rhsa::InitMessage* init_;
-  const ::rhsa::QueryAgents* queryagent_;
+  const ::rhsa::QueryAgent* queryagent_;
 }* RequestMessage_default_oneof_instance_ = NULL;
 
 }  // namespace
@@ -90,9 +90,9 @@ void protobuf_AddDesc_request_2eproto() {
   ::rhsa::protobuf_AddDesc_agent_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rrequest.proto\022\004rhsa\032\ninit.proto\032\013agent"
-    ".proto\"i\n\016RequestMessage\022\"\n\004init\030\350\007 \001(\0132"
-    "\021.rhsa.InitMessageH\000\022(\n\nqueryAgent\030\320\017 \001("
-    "\0132\021.rhsa.QueryAgentsH\000B\t\n\007Payload", 153);
+    ".proto\"h\n\016RequestMessage\022\"\n\004init\030\350\007 \001(\0132"
+    "\021.rhsa.InitMessageH\000\022\'\n\nqueryAgent\030\320\017 \001("
+    "\0132\020.rhsa.QueryAgentH\000B\t\n\007Payload", 152);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "request.proto", &protobuf_RegisterTypes);
   RequestMessage::default_instance_ = new RequestMessage();
@@ -123,7 +123,7 @@ RequestMessage::RequestMessage()
 
 void RequestMessage::InitAsDefaultInstance() {
   RequestMessage_default_oneof_instance_->init_ = const_cast< ::rhsa::InitMessage*>(&::rhsa::InitMessage::default_instance());
-  RequestMessage_default_oneof_instance_->queryagent_ = const_cast< ::rhsa::QueryAgents*>(&::rhsa::QueryAgents::default_instance());
+  RequestMessage_default_oneof_instance_->queryagent_ = const_cast< ::rhsa::QueryAgent*>(&::rhsa::QueryAgent::default_instance());
 }
 
 RequestMessage::RequestMessage(const RequestMessage& from)
@@ -219,7 +219,7 @@ bool RequestMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .rhsa.QueryAgents queryAgent = 2000;
+      // optional .rhsa.QueryAgent queryAgent = 2000;
       case 2000: {
         if (tag == 16002) {
          parse_queryAgent:
@@ -263,7 +263,7 @@ void RequestMessage::SerializeWithCachedSizes(
       1000, this->init(), output);
   }
 
-  // optional .rhsa.QueryAgents queryAgent = 2000;
+  // optional .rhsa.QueryAgent queryAgent = 2000;
   if (has_queryagent()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2000, this->queryagent(), output);
@@ -286,7 +286,7 @@ void RequestMessage::SerializeWithCachedSizes(
         1000, this->init(), target);
   }
 
-  // optional .rhsa.QueryAgents queryAgent = 2000;
+  // optional .rhsa.QueryAgent queryAgent = 2000;
   if (has_queryagent()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -312,7 +312,7 @@ int RequestMessage::ByteSize() const {
           this->init());
       break;
     }
-    // optional .rhsa.QueryAgents queryAgent = 2000;
+    // optional .rhsa.QueryAgent queryAgent = 2000;
     case kQueryAgent: {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -354,7 +354,7 @@ void RequestMessage::MergeFrom(const RequestMessage& from) {
       break;
     }
     case kQueryAgent: {
-      mutable_queryagent()->::rhsa::QueryAgents::MergeFrom(from.queryagent());
+      mutable_queryagent()->::rhsa::QueryAgent::MergeFrom(from.queryagent());
       break;
     }
     case PAYLOAD_NOT_SET: {

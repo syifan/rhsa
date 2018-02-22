@@ -35,7 +35,7 @@ void protobuf_AssignDesc_agent_2eproto();
 void protobuf_ShutdownFile_agent_2eproto();
 
 class AgentMesg;
-class QueryAgents;
+class QueryAgent;
 
 enum AgentMesg_Feature {
   AgentMesg_Feature_kernel_dispatch = 1,
@@ -644,14 +644,14 @@ class AgentMesg : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class QueryAgents : public ::google::protobuf::Message {
+class QueryAgent : public ::google::protobuf::Message {
  public:
-  QueryAgents();
-  virtual ~QueryAgents();
+  QueryAgent();
+  virtual ~QueryAgent();
 
-  QueryAgents(const QueryAgents& from);
+  QueryAgent(const QueryAgent& from);
 
-  inline QueryAgents& operator=(const QueryAgents& from) {
+  inline QueryAgent& operator=(const QueryAgent& from) {
     CopyFrom(from);
     return *this;
   }
@@ -665,17 +665,17 @@ class QueryAgents : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const QueryAgents& default_instance();
+  static const QueryAgent& default_instance();
 
-  void Swap(QueryAgents* other);
+  void Swap(QueryAgent* other);
 
   // implements Message ----------------------------------------------
 
-  QueryAgents* New() const;
+  QueryAgent* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const QueryAgents& from);
-  void MergeFrom(const QueryAgents& from);
+  void CopyFrom(const QueryAgent& from);
+  void MergeFrom(const QueryAgent& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -709,7 +709,7 @@ class QueryAgents : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::rhsa::AgentMesg >*
       mutable_agents();
 
-  // @@protoc_insertion_point(class_scope:rhsa.QueryAgents)
+  // @@protoc_insertion_point(class_scope:rhsa.QueryAgent)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
@@ -722,7 +722,7 @@ class QueryAgents : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_agent_2eproto();
 
   void InitAsDefaultInstance();
-  static QueryAgents* default_instance_;
+  static QueryAgent* default_instance_;
 };
 // ===================================================================
 
@@ -1479,35 +1479,35 @@ inline void AgentMesg::set_version_minor(::google::protobuf::uint32 value) {
 
 // -------------------------------------------------------------------
 
-// QueryAgents
+// QueryAgent
 
 // repeated .rhsa.AgentMesg agents = 1;
-inline int QueryAgents::agents_size() const {
+inline int QueryAgent::agents_size() const {
   return agents_.size();
 }
-inline void QueryAgents::clear_agents() {
+inline void QueryAgent::clear_agents() {
   agents_.Clear();
 }
-inline const ::rhsa::AgentMesg& QueryAgents::agents(int index) const {
-  // @@protoc_insertion_point(field_get:rhsa.QueryAgents.agents)
+inline const ::rhsa::AgentMesg& QueryAgent::agents(int index) const {
+  // @@protoc_insertion_point(field_get:rhsa.QueryAgent.agents)
   return agents_.Get(index);
 }
-inline ::rhsa::AgentMesg* QueryAgents::mutable_agents(int index) {
-  // @@protoc_insertion_point(field_mutable:rhsa.QueryAgents.agents)
+inline ::rhsa::AgentMesg* QueryAgent::mutable_agents(int index) {
+  // @@protoc_insertion_point(field_mutable:rhsa.QueryAgent.agents)
   return agents_.Mutable(index);
 }
-inline ::rhsa::AgentMesg* QueryAgents::add_agents() {
-  // @@protoc_insertion_point(field_add:rhsa.QueryAgents.agents)
+inline ::rhsa::AgentMesg* QueryAgent::add_agents() {
+  // @@protoc_insertion_point(field_add:rhsa.QueryAgent.agents)
   return agents_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::rhsa::AgentMesg >&
-QueryAgents::agents() const {
-  // @@protoc_insertion_point(field_list:rhsa.QueryAgents.agents)
+QueryAgent::agents() const {
+  // @@protoc_insertion_point(field_list:rhsa.QueryAgent.agents)
   return agents_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::rhsa::AgentMesg >*
-QueryAgents::mutable_agents() {
-  // @@protoc_insertion_point(field_mutable_list:rhsa.QueryAgents.agents)
+QueryAgent::mutable_agents() {
+  // @@protoc_insertion_point(field_mutable_list:rhsa.QueryAgent.agents)
   return &agents_;
 }
 

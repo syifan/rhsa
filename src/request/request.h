@@ -35,8 +35,17 @@ class InitRequest : public Request {
  public:
   InitRequest() : Request() {
     InitMessage *init_msg = new InitMessage();
-	init_msg->set_type(1);
+	  init_msg->set_type(1);
     req_->set_allocated_init(init_msg);
   }
 };
+
+class QueryAgentRequest : public Request {
+ public:
+  QueryAgentRequest() : Request() {
+    QueryAgent *msg = new QueryAgent();
+    req_->set_allocated_queryagent(msg); 
+  }
+};
+
 }
