@@ -53,7 +53,10 @@ message AgentMesg {
 		dsp = 2;
 	}
 	required Device_type device = 120;
-	repeated uint32 cache_size = 121;
+	required uint32 cache_size_l1 = 121;
+	required uint32 cache_size_l2 = 126;
+	required uint32 cache_size_l3 = 127;
+	required uint32 cache_size_l4 = 128;
 	required uint64 isa = 122;
 	repeated uint32 agent_extensions = 123;
 	required uint32 version_major = 124;
