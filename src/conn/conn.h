@@ -1,3 +1,6 @@
+#ifndef SRC_CONN_CONN_H_
+#define SRC_CONN_CONN_H_
+
 #include <memory>
 
 namespace rhsa {
@@ -28,3 +31,5 @@ class TCPConnection : public Connection {
 };
 
 }
+
+#endif  // SRC_CONN_CONN_H_

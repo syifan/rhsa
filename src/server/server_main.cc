@@ -5,7 +5,6 @@ int main() {
   server.Init();
   server.IterateAgents();
 
-  // rhsa::Listener listener(&server);
-
-  // listener.Listen(9001);
+  rhsa::Listener listener(&server);
+  listener.Listen(9001);
 }

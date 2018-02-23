@@ -6,6 +6,7 @@
 #include "hsa/hsa_ext_finalize.h"
 
 #include "src/common/agent.h"
+#include "src/conn/disconnect_exception.h"
 #include "src/request/request.h"
 
 namespace rhsa {
@@ -152,13 +153,19 @@ namespace rhsa {
 		return HSA_STATUS_SUCCESS;
 	}
 
-	void rhsa::Server::Init() { hsa_init(); }
+	void Server::Init() { hsa_init(); }
 
-	void rhsa::Server::IterateAgents() { hsa_iterate_agents(storeAgent, &agents_); };
+	void Server::IterateAgents() { hsa_iterate_agents(storeAgent, &agents_); };
 
-	void rhsa::Server::Handle(std::unique_ptr<Connection> conn) {
+	void Server::Handle(std::unique_ptr<Connection> conn) {
 		std::cout << "Connected.\n";
-		auto req = conn->Recv();
-		std::cout << "Received: " << req->GetPayloadCase() << "\n";
+		try{
+			while(true) {
+				auto req = conn->Recv();
+				std::cout << "Received: " << req->GetPayloadCase() << "\n";
+			}
+		} catch (DisconnectException &e) {
+			std::cout << "Client disconnected.\n";
+		}
 	}
 }

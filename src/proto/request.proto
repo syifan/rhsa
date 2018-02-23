@@ -9,6 +9,6 @@ message RequestMessage {
 		oneof Payload {
 			InitMessage init = 1000;
 
-      QueryAgents queryAgent = 2000;
+      QueryAgent queryAgent = 2000;
 		}
 }

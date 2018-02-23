@@ -63,6 +63,6 @@ message AgentMesg {
 	required uint32 version_minor = 125;
 }
 
-message QueryAgents {
+message QueryAgent {
 	repeated AgentMesg agents = 1;
 }
