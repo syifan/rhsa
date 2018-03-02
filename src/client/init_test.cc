@@ -3,7 +3,8 @@
 
 namespace {
 
-TEST(HSA_Runtime, hsa_init) {
+TEST(HSA_Client, hsa_init) {
+  // TODO(Yifan): Complete this test
   EXPECT_EQ(1, 1);
 }
 

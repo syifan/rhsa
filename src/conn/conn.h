@@ -2,6 +2,7 @@
 #define SRC_CONN_CONN_H_
 
 #include <memory>
+#include "gmock/gmock.h"
 
 namespace rhsa {
 
