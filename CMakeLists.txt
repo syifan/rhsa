@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.4)
 
 project(rhsa)
 
+list(APPEND CMAKE_MODULE_PATH
+    "${PROJECT_SOURCE_DIR}/cmake")
+include(gtest)
+
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories("${PROJECT_SOURCE_DIR}/include")
@@ -20,4 +24,3 @@ find_library(HSA_RUNTIME hsa-runtime64
 message(${HSA_RUNTIME})
 
 add_subdirectory(src)
-add_subdirectory(gtest)
