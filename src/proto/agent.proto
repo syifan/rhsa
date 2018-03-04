@@ -31,7 +31,9 @@ message AgentMesg {
 	required Default_float_rounding_mode default_float_rounding_mode = 105;
 	required bool fast_f16_operation = 106;
 	required uint32 wavefront_size = 107;
-	required uint32 workgroup_max_dim = 108;
+	required uint32 workgroup_max_dim_x = 108;
+	required uint32 workgroup_max_dim_y = 129;
+	required uint32 workgroup_max_dim_z = 130;
 	required uint32 workgroup_max_size = 109;
 	required uint32 grid_max_dim_x = 110;
 	required uint32 grid_max_dim_y = 111;

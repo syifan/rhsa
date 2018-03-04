@@ -26,31 +26,33 @@ namespace rhsa {
 	void loadFeature(hsa_agent_t agent, Agent *agent_info) {
 		int feature;
 		hsa_agent_get_info(agent, HSA_AGENT_INFO_FEATURE, &feature);
-		agent_info->SetFeature((AgentMesg_Feature)feature);
+		if (feature == 1 || feature == 2) {
+			agent_info->SetFeature((AgentMesg_Feature)feature);
+		}
 	}
 
 	void loadMachineModel(hsa_agent_t agent, Agent *agent_info) {
 		int machineModel;
-		hsa_agent_get_info(agent, HSA_AGENT_INFO_FEATURE, &machineModel);
+		hsa_agent_get_info(agent, HSA_AGENT_INFO_MACHINE_MODEL, &machineModel);
 		agent_info->SetMachineModel((AgentMesg_Machine_model)machineModel);
 	}
 
 	void loadProfile(hsa_agent_t agent, Agent *agent_info) {
 		int profile;
-		hsa_agent_get_info(agent, HSA_AGENT_INFO_FEATURE, &profile);
+		hsa_agent_get_info(agent, HSA_AGENT_INFO_PROFILE, &profile);
 		agent_info->SetProfile((AgentMesg_Profile)profile);
 	}
 
 	void loadDefaultFloatRoundingMode(hsa_agent_t agent, Agent *agent_info) {
 		int mode;
-		hsa_agent_get_info(agent, HSA_AGENT_INFO_FEATURE, &mode);
+		hsa_agent_get_info(agent, HSA_AGENT_INFO_DEFAULT_FLOAT_ROUNDING_MODE, &mode);
 		agent_info->SetDefaultFloatRoundingMode((AgentMesg_Default_float_rounding_mode)mode);
 	}
 
 	// What happens if this is undef?
 	void loadFastF16Operation(hsa_agent_t agent, Agent *agent_info) {
 		bool support;
-		hsa_agent_get_info(agent, HSA_AGENT_INFO_FEATURE, &support);
+		hsa_agent_get_info(agent, HSA_AGENT_INFO_FAST_F16_OPERATION, &support);
 		agent_info->SetFastF16Operation(support);
 	}
 
@@ -60,10 +62,12 @@ namespace rhsa {
 		agent_info->SetWavefrontSize(size);
 	}
 
-	void loadWorkgroupMaxDim(hsa_agent_t agent, Agent *agent_info) {
-		uint32_t dim;
-		hsa_agent_get_info(agent, HSA_AGENT_INFO_WORKGROUP_MAX_DIM, &dim);
-		agent_info->SetWorkgroupMaxDim(dim);
+	void loadWorkgroupMaxDims(hsa_agent_t agent, Agent *agent_info) {
+		uint16_t dims[3];
+		hsa_agent_get_info(agent, HSA_AGENT_INFO_WORKGROUP_MAX_DIM, &dims);
+		agent_info->SetWorkgroupMaxDimX(dims[0]);
+		agent_info->SetWorkgroupMaxDimY(dims[1]);
+		agent_info->SetWorkgroupMaxDimZ(dims[2]);
 	}
 
 	void loadWorkgroupMaxSize(hsa_agent_t agent, Agent *agent_info) {
@@ -175,7 +179,7 @@ namespace rhsa {
 		loadDefaultFloatRoundingMode(agent, agent_info.get());
 		loadFastF16Operation(agent, agent_info.get());
 		loadWavefrontSize(agent, agent_info.get());
-		loadWorkgroupMaxDim(agent, agent_info.get());
+		loadWorkgroupMaxDims(agent, agent_info.get());
 		loadWorkgroupMaxSize(agent, agent_info.get());
 		loadGridMaxDims(agent, agent_info.get());
 		loadGridMaxSize(agent, agent_info.get());

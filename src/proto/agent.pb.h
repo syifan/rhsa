@@ -418,12 +418,26 @@ class AgentMesg : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 wavefront_size() const;
   inline void set_wavefront_size(::google::protobuf::uint32 value);
 
-  // required uint32 workgroup_max_dim = 108;
-  inline bool has_workgroup_max_dim() const;
-  inline void clear_workgroup_max_dim();
-  static const int kWorkgroupMaxDimFieldNumber = 108;
-  inline ::google::protobuf::uint32 workgroup_max_dim() const;
-  inline void set_workgroup_max_dim(::google::protobuf::uint32 value);
+  // required uint32 workgroup_max_dim_x = 108;
+  inline bool has_workgroup_max_dim_x() const;
+  inline void clear_workgroup_max_dim_x();
+  static const int kWorkgroupMaxDimXFieldNumber = 108;
+  inline ::google::protobuf::uint32 workgroup_max_dim_x() const;
+  inline void set_workgroup_max_dim_x(::google::protobuf::uint32 value);
+
+  // required uint32 workgroup_max_dim_y = 129;
+  inline bool has_workgroup_max_dim_y() const;
+  inline void clear_workgroup_max_dim_y();
+  static const int kWorkgroupMaxDimYFieldNumber = 129;
+  inline ::google::protobuf::uint32 workgroup_max_dim_y() const;
+  inline void set_workgroup_max_dim_y(::google::protobuf::uint32 value);
+
+  // required uint32 workgroup_max_dim_z = 130;
+  inline bool has_workgroup_max_dim_z() const;
+  inline void clear_workgroup_max_dim_z();
+  static const int kWorkgroupMaxDimZFieldNumber = 130;
+  inline ::google::protobuf::uint32 workgroup_max_dim_z() const;
+  inline void set_workgroup_max_dim_z(::google::protobuf::uint32 value);
 
   // required uint32 workgroup_max_size = 109;
   inline bool has_workgroup_max_size() const;
@@ -544,7 +558,7 @@ class AgentMesg : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 isa() const;
   inline void set_isa(::google::protobuf::uint64 value);
 
-  // repeated uint32 agent_extensions = 123;
+  // repeated uint32 agent_extensions = 123 [packed = true];
   inline int agent_extensions_size() const;
   inline void clear_agent_extensions();
   static const int kAgentExtensionsFieldNumber = 123;
@@ -588,8 +602,12 @@ class AgentMesg : public ::google::protobuf::Message {
   inline void clear_has_fast_f16_operation();
   inline void set_has_wavefront_size();
   inline void clear_has_wavefront_size();
-  inline void set_has_workgroup_max_dim();
-  inline void clear_has_workgroup_max_dim();
+  inline void set_has_workgroup_max_dim_x();
+  inline void clear_has_workgroup_max_dim_x();
+  inline void set_has_workgroup_max_dim_y();
+  inline void clear_has_workgroup_max_dim_y();
+  inline void set_has_workgroup_max_dim_z();
+  inline void clear_has_workgroup_max_dim_z();
   inline void set_has_workgroup_max_size();
   inline void clear_has_workgroup_max_size();
   inline void set_has_grid_max_dim_x();
@@ -641,7 +659,9 @@ class AgentMesg : public ::google::protobuf::Message {
   int default_float_rounding_mode_;
   bool fast_f16_operation_;
   ::google::protobuf::uint32 wavefront_size_;
-  ::google::protobuf::uint32 workgroup_max_dim_;
+  ::google::protobuf::uint32 workgroup_max_dim_x_;
+  ::google::protobuf::uint32 workgroup_max_dim_y_;
+  ::google::protobuf::uint32 workgroup_max_dim_z_;
   ::google::protobuf::uint32 workgroup_max_size_;
   ::google::protobuf::uint32 grid_max_dim_x_;
   ::google::protobuf::uint32 grid_max_dim_y_;
@@ -661,6 +681,7 @@ class AgentMesg : public ::google::protobuf::Message {
   ::google::protobuf::uint32 cache_size_l4_;
   ::google::protobuf::uint32 version_major_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > agent_extensions_;
+  mutable int _agent_extensions_cached_byte_size_;
   ::google::protobuf::uint32 version_minor_;
   friend void  protobuf_AddDesc_agent_2eproto();
   friend void protobuf_AssignDesc_agent_2eproto();
@@ -1058,39 +1079,87 @@ inline void AgentMesg::set_wavefront_size(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:rhsa.AgentMesg.wavefront_size)
 }
 
-// required uint32 workgroup_max_dim = 108;
-inline bool AgentMesg::has_workgroup_max_dim() const {
+// required uint32 workgroup_max_dim_x = 108;
+inline bool AgentMesg::has_workgroup_max_dim_x() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void AgentMesg::set_has_workgroup_max_dim() {
+inline void AgentMesg::set_has_workgroup_max_dim_x() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void AgentMesg::clear_has_workgroup_max_dim() {
+inline void AgentMesg::clear_has_workgroup_max_dim_x() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void AgentMesg::clear_workgroup_max_dim() {
-  workgroup_max_dim_ = 0u;
-  clear_has_workgroup_max_dim();
+inline void AgentMesg::clear_workgroup_max_dim_x() {
+  workgroup_max_dim_x_ = 0u;
+  clear_has_workgroup_max_dim_x();
 }
-inline ::google::protobuf::uint32 AgentMesg::workgroup_max_dim() const {
-  // @@protoc_insertion_point(field_get:rhsa.AgentMesg.workgroup_max_dim)
-  return workgroup_max_dim_;
+inline ::google::protobuf::uint32 AgentMesg::workgroup_max_dim_x() const {
+  // @@protoc_insertion_point(field_get:rhsa.AgentMesg.workgroup_max_dim_x)
+  return workgroup_max_dim_x_;
 }
-inline void AgentMesg::set_workgroup_max_dim(::google::protobuf::uint32 value) {
-  set_has_workgroup_max_dim();
-  workgroup_max_dim_ = value;
-  // @@protoc_insertion_point(field_set:rhsa.AgentMesg.workgroup_max_dim)
+inline void AgentMesg::set_workgroup_max_dim_x(::google::protobuf::uint32 value) {
+  set_has_workgroup_max_dim_x();
+  workgroup_max_dim_x_ = value;
+  // @@protoc_insertion_point(field_set:rhsa.AgentMesg.workgroup_max_dim_x)
+}
+
+// required uint32 workgroup_max_dim_y = 129;
+inline bool AgentMesg::has_workgroup_max_dim_y() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void AgentMesg::set_has_workgroup_max_dim_y() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void AgentMesg::clear_has_workgroup_max_dim_y() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void AgentMesg::clear_workgroup_max_dim_y() {
+  workgroup_max_dim_y_ = 0u;
+  clear_has_workgroup_max_dim_y();
+}
+inline ::google::protobuf::uint32 AgentMesg::workgroup_max_dim_y() const {
+  // @@protoc_insertion_point(field_get:rhsa.AgentMesg.workgroup_max_dim_y)
+  return workgroup_max_dim_y_;
+}
+inline void AgentMesg::set_workgroup_max_dim_y(::google::protobuf::uint32 value) {
+  set_has_workgroup_max_dim_y();
+  workgroup_max_dim_y_ = value;
+  // @@protoc_insertion_point(field_set:rhsa.AgentMesg.workgroup_max_dim_y)
+}
+
+// required uint32 workgroup_max_dim_z = 130;
+inline bool AgentMesg::has_workgroup_max_dim_z() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void AgentMesg::set_has_workgroup_max_dim_z() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void AgentMesg::clear_has_workgroup_max_dim_z() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void AgentMesg::clear_workgroup_max_dim_z() {
+  workgroup_max_dim_z_ = 0u;
+  clear_has_workgroup_max_dim_z();
+}
+inline ::google::protobuf::uint32 AgentMesg::workgroup_max_dim_z() const {
+  // @@protoc_insertion_point(field_get:rhsa.AgentMesg.workgroup_max_dim_z)
+  return workgroup_max_dim_z_;
+}
+inline void AgentMesg::set_workgroup_max_dim_z(::google::protobuf::uint32 value) {
+  set_has_workgroup_max_dim_z();
+  workgroup_max_dim_z_ = value;
+  // @@protoc_insertion_point(field_set:rhsa.AgentMesg.workgroup_max_dim_z)
 }
 
 // required uint32 workgroup_max_size = 109;
 inline bool AgentMesg::has_workgroup_max_size() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void AgentMesg::set_has_workgroup_max_size() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void AgentMesg::clear_has_workgroup_max_size() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void AgentMesg::clear_workgroup_max_size() {
   workgroup_max_size_ = 0u;
@@ -1108,13 +1177,13 @@ inline void AgentMesg::set_workgroup_max_size(::google::protobuf::uint32 value) 
 
 // required uint32 grid_max_dim_x = 110;
 inline bool AgentMesg::has_grid_max_dim_x() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 inline void AgentMesg::set_has_grid_max_dim_x() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00001000u;
 }
 inline void AgentMesg::clear_has_grid_max_dim_x() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline void AgentMesg::clear_grid_max_dim_x() {
   grid_max_dim_x_ = 0u;
@@ -1132,13 +1201,13 @@ inline void AgentMesg::set_grid_max_dim_x(::google::protobuf::uint32 value) {
 
 // required uint32 grid_max_dim_y = 111;
 inline bool AgentMesg::has_grid_max_dim_y() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 inline void AgentMesg::set_has_grid_max_dim_y() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00002000u;
 }
 inline void AgentMesg::clear_has_grid_max_dim_y() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline void AgentMesg::clear_grid_max_dim_y() {
   grid_max_dim_y_ = 0u;
@@ -1156,13 +1225,13 @@ inline void AgentMesg::set_grid_max_dim_y(::google::protobuf::uint32 value) {
 
 // required uint32 grid_max_dim_z = 112;
 inline bool AgentMesg::has_grid_max_dim_z() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
 inline void AgentMesg::set_has_grid_max_dim_z() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00004000u;
 }
 inline void AgentMesg::clear_has_grid_max_dim_z() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline void AgentMesg::clear_grid_max_dim_z() {
   grid_max_dim_z_ = 0u;
@@ -1180,13 +1249,13 @@ inline void AgentMesg::set_grid_max_dim_z(::google::protobuf::uint32 value) {
 
 // required uint32 grid_max_size = 113;
 inline bool AgentMesg::has_grid_max_size() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 inline void AgentMesg::set_has_grid_max_size() {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00008000u;
 }
 inline void AgentMesg::clear_has_grid_max_size() {
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline void AgentMesg::clear_grid_max_size() {
   grid_max_size_ = 0u;
@@ -1204,13 +1273,13 @@ inline void AgentMesg::set_grid_max_size(::google::protobuf::uint32 value) {
 
 // required uint32 fbarrier_max_size = 114;
 inline bool AgentMesg::has_fbarrier_max_size() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
 inline void AgentMesg::set_has_fbarrier_max_size() {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00010000u;
 }
 inline void AgentMesg::clear_has_fbarrier_max_size() {
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline void AgentMesg::clear_fbarrier_max_size() {
   fbarrier_max_size_ = 0u;
@@ -1228,13 +1297,13 @@ inline void AgentMesg::set_fbarrier_max_size(::google::protobuf::uint32 value) {
 
 // required uint32 queues_max = 115;
 inline bool AgentMesg::has_queues_max() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
+  return (_has_bits_[0] & 0x00020000u) != 0;
 }
 inline void AgentMesg::set_has_queues_max() {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00020000u;
 }
 inline void AgentMesg::clear_has_queues_max() {
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline void AgentMesg::clear_queues_max() {
   queues_max_ = 0u;
@@ -1252,13 +1321,13 @@ inline void AgentMesg::set_queues_max(::google::protobuf::uint32 value) {
 
 // required uint32 queue_min_size = 116;
 inline bool AgentMesg::has_queue_min_size() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
+  return (_has_bits_[0] & 0x00040000u) != 0;
 }
 inline void AgentMesg::set_has_queue_min_size() {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00040000u;
 }
 inline void AgentMesg::clear_has_queue_min_size() {
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline void AgentMesg::clear_queue_min_size() {
   queue_min_size_ = 0u;
@@ -1276,13 +1345,13 @@ inline void AgentMesg::set_queue_min_size(::google::protobuf::uint32 value) {
 
 // required uint32 queue_max_size = 117;
 inline bool AgentMesg::has_queue_max_size() const {
-  return (_has_bits_[0] & 0x00020000u) != 0;
+  return (_has_bits_[0] & 0x00080000u) != 0;
 }
 inline void AgentMesg::set_has_queue_max_size() {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00080000u;
 }
 inline void AgentMesg::clear_has_queue_max_size() {
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline void AgentMesg::clear_queue_max_size() {
   queue_max_size_ = 0u;
@@ -1300,13 +1369,13 @@ inline void AgentMesg::set_queue_max_size(::google::protobuf::uint32 value) {
 
 // required .rhsa.AgentMesg.Queue_type queue_type = 118;
 inline bool AgentMesg::has_queue_type() const {
-  return (_has_bits_[0] & 0x00040000u) != 0;
+  return (_has_bits_[0] & 0x00100000u) != 0;
 }
 inline void AgentMesg::set_has_queue_type() {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00100000u;
 }
 inline void AgentMesg::clear_has_queue_type() {
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline void AgentMesg::clear_queue_type() {
   queue_type_ = 0;
@@ -1325,13 +1394,13 @@ inline void AgentMesg::set_queue_type(::rhsa::AgentMesg_Queue_type value) {
 
 // required uint32 node = 119;
 inline bool AgentMesg::has_node() const {
-  return (_has_bits_[0] & 0x00080000u) != 0;
+  return (_has_bits_[0] & 0x00200000u) != 0;
 }
 inline void AgentMesg::set_has_node() {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00200000u;
 }
 inline void AgentMesg::clear_has_node() {
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline void AgentMesg::clear_node() {
   node_ = 0u;
@@ -1349,13 +1418,13 @@ inline void AgentMesg::set_node(::google::protobuf::uint32 value) {
 
 // required .rhsa.AgentMesg.Device_type device = 120;
 inline bool AgentMesg::has_device() const {
-  return (_has_bits_[0] & 0x00100000u) != 0;
+  return (_has_bits_[0] & 0x00400000u) != 0;
 }
 inline void AgentMesg::set_has_device() {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00400000u;
 }
 inline void AgentMesg::clear_has_device() {
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline void AgentMesg::clear_device() {
   device_ = 0;
@@ -1374,13 +1443,13 @@ inline void AgentMesg::set_device(::rhsa::AgentMesg_Device_type value) {
 
 // required uint32 cache_size_l1 = 121;
 inline bool AgentMesg::has_cache_size_l1() const {
-  return (_has_bits_[0] & 0x00200000u) != 0;
+  return (_has_bits_[0] & 0x00800000u) != 0;
 }
 inline void AgentMesg::set_has_cache_size_l1() {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00800000u;
 }
 inline void AgentMesg::clear_has_cache_size_l1() {
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline void AgentMesg::clear_cache_size_l1() {
   cache_size_l1_ = 0u;
@@ -1398,13 +1467,13 @@ inline void AgentMesg::set_cache_size_l1(::google::protobuf::uint32 value) {
 
 // required uint32 cache_size_l2 = 126;
 inline bool AgentMesg::has_cache_size_l2() const {
-  return (_has_bits_[0] & 0x00400000u) != 0;
+  return (_has_bits_[0] & 0x01000000u) != 0;
 }
 inline void AgentMesg::set_has_cache_size_l2() {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x01000000u;
 }
 inline void AgentMesg::clear_has_cache_size_l2() {
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline void AgentMesg::clear_cache_size_l2() {
   cache_size_l2_ = 0u;
@@ -1422,13 +1491,13 @@ inline void AgentMesg::set_cache_size_l2(::google::protobuf::uint32 value) {
 
 // required uint32 cache_size_l3 = 127;
 inline bool AgentMesg::has_cache_size_l3() const {
-  return (_has_bits_[0] & 0x00800000u) != 0;
+  return (_has_bits_[0] & 0x02000000u) != 0;
 }
 inline void AgentMesg::set_has_cache_size_l3() {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x02000000u;
 }
 inline void AgentMesg::clear_has_cache_size_l3() {
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline void AgentMesg::clear_cache_size_l3() {
   cache_size_l3_ = 0u;
@@ -1446,13 +1515,13 @@ inline void AgentMesg::set_cache_size_l3(::google::protobuf::uint32 value) {
 
 // required uint32 cache_size_l4 = 128;
 inline bool AgentMesg::has_cache_size_l4() const {
-  return (_has_bits_[0] & 0x01000000u) != 0;
+  return (_has_bits_[0] & 0x04000000u) != 0;
 }
 inline void AgentMesg::set_has_cache_size_l4() {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x04000000u;
 }
 inline void AgentMesg::clear_has_cache_size_l4() {
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline void AgentMesg::clear_cache_size_l4() {
   cache_size_l4_ = 0u;
@@ -1470,13 +1539,13 @@ inline void AgentMesg::set_cache_size_l4(::google::protobuf::uint32 value) {
 
 // required uint64 isa = 122;
 inline bool AgentMesg::has_isa() const {
-  return (_has_bits_[0] & 0x02000000u) != 0;
+  return (_has_bits_[0] & 0x08000000u) != 0;
 }
 inline void AgentMesg::set_has_isa() {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x08000000u;
 }
 inline void AgentMesg::clear_has_isa() {
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline void AgentMesg::clear_isa() {
   isa_ = GOOGLE_ULONGLONG(0);
@@ -1492,7 +1561,7 @@ inline void AgentMesg::set_isa(::google::protobuf::uint64 value) {
   // @@protoc_insertion_point(field_set:rhsa.AgentMesg.isa)
 }
 
-// repeated uint32 agent_extensions = 123;
+// repeated uint32 agent_extensions = 123 [packed = true];
 inline int AgentMesg::agent_extensions_size() const {
   return agent_extensions_.size();
 }
@@ -1524,13 +1593,13 @@ AgentMesg::mutable_agent_extensions() {
 
 // required uint32 version_major = 124;
 inline bool AgentMesg::has_version_major() const {
-  return (_has_bits_[0] & 0x08000000u) != 0;
+  return (_has_bits_[0] & 0x20000000u) != 0;
 }
 inline void AgentMesg::set_has_version_major() {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x20000000u;
 }
 inline void AgentMesg::clear_has_version_major() {
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline void AgentMesg::clear_version_major() {
   version_major_ = 0u;
@@ -1548,13 +1617,13 @@ inline void AgentMesg::set_version_major(::google::protobuf::uint32 value) {
 
 // required uint32 version_minor = 125;
 inline bool AgentMesg::has_version_minor() const {
-  return (_has_bits_[0] & 0x10000000u) != 0;
+  return (_has_bits_[0] & 0x40000000u) != 0;
 }
 inline void AgentMesg::set_has_version_minor() {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x40000000u;
 }
 inline void AgentMesg::clear_has_version_minor() {
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x40000000u;
 }
 inline void AgentMesg::clear_version_minor() {
   version_minor_ = 0u;

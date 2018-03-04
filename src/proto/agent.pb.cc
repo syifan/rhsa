@@ -43,7 +43,7 @@ void protobuf_AssignDesc_agent_2eproto() {
       "agent.proto");
   GOOGLE_CHECK(file != NULL);
   AgentMesg_descriptor_ = file->message_type(0);
-  static const int AgentMesg_offsets_[29] = {
+  static const int AgentMesg_offsets_[31] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, vendor_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, feature_),
@@ -52,7 +52,9 @@ void protobuf_AssignDesc_agent_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, default_float_rounding_mode_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, fast_f16_operation_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, wavefront_size_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, workgroup_max_dim_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, workgroup_max_dim_x_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, workgroup_max_dim_y_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, workgroup_max_dim_z_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, workgroup_max_size_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, grid_max_dim_x_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, grid_max_dim_y_),
@@ -140,7 +142,7 @@ void protobuf_AddDesc_agent_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013agent.proto\022\004rhsa\"\314\010\n\tAgentMesg\022\014\n\004nam"
+    "\n\013agent.proto\022\004rhsa\"\216\t\n\tAgentMesg\022\014\n\004nam"
     "e\030d \002(\t\022\023\n\013vendor_name\030e \002(\t\022(\n\007feature\030"
     "f \002(\0162\027.rhsa.AgentMesg.Feature\0224\n\rmachin"
     "e_model\030g \002(\0162\035.rhsa.AgentMesg.Machine_m"
@@ -148,28 +150,29 @@ void protobuf_AddDesc_agent_2eproto() {
     "rofile\022P\n\033default_float_rounding_mode\030i "
     "\002(\0162+.rhsa.AgentMesg.Default_float_round"
     "ing_mode\022\032\n\022fast_f16_operation\030j \002(\010\022\026\n\016"
-    "wavefront_size\030k \002(\r\022\031\n\021workgroup_max_di"
-    "m\030l \002(\r\022\032\n\022workgroup_max_size\030m \002(\r\022\026\n\016g"
-    "rid_max_dim_x\030n \002(\r\022\026\n\016grid_max_dim_y\030o "
-    "\002(\r\022\026\n\016grid_max_dim_z\030p \002(\r\022\025\n\rgrid_max_"
-    "size\030q \002(\r\022\031\n\021fbarrier_max_size\030r \002(\r\022\022\n"
-    "\nqueues_max\030s \002(\r\022\026\n\016queue_min_size\030t \002("
-    "\r\022\026\n\016queue_max_size\030u \002(\r\022.\n\nqueue_type\030"
-    "v \002(\0162\032.rhsa.AgentMesg.Queue_type\022\014\n\004nod"
-    "e\030w \002(\r\022+\n\006device\030x \002(\0162\033.rhsa.AgentMesg"
-    ".Device_type\022\025\n\rcache_size_l1\030y \002(\r\022\025\n\rc"
-    "ache_size_l2\030~ \002(\r\022\025\n\rcache_size_l3\030\177 \002("
-    "\r\022\026\n\rcache_size_l4\030\200\001 \002(\r\022\013\n\003isa\030z \002(\004\022\030"
-    "\n\020agent_extensions\030{ \003(\r\022\025\n\rversion_majo"
-    "r\030| \002(\r\022\025\n\rversion_minor\030} \002(\r\"2\n\007Featur"
-    "e\022\023\n\017kernel_dispatch\020\001\022\022\n\016agent_dispatch"
-    "\020\002\"%\n\rMachine_model\022\t\n\005small\020\000\022\t\n\005large\020"
-    "\001\"\035\n\007Profile\022\010\n\004base\020\000\022\010\n\004full\020\001\"1\n\033Defa"
-    "ult_float_rounding_mode\022\010\n\004zero\020\001\022\010\n\004nea"
-    "r\020\002\"#\n\nQueue_type\022\t\n\005multi\020\000\022\n\n\006single\020\001"
-    "\"(\n\013Device_type\022\007\n\003cpu\020\000\022\007\n\003gpu\020\001\022\007\n\003dsp"
-    "\020\002\"-\n\nQueryAgent\022\037\n\006agents\030\001 \003(\0132\017.rhsa."
-    "AgentMesg", 1169);
+    "wavefront_size\030k \002(\r\022\033\n\023workgroup_max_di"
+    "m_x\030l \002(\r\022\034\n\023workgroup_max_dim_y\030\201\001 \002(\r\022"
+    "\034\n\023workgroup_max_dim_z\030\202\001 \002(\r\022\032\n\022workgro"
+    "up_max_size\030m \002(\r\022\026\n\016grid_max_dim_x\030n \002("
+    "\r\022\026\n\016grid_max_dim_y\030o \002(\r\022\026\n\016grid_max_di"
+    "m_z\030p \002(\r\022\025\n\rgrid_max_size\030q \002(\r\022\031\n\021fbar"
+    "rier_max_size\030r \002(\r\022\022\n\nqueues_max\030s \002(\r\022"
+    "\026\n\016queue_min_size\030t \002(\r\022\026\n\016queue_max_siz"
+    "e\030u \002(\r\022.\n\nqueue_type\030v \002(\0162\032.rhsa.Agent"
+    "Mesg.Queue_type\022\014\n\004node\030w \002(\r\022+\n\006device\030"
+    "x \002(\0162\033.rhsa.AgentMesg.Device_type\022\025\n\rca"
+    "che_size_l1\030y \002(\r\022\025\n\rcache_size_l2\030~ \002(\r"
+    "\022\025\n\rcache_size_l3\030\177 \002(\r\022\026\n\rcache_size_l4"
+    "\030\200\001 \002(\r\022\013\n\003isa\030z \002(\004\022\034\n\020agent_extensions"
+    "\030{ \003(\rB\002\020\001\022\025\n\rversion_major\030| \002(\r\022\025\n\rver"
+    "sion_minor\030} \002(\r\"2\n\007Feature\022\023\n\017kernel_di"
+    "spatch\020\001\022\022\n\016agent_dispatch\020\002\"%\n\rMachine_"
+    "model\022\t\n\005small\020\000\022\t\n\005large\020\001\"\035\n\007Profile\022\010"
+    "\n\004base\020\000\022\010\n\004full\020\001\"1\n\033Default_float_roun"
+    "ding_mode\022\010\n\004zero\020\001\022\010\n\004near\020\002\"#\n\nQueue_t"
+    "ype\022\t\n\005multi\020\000\022\n\n\006single\020\001\"(\n\013Device_typ"
+    "e\022\007\n\003cpu\020\000\022\007\n\003gpu\020\001\022\007\n\003dsp\020\002\"-\n\nQueryAge"
+    "nt\022\037\n\006agents\030\001 \003(\0132\017.rhsa.AgentMesg", 1235);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "agent.proto", &protobuf_RegisterTypes);
   AgentMesg::default_instance_ = new AgentMesg();
@@ -325,7 +328,9 @@ const int AgentMesg::kProfileFieldNumber;
 const int AgentMesg::kDefaultFloatRoundingModeFieldNumber;
 const int AgentMesg::kFastF16OperationFieldNumber;
 const int AgentMesg::kWavefrontSizeFieldNumber;
-const int AgentMesg::kWorkgroupMaxDimFieldNumber;
+const int AgentMesg::kWorkgroupMaxDimXFieldNumber;
+const int AgentMesg::kWorkgroupMaxDimYFieldNumber;
+const int AgentMesg::kWorkgroupMaxDimZFieldNumber;
 const int AgentMesg::kWorkgroupMaxSizeFieldNumber;
 const int AgentMesg::kGridMaxDimXFieldNumber;
 const int AgentMesg::kGridMaxDimYFieldNumber;
@@ -375,7 +380,9 @@ void AgentMesg::SharedCtor() {
   default_float_rounding_mode_ = 1;
   fast_f16_operation_ = false;
   wavefront_size_ = 0u;
-  workgroup_max_dim_ = 0u;
+  workgroup_max_dim_x_ = 0u;
+  workgroup_max_dim_y_ = 0u;
+  workgroup_max_dim_z_ = 0u;
   workgroup_max_size_ = 0u;
   grid_max_dim_x_ = 0u;
   grid_max_dim_y_ = 0u;
@@ -463,13 +470,13 @@ void AgentMesg::Clear() {
     default_float_rounding_mode_ = 1;
   }
   if (_has_bits_[8 / 32] & 65280) {
-    ZR_(workgroup_max_dim_, queues_max_);
+    ZR_(workgroup_max_dim_x_, grid_max_size_);
   }
   if (_has_bits_[16 / 32] & 16711680) {
-    ZR_(queue_min_size_, cache_size_l3_);
+    ZR_(fbarrier_max_size_, cache_size_l1_);
   }
-  if (_has_bits_[24 / 32] & 452984832) {
-    ZR_(isa_, version_major_);
+  if (_has_bits_[24 / 32] & 1862270976) {
+    ZR_(cache_size_l2_, version_major_);
     version_minor_ = 0u;
   }
 
@@ -630,18 +637,18 @@ bool AgentMesg::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(864)) goto parse_workgroup_max_dim;
+        if (input->ExpectTag(864)) goto parse_workgroup_max_dim_x;
         break;
       }
 
-      // required uint32 workgroup_max_dim = 108;
+      // required uint32 workgroup_max_dim_x = 108;
       case 108: {
         if (tag == 864) {
-         parse_workgroup_max_dim:
+         parse_workgroup_max_dim_x:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &workgroup_max_dim_)));
-          set_has_workgroup_max_dim();
+                 input, &workgroup_max_dim_x_)));
+          set_has_workgroup_max_dim_x();
         } else {
           goto handle_unusual;
         }
@@ -865,25 +872,24 @@ bool AgentMesg::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(984)) goto parse_agent_extensions;
+        if (input->ExpectTag(986)) goto parse_agent_extensions;
         break;
       }
 
-      // repeated uint32 agent_extensions = 123;
+      // repeated uint32 agent_extensions = 123 [packed = true];
       case 123: {
-        if (tag == 984) {
+        if (tag == 986) {
          parse_agent_extensions:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 2, 984, input, this->mutable_agent_extensions())));
-        } else if (tag == 986) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, this->mutable_agent_extensions())));
+        } else if (tag == 984) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 2, 986, input, this->mutable_agent_extensions())));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(984)) goto parse_agent_extensions;
         if (input->ExpectTag(992)) goto parse_version_major;
         break;
       }
@@ -956,6 +962,36 @@ bool AgentMesg::MergePartialFromCodedStream(
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &cache_size_l4_)));
           set_has_cache_size_l4();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(1032)) goto parse_workgroup_max_dim_y;
+        break;
+      }
+
+      // required uint32 workgroup_max_dim_y = 129;
+      case 129: {
+        if (tag == 1032) {
+         parse_workgroup_max_dim_y:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &workgroup_max_dim_y_)));
+          set_has_workgroup_max_dim_y();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(1040)) goto parse_workgroup_max_dim_z;
+        break;
+      }
+
+      // required uint32 workgroup_max_dim_z = 130;
+      case 130: {
+        if (tag == 1040) {
+         parse_workgroup_max_dim_z:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &workgroup_max_dim_z_)));
+          set_has_workgroup_max_dim_z();
         } else {
           goto handle_unusual;
         }
@@ -1042,9 +1078,9 @@ void AgentMesg::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(107, this->wavefront_size(), output);
   }
 
-  // required uint32 workgroup_max_dim = 108;
-  if (has_workgroup_max_dim()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(108, this->workgroup_max_dim(), output);
+  // required uint32 workgroup_max_dim_x = 108;
+  if (has_workgroup_max_dim_x()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(108, this->workgroup_max_dim_x(), output);
   }
 
   // required uint32 workgroup_max_size = 109;
@@ -1119,10 +1155,14 @@ void AgentMesg::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(122, this->isa(), output);
   }
 
-  // repeated uint32 agent_extensions = 123;
+  // repeated uint32 agent_extensions = 123 [packed = true];
+  if (this->agent_extensions_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(123, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(_agent_extensions_cached_byte_size_);
+  }
   for (int i = 0; i < this->agent_extensions_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(
-      123, this->agent_extensions(i), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32NoTag(
+      this->agent_extensions(i), output);
   }
 
   // required uint32 version_major = 124;
@@ -1148,6 +1188,16 @@ void AgentMesg::SerializeWithCachedSizes(
   // required uint32 cache_size_l4 = 128;
   if (has_cache_size_l4()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(128, this->cache_size_l4(), output);
+  }
+
+  // required uint32 workgroup_max_dim_y = 129;
+  if (has_workgroup_max_dim_y()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(129, this->workgroup_max_dim_y(), output);
+  }
+
+  // required uint32 workgroup_max_dim_z = 130;
+  if (has_workgroup_max_dim_z()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(130, this->workgroup_max_dim_z(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1216,9 +1266,9 @@ void AgentMesg::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(107, this->wavefront_size(), target);
   }
 
-  // required uint32 workgroup_max_dim = 108;
-  if (has_workgroup_max_dim()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(108, this->workgroup_max_dim(), target);
+  // required uint32 workgroup_max_dim_x = 108;
+  if (has_workgroup_max_dim_x()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(108, this->workgroup_max_dim_x(), target);
   }
 
   // required uint32 workgroup_max_size = 109;
@@ -1293,10 +1343,18 @@ void AgentMesg::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(122, this->isa(), target);
   }
 
-  // repeated uint32 agent_extensions = 123;
+  // repeated uint32 agent_extensions = 123 [packed = true];
+  if (this->agent_extensions_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      123,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+      _agent_extensions_cached_byte_size_, target);
+  }
   for (int i = 0; i < this->agent_extensions_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteUInt32ToArray(123, this->agent_extensions(i), target);
+      WriteUInt32NoTagToArray(this->agent_extensions(i), target);
   }
 
   // required uint32 version_major = 124;
@@ -1322,6 +1380,16 @@ void AgentMesg::SerializeWithCachedSizes(
   // required uint32 cache_size_l4 = 128;
   if (has_cache_size_l4()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(128, this->cache_size_l4(), target);
+  }
+
+  // required uint32 workgroup_max_dim_y = 129;
+  if (has_workgroup_max_dim_y()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(129, this->workgroup_max_dim_y(), target);
+  }
+
+  // required uint32 workgroup_max_dim_z = 130;
+  if (has_workgroup_max_dim_z()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(130, this->workgroup_max_dim_z(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1388,11 +1456,25 @@ int AgentMesg::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // required uint32 workgroup_max_dim = 108;
-    if (has_workgroup_max_dim()) {
+    // required uint32 workgroup_max_dim_x = 108;
+    if (has_workgroup_max_dim_x()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->workgroup_max_dim());
+          this->workgroup_max_dim_x());
+    }
+
+    // required uint32 workgroup_max_dim_y = 129;
+    if (has_workgroup_max_dim_y()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->workgroup_max_dim_y());
+    }
+
+    // required uint32 workgroup_max_dim_z = 130;
+    if (has_workgroup_max_dim_z()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->workgroup_max_dim_z());
     }
 
     // required uint32 workgroup_max_size = 109;
@@ -1430,6 +1512,8 @@ int AgentMesg::ByteSize() const {
           this->grid_max_size());
     }
 
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     // required uint32 fbarrier_max_size = 114;
     if (has_fbarrier_max_size()) {
       total_size += 2 +
@@ -1444,8 +1528,6 @@ int AgentMesg::ByteSize() const {
           this->queues_max());
     }
 
-  }
-  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     // required uint32 queue_min_size = 116;
     if (has_queue_min_size()) {
       total_size += 2 +
@@ -1486,6 +1568,8 @@ int AgentMesg::ByteSize() const {
           this->cache_size_l1());
     }
 
+  }
+  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     // required uint32 cache_size_l2 = 126;
     if (has_cache_size_l2()) {
       total_size += 2 +
@@ -1500,8 +1584,6 @@ int AgentMesg::ByteSize() const {
           this->cache_size_l3());
     }
 
-  }
-  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     // required uint32 cache_size_l4 = 128;
     if (has_cache_size_l4()) {
       total_size += 2 +
@@ -1531,14 +1613,21 @@ int AgentMesg::ByteSize() const {
     }
 
   }
-  // repeated uint32 agent_extensions = 123;
+  // repeated uint32 agent_extensions = 123 [packed = true];
   {
     int data_size = 0;
     for (int i = 0; i < this->agent_extensions_size(); i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
         UInt32Size(this->agent_extensions(i));
     }
-    total_size += 2 * this->agent_extensions_size() + data_size;
+    if (data_size > 0) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+    }
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _agent_extensions_cached_byte_size_ = data_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
   }
 
   if (!unknown_fields().empty()) {
@@ -1594,8 +1683,14 @@ void AgentMesg::MergeFrom(const AgentMesg& from) {
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_workgroup_max_dim()) {
-      set_workgroup_max_dim(from.workgroup_max_dim());
+    if (from.has_workgroup_max_dim_x()) {
+      set_workgroup_max_dim_x(from.workgroup_max_dim_x());
+    }
+    if (from.has_workgroup_max_dim_y()) {
+      set_workgroup_max_dim_y(from.workgroup_max_dim_y());
+    }
+    if (from.has_workgroup_max_dim_z()) {
+      set_workgroup_max_dim_z(from.workgroup_max_dim_z());
     }
     if (from.has_workgroup_max_size()) {
       set_workgroup_max_size(from.workgroup_max_size());
@@ -1612,14 +1707,14 @@ void AgentMesg::MergeFrom(const AgentMesg& from) {
     if (from.has_grid_max_size()) {
       set_grid_max_size(from.grid_max_size());
     }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (from.has_fbarrier_max_size()) {
       set_fbarrier_max_size(from.fbarrier_max_size());
     }
     if (from.has_queues_max()) {
       set_queues_max(from.queues_max());
     }
-  }
-  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (from.has_queue_min_size()) {
       set_queue_min_size(from.queue_min_size());
     }
@@ -1638,14 +1733,14 @@ void AgentMesg::MergeFrom(const AgentMesg& from) {
     if (from.has_cache_size_l1()) {
       set_cache_size_l1(from.cache_size_l1());
     }
+  }
+  if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (from.has_cache_size_l2()) {
       set_cache_size_l2(from.cache_size_l2());
     }
     if (from.has_cache_size_l3()) {
       set_cache_size_l3(from.cache_size_l3());
     }
-  }
-  if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (from.has_cache_size_l4()) {
       set_cache_size_l4(from.cache_size_l4());
     }
@@ -1675,7 +1770,7 @@ void AgentMesg::CopyFrom(const AgentMesg& from) {
 }
 
 bool AgentMesg::IsInitialized() const {
-  if ((_has_bits_[0] & 0x1bffffff) != 0x1bffffff) return false;
+  if ((_has_bits_[0] & 0x6fffffff) != 0x6fffffff) return false;
 
   return true;
 }
@@ -1690,7 +1785,9 @@ void AgentMesg::Swap(AgentMesg* other) {
     std::swap(default_float_rounding_mode_, other->default_float_rounding_mode_);
     std::swap(fast_f16_operation_, other->fast_f16_operation_);
     std::swap(wavefront_size_, other->wavefront_size_);
-    std::swap(workgroup_max_dim_, other->workgroup_max_dim_);
+    std::swap(workgroup_max_dim_x_, other->workgroup_max_dim_x_);
+    std::swap(workgroup_max_dim_y_, other->workgroup_max_dim_y_);
+    std::swap(workgroup_max_dim_z_, other->workgroup_max_dim_z_);
     std::swap(workgroup_max_size_, other->workgroup_max_size_);
     std::swap(grid_max_dim_x_, other->grid_max_dim_x_);
     std::swap(grid_max_dim_y_, other->grid_max_dim_y_);

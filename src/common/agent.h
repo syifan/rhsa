@@ -37,8 +37,14 @@ namespace rhsa {
 		void SetWavefrontSize(uint32_t size) { agent_mesg_->set_wavefront_size(size); }
 		const uint32_t GetWavefrontSize() { return agent_mesg_->wavefront_size(); }
 
-		void SetWorkgroupMaxDim(uint32_t dim) { agent_mesg_->set_workgroup_max_dim(dim); }
-		const uint32_t GetWorkgroupMaxDim() { return agent_mesg_->workgroup_max_dim(); }
+		void SetWorkgroupMaxDimX(uint32_t dim) { agent_mesg_->set_workgroup_max_dim_x(dim); }
+		const uint32_t GetWorkgroupMaxDimX() { return agent_mesg_->workgroup_max_dim_x(); }
+
+		void SetWorkgroupMaxDimY(uint32_t dim) { agent_mesg_->set_workgroup_max_dim_y(dim); }
+		const uint32_t GetWorkgroupMaxDimY() { return agent_mesg_->workgroup_max_dim_y(); }
+
+		void SetWorkgroupMaxDimZ(uint32_t dim) { agent_mesg_->set_workgroup_max_dim_z(dim); }
+		const uint32_t GetWorkgroupMaxDimZ() { return agent_mesg_->workgroup_max_dim_z(); }
 
 		void SetWorkgroupMaxSize(uint32_t size) { agent_mesg_->set_workgroup_max_size(size); }
 		const uint32_t GetWorkgroupMaxSize() { return agent_mesg_->workgroup_max_size(); }
