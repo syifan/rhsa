@@ -509,17 +509,33 @@ class AgentMesg : public ::google::protobuf::Message {
   inline ::rhsa::AgentMesg_Device_type device() const;
   inline void set_device(::rhsa::AgentMesg_Device_type value);
 
-  // repeated uint32 cache_size = 121;
-  inline int cache_size_size() const;
-  inline void clear_cache_size();
-  static const int kCacheSizeFieldNumber = 121;
-  inline ::google::protobuf::uint32 cache_size(int index) const;
-  inline void set_cache_size(int index, ::google::protobuf::uint32 value);
-  inline void add_cache_size(::google::protobuf::uint32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
-      cache_size() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
-      mutable_cache_size();
+  // required uint32 cache_size_l1 = 121;
+  inline bool has_cache_size_l1() const;
+  inline void clear_cache_size_l1();
+  static const int kCacheSizeL1FieldNumber = 121;
+  inline ::google::protobuf::uint32 cache_size_l1() const;
+  inline void set_cache_size_l1(::google::protobuf::uint32 value);
+
+  // required uint32 cache_size_l2 = 126;
+  inline bool has_cache_size_l2() const;
+  inline void clear_cache_size_l2();
+  static const int kCacheSizeL2FieldNumber = 126;
+  inline ::google::protobuf::uint32 cache_size_l2() const;
+  inline void set_cache_size_l2(::google::protobuf::uint32 value);
+
+  // required uint32 cache_size_l3 = 127;
+  inline bool has_cache_size_l3() const;
+  inline void clear_cache_size_l3();
+  static const int kCacheSizeL3FieldNumber = 127;
+  inline ::google::protobuf::uint32 cache_size_l3() const;
+  inline void set_cache_size_l3(::google::protobuf::uint32 value);
+
+  // required uint32 cache_size_l4 = 128;
+  inline bool has_cache_size_l4() const;
+  inline void clear_cache_size_l4();
+  static const int kCacheSizeL4FieldNumber = 128;
+  inline ::google::protobuf::uint32 cache_size_l4() const;
+  inline void set_cache_size_l4(::google::protobuf::uint32 value);
 
   // required uint64 isa = 122;
   inline bool has_isa() const;
@@ -598,6 +614,14 @@ class AgentMesg : public ::google::protobuf::Message {
   inline void clear_has_node();
   inline void set_has_device();
   inline void clear_has_device();
+  inline void set_has_cache_size_l1();
+  inline void clear_has_cache_size_l1();
+  inline void set_has_cache_size_l2();
+  inline void clear_has_cache_size_l2();
+  inline void set_has_cache_size_l3();
+  inline void clear_has_cache_size_l3();
+  inline void set_has_cache_size_l4();
+  inline void clear_has_cache_size_l4();
   inline void set_has_isa();
   inline void clear_has_isa();
   inline void set_has_version_major();
@@ -629,9 +653,12 @@ class AgentMesg : public ::google::protobuf::Message {
   ::google::protobuf::uint32 queue_max_size_;
   int queue_type_;
   ::google::protobuf::uint32 node_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > cache_size_;
-  ::google::protobuf::uint64 isa_;
   int device_;
+  ::google::protobuf::uint32 cache_size_l1_;
+  ::google::protobuf::uint32 cache_size_l2_;
+  ::google::protobuf::uint32 cache_size_l3_;
+  ::google::protobuf::uint64 isa_;
+  ::google::protobuf::uint32 cache_size_l4_;
   ::google::protobuf::uint32 version_major_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > agent_extensions_;
   ::google::protobuf::uint32 version_minor_;
@@ -1345,45 +1372,111 @@ inline void AgentMesg::set_device(::rhsa::AgentMesg_Device_type value) {
   // @@protoc_insertion_point(field_set:rhsa.AgentMesg.device)
 }
 
-// repeated uint32 cache_size = 121;
-inline int AgentMesg::cache_size_size() const {
-  return cache_size_.size();
+// required uint32 cache_size_l1 = 121;
+inline bool AgentMesg::has_cache_size_l1() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
 }
-inline void AgentMesg::clear_cache_size() {
-  cache_size_.Clear();
+inline void AgentMesg::set_has_cache_size_l1() {
+  _has_bits_[0] |= 0x00200000u;
 }
-inline ::google::protobuf::uint32 AgentMesg::cache_size(int index) const {
-  // @@protoc_insertion_point(field_get:rhsa.AgentMesg.cache_size)
-  return cache_size_.Get(index);
+inline void AgentMesg::clear_has_cache_size_l1() {
+  _has_bits_[0] &= ~0x00200000u;
 }
-inline void AgentMesg::set_cache_size(int index, ::google::protobuf::uint32 value) {
-  cache_size_.Set(index, value);
-  // @@protoc_insertion_point(field_set:rhsa.AgentMesg.cache_size)
+inline void AgentMesg::clear_cache_size_l1() {
+  cache_size_l1_ = 0u;
+  clear_has_cache_size_l1();
 }
-inline void AgentMesg::add_cache_size(::google::protobuf::uint32 value) {
-  cache_size_.Add(value);
-  // @@protoc_insertion_point(field_add:rhsa.AgentMesg.cache_size)
+inline ::google::protobuf::uint32 AgentMesg::cache_size_l1() const {
+  // @@protoc_insertion_point(field_get:rhsa.AgentMesg.cache_size_l1)
+  return cache_size_l1_;
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
-AgentMesg::cache_size() const {
-  // @@protoc_insertion_point(field_list:rhsa.AgentMesg.cache_size)
-  return cache_size_;
+inline void AgentMesg::set_cache_size_l1(::google::protobuf::uint32 value) {
+  set_has_cache_size_l1();
+  cache_size_l1_ = value;
+  // @@protoc_insertion_point(field_set:rhsa.AgentMesg.cache_size_l1)
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
-AgentMesg::mutable_cache_size() {
-  // @@protoc_insertion_point(field_mutable_list:rhsa.AgentMesg.cache_size)
-  return &cache_size_;
+
+// required uint32 cache_size_l2 = 126;
+inline bool AgentMesg::has_cache_size_l2() const {
+  return (_has_bits_[0] & 0x00400000u) != 0;
+}
+inline void AgentMesg::set_has_cache_size_l2() {
+  _has_bits_[0] |= 0x00400000u;
+}
+inline void AgentMesg::clear_has_cache_size_l2() {
+  _has_bits_[0] &= ~0x00400000u;
+}
+inline void AgentMesg::clear_cache_size_l2() {
+  cache_size_l2_ = 0u;
+  clear_has_cache_size_l2();
+}
+inline ::google::protobuf::uint32 AgentMesg::cache_size_l2() const {
+  // @@protoc_insertion_point(field_get:rhsa.AgentMesg.cache_size_l2)
+  return cache_size_l2_;
+}
+inline void AgentMesg::set_cache_size_l2(::google::protobuf::uint32 value) {
+  set_has_cache_size_l2();
+  cache_size_l2_ = value;
+  // @@protoc_insertion_point(field_set:rhsa.AgentMesg.cache_size_l2)
+}
+
+// required uint32 cache_size_l3 = 127;
+inline bool AgentMesg::has_cache_size_l3() const {
+  return (_has_bits_[0] & 0x00800000u) != 0;
+}
+inline void AgentMesg::set_has_cache_size_l3() {
+  _has_bits_[0] |= 0x00800000u;
+}
+inline void AgentMesg::clear_has_cache_size_l3() {
+  _has_bits_[0] &= ~0x00800000u;
+}
+inline void AgentMesg::clear_cache_size_l3() {
+  cache_size_l3_ = 0u;
+  clear_has_cache_size_l3();
+}
+inline ::google::protobuf::uint32 AgentMesg::cache_size_l3() const {
+  // @@protoc_insertion_point(field_get:rhsa.AgentMesg.cache_size_l3)
+  return cache_size_l3_;
+}
+inline void AgentMesg::set_cache_size_l3(::google::protobuf::uint32 value) {
+  set_has_cache_size_l3();
+  cache_size_l3_ = value;
+  // @@protoc_insertion_point(field_set:rhsa.AgentMesg.cache_size_l3)
+}
+
+// required uint32 cache_size_l4 = 128;
+inline bool AgentMesg::has_cache_size_l4() const {
+  return (_has_bits_[0] & 0x01000000u) != 0;
+}
+inline void AgentMesg::set_has_cache_size_l4() {
+  _has_bits_[0] |= 0x01000000u;
+}
+inline void AgentMesg::clear_has_cache_size_l4() {
+  _has_bits_[0] &= ~0x01000000u;
+}
+inline void AgentMesg::clear_cache_size_l4() {
+  cache_size_l4_ = 0u;
+  clear_has_cache_size_l4();
+}
+inline ::google::protobuf::uint32 AgentMesg::cache_size_l4() const {
+  // @@protoc_insertion_point(field_get:rhsa.AgentMesg.cache_size_l4)
+  return cache_size_l4_;
+}
+inline void AgentMesg::set_cache_size_l4(::google::protobuf::uint32 value) {
+  set_has_cache_size_l4();
+  cache_size_l4_ = value;
+  // @@protoc_insertion_point(field_set:rhsa.AgentMesg.cache_size_l4)
 }
 
 // required uint64 isa = 122;
 inline bool AgentMesg::has_isa() const {
-  return (_has_bits_[0] & 0x00400000u) != 0;
+  return (_has_bits_[0] & 0x02000000u) != 0;
 }
 inline void AgentMesg::set_has_isa() {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x02000000u;
 }
 inline void AgentMesg::clear_has_isa() {
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline void AgentMesg::clear_isa() {
   isa_ = GOOGLE_ULONGLONG(0);
@@ -1431,13 +1524,13 @@ AgentMesg::mutable_agent_extensions() {
 
 // required uint32 version_major = 124;
 inline bool AgentMesg::has_version_major() const {
-  return (_has_bits_[0] & 0x01000000u) != 0;
+  return (_has_bits_[0] & 0x08000000u) != 0;
 }
 inline void AgentMesg::set_has_version_major() {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x08000000u;
 }
 inline void AgentMesg::clear_has_version_major() {
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline void AgentMesg::clear_version_major() {
   version_major_ = 0u;
@@ -1455,13 +1548,13 @@ inline void AgentMesg::set_version_major(::google::protobuf::uint32 value) {
 
 // required uint32 version_minor = 125;
 inline bool AgentMesg::has_version_minor() const {
-  return (_has_bits_[0] & 0x02000000u) != 0;
+  return (_has_bits_[0] & 0x10000000u) != 0;
 }
 inline void AgentMesg::set_has_version_minor() {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x10000000u;
 }
 inline void AgentMesg::clear_has_version_minor() {
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline void AgentMesg::clear_version_minor() {
   version_minor_ = 0u;

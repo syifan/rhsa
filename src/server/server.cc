@@ -136,6 +136,12 @@ namespace rhsa {
 		}
 	}
 
+	void loadISA(hsa_agent_t agent, Agent *agent_info) {
+		uint64_t handle;
+		hsa_agent_get_info(agent, HSA_AGENT_INFO_ISA, &handle);
+		agent_info->SetISA(handle);
+	}
+
 	hsa_status_t storeAgent(hsa_agent_t agent, void *data) {
 		auto agents = static_cast<std::vector<std::unique_ptr<rhsa::Agent>> *>(data);
 

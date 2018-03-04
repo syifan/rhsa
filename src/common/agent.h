@@ -33,6 +33,84 @@ namespace rhsa {
 
 		void SetFastF16Operation(bool support) { agent_mesg_->set_fast_f16_operation(support); }
 		const bool GetFastF16Operation() { return agent_mesg_->fast_f16_operation(); }
+
+		void SetWavefrontSize(uint32_t size) { agent_mesg_->set_wavefront_size(size); }
+		const uint32_t GetWavefrontSize() { return agent_mesg_->wavefront_size(); }
+
+		void SetWorkgroupMaxDim(uint32_t dim) { agent_mesg_->set_workgroup_max_dim(dim); }
+		const uint32_t GetWorkgroupMaxDim() { return agent_mesg_->workgroup_max_dim(); }
+
+		void SetWorkgroupMaxSize(uint32_t size) { agent_mesg_->set_workgroup_max_size(size); }
+		const uint32_t GetWorkgroupMaxSize() { return agent_mesg_->workgroup_max_size(); }
+
+		void SetGridMaxDimX(uint32_t dim) { agent_mesg_->set_grid_max_dim_x(dim); }
+		const uint32_t GetGridMaxDimX() { return agent_mesg_->grid_max_dim_x(); }
+
+		void SetGridMaxDimY(uint32_t dim) { agent_mesg_->set_grid_max_dim_y(dim); }
+		const uint32_t GetGridMaxDimY() { return agent_mesg_->grid_max_dim_y(); }
+
+		void SetGridMaxDimZ(uint32_t dim) { agent_mesg_->set_grid_max_dim_z(dim); }
+		const uint32_t GetGridMaxDimZ() { return agent_mesg_->grid_max_dim_z(); }
+
+		void SetGridMaxSize(uint32_t size) { agent_mesg_->set_grid_max_size(size); }
+		const uint32_t GetGridMaxSize() { return agent_mesg_->grid_max_size(); }
+
+		void SetFBarrierMaxSize(uint32_t size) { agent_mesg_->set_fbarrier_max_size(size); }
+		const uint32_t GetFBarrierMaxSize() { return agent_mesg_->fbarrier_max_size(); }
+
+		void SetQueuesMax(uint32_t max) { agent_mesg_->set_queues_max(max); }
+		const uint32_t GetQueuesMax() { return agent_mesg_->queues_max(); }
+
+		void SetQueueMinSize(uint32_t min) { agent_mesg_->set_queue_min_size(min); }
+		const uint32_t GetQueueMinSize() { return agent_mesg_->queue_min_size(); }
+
+		void SetQueueMaxSize(uint32_t max) { agent_mesg_->set_queue_max_size(max); }
+		const uint32_t GetQueueMaxSize() { return agent_mesg_->queue_max_size(); }
+
+		void SetQueueType(AgentMesg_Queue_type type) { agent_mesg_->set_queue_type(type); }
+		const AgentMesg_Queue_type GetQueueType() { return agent_mesg_->queue_type(); }
+
+		void SetNode(uint32_t node) { agent_mesg_->set_node(node); }
+		const uint32_t GetNode() { return agent_mesg_->node(); }
+
+		void SetDeviceType(AgentMesg_Device_type type) { agent_mesg_->set_device(type); }
+		const AgentMesg_Device_type GetDeviceType() { return agent_mesg_->device(); }
+
+		void SetCacheSize(uint32_t size, int type) {
+			switch(type) {
+				case 1:
+					agent_mesg_->set_cache_size_l1(size);
+					break;
+				case 2:
+					agent_mesg_->set_cache_size_l2(size);
+					break;
+				case 3:
+					agent_mesg_->set_cache_size_l3(size);
+					break;
+				case 4:
+					agent_mesg_->set_cache_size_l4(size);
+					break;
+				default:
+					break;
+			}
+		}
+		const uint32_t GetCacheSize(int type) {
+			switch(type) {
+				case 1:
+					return agent_mesg_->cache_size_l1();
+				case 2:
+					return agent_mesg_->cache_size_l2();
+				case 3:
+					return agent_mesg_->cache_size_l3();
+				case 4:
+					return agent_mesg_->cache_size_l4();
+				default:
+					return 0;
+			}
+		}
+
+		void SetISA(uint64_t handle) { agent_mesg_->set_isa(handle); }
+		const uint64_t GetISA() { return agent_mesg_->isa(); }
 	};
 
 }

@@ -43,7 +43,7 @@ void protobuf_AssignDesc_agent_2eproto() {
       "agent.proto");
   GOOGLE_CHECK(file != NULL);
   AgentMesg_descriptor_ = file->message_type(0);
-  static const int AgentMesg_offsets_[26] = {
+  static const int AgentMesg_offsets_[29] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, vendor_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, feature_),
@@ -65,7 +65,10 @@ void protobuf_AssignDesc_agent_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, queue_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, node_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, device_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, cache_size_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, cache_size_l1_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, cache_size_l2_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, cache_size_l3_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, cache_size_l4_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, isa_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, agent_extensions_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AgentMesg, version_major_),
@@ -137,7 +140,7 @@ void protobuf_AddDesc_agent_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013agent.proto\022\004rhsa\"\203\010\n\tAgentMesg\022\014\n\004nam"
+    "\n\013agent.proto\022\004rhsa\"\314\010\n\tAgentMesg\022\014\n\004nam"
     "e\030d \002(\t\022\023\n\013vendor_name\030e \002(\t\022(\n\007feature\030"
     "f \002(\0162\027.rhsa.AgentMesg.Feature\0224\n\rmachin"
     "e_model\030g \002(\0162\035.rhsa.AgentMesg.Machine_m"
@@ -154,17 +157,19 @@ void protobuf_AddDesc_agent_2eproto() {
     "\r\022\026\n\016queue_max_size\030u \002(\r\022.\n\nqueue_type\030"
     "v \002(\0162\032.rhsa.AgentMesg.Queue_type\022\014\n\004nod"
     "e\030w \002(\r\022+\n\006device\030x \002(\0162\033.rhsa.AgentMesg"
-    ".Device_type\022\022\n\ncache_size\030y \003(\r\022\013\n\003isa\030"
-    "z \002(\004\022\030\n\020agent_extensions\030{ \003(\r\022\025\n\rversi"
-    "on_major\030| \002(\r\022\025\n\rversion_minor\030} \002(\r\"2\n"
-    "\007Feature\022\023\n\017kernel_dispatch\020\001\022\022\n\016agent_d"
-    "ispatch\020\002\"%\n\rMachine_model\022\t\n\005small\020\000\022\t\n"
-    "\005large\020\001\"\035\n\007Profile\022\010\n\004base\020\000\022\010\n\004full\020\001\""
-    "1\n\033Default_float_rounding_mode\022\010\n\004zero\020\001"
-    "\022\010\n\004near\020\002\"#\n\nQueue_type\022\t\n\005multi\020\000\022\n\n\006s"
-    "ingle\020\001\"(\n\013Device_type\022\007\n\003cpu\020\000\022\007\n\003gpu\020\001"
-    "\022\007\n\003dsp\020\002\"-\n\nQueryAgent\022\037\n\006agents\030\001 \003(\0132"
-    "\017.rhsa.AgentMesg", 1096);
+    ".Device_type\022\025\n\rcache_size_l1\030y \002(\r\022\025\n\rc"
+    "ache_size_l2\030~ \002(\r\022\025\n\rcache_size_l3\030\177 \002("
+    "\r\022\026\n\rcache_size_l4\030\200\001 \002(\r\022\013\n\003isa\030z \002(\004\022\030"
+    "\n\020agent_extensions\030{ \003(\r\022\025\n\rversion_majo"
+    "r\030| \002(\r\022\025\n\rversion_minor\030} \002(\r\"2\n\007Featur"
+    "e\022\023\n\017kernel_dispatch\020\001\022\022\n\016agent_dispatch"
+    "\020\002\"%\n\rMachine_model\022\t\n\005small\020\000\022\t\n\005large\020"
+    "\001\"\035\n\007Profile\022\010\n\004base\020\000\022\010\n\004full\020\001\"1\n\033Defa"
+    "ult_float_rounding_mode\022\010\n\004zero\020\001\022\010\n\004nea"
+    "r\020\002\"#\n\nQueue_type\022\t\n\005multi\020\000\022\n\n\006single\020\001"
+    "\"(\n\013Device_type\022\007\n\003cpu\020\000\022\007\n\003gpu\020\001\022\007\n\003dsp"
+    "\020\002\"-\n\nQueryAgent\022\037\n\006agents\030\001 \003(\0132\017.rhsa."
+    "AgentMesg", 1169);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "agent.proto", &protobuf_RegisterTypes);
   AgentMesg::default_instance_ = new AgentMesg();
@@ -333,7 +338,10 @@ const int AgentMesg::kQueueMaxSizeFieldNumber;
 const int AgentMesg::kQueueTypeFieldNumber;
 const int AgentMesg::kNodeFieldNumber;
 const int AgentMesg::kDeviceFieldNumber;
-const int AgentMesg::kCacheSizeFieldNumber;
+const int AgentMesg::kCacheSizeL1FieldNumber;
+const int AgentMesg::kCacheSizeL2FieldNumber;
+const int AgentMesg::kCacheSizeL3FieldNumber;
+const int AgentMesg::kCacheSizeL4FieldNumber;
 const int AgentMesg::kIsaFieldNumber;
 const int AgentMesg::kAgentExtensionsFieldNumber;
 const int AgentMesg::kVersionMajorFieldNumber;
@@ -380,6 +388,10 @@ void AgentMesg::SharedCtor() {
   queue_type_ = 0;
   node_ = 0u;
   device_ = 0;
+  cache_size_l1_ = 0u;
+  cache_size_l2_ = 0u;
+  cache_size_l3_ = 0u;
+  cache_size_l4_ = 0u;
   isa_ = GOOGLE_ULONGLONG(0);
   version_major_ = 0u;
   version_minor_ = 0u;
@@ -453,19 +465,17 @@ void AgentMesg::Clear() {
   if (_has_bits_[8 / 32] & 65280) {
     ZR_(workgroup_max_dim_, queues_max_);
   }
-  if (_has_bits_[16 / 32] & 6225920) {
-    ZR_(queue_min_size_, node_);
-    ZR_(isa_, device_);
+  if (_has_bits_[16 / 32] & 16711680) {
+    ZR_(queue_min_size_, cache_size_l3_);
   }
-  if (_has_bits_[24 / 32] & 50331648) {
-    version_major_ = 0u;
+  if (_has_bits_[24 / 32] & 452984832) {
+    ZR_(isa_, version_major_);
     version_minor_ = 0u;
   }
 
 #undef OFFSET_OF_FIELD_
 #undef ZR_
 
-  cache_size_.Clear();
   agent_extensions_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -825,25 +835,21 @@ bool AgentMesg::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(968)) goto parse_cache_size;
+        if (input->ExpectTag(968)) goto parse_cache_size_l1;
         break;
       }
 
-      // repeated uint32 cache_size = 121;
+      // required uint32 cache_size_l1 = 121;
       case 121: {
         if (tag == 968) {
-         parse_cache_size:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+         parse_cache_size_l1:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 2, 968, input, this->mutable_cache_size())));
-        } else if (tag == 970) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, this->mutable_cache_size())));
+                 input, &cache_size_l1_)));
+          set_has_cache_size_l1();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(968)) goto parse_cache_size;
         if (input->ExpectTag(976)) goto parse_isa;
         break;
       }
@@ -905,6 +911,51 @@ bool AgentMesg::MergePartialFromCodedStream(
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &version_minor_)));
           set_has_version_minor();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(1008)) goto parse_cache_size_l2;
+        break;
+      }
+
+      // required uint32 cache_size_l2 = 126;
+      case 126: {
+        if (tag == 1008) {
+         parse_cache_size_l2:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &cache_size_l2_)));
+          set_has_cache_size_l2();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(1016)) goto parse_cache_size_l3;
+        break;
+      }
+
+      // required uint32 cache_size_l3 = 127;
+      case 127: {
+        if (tag == 1016) {
+         parse_cache_size_l3:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &cache_size_l3_)));
+          set_has_cache_size_l3();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(1024)) goto parse_cache_size_l4;
+        break;
+      }
+
+      // required uint32 cache_size_l4 = 128;
+      case 128: {
+        if (tag == 1024) {
+         parse_cache_size_l4:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &cache_size_l4_)));
+          set_has_cache_size_l4();
         } else {
           goto handle_unusual;
         }
@@ -1058,10 +1109,9 @@ void AgentMesg::SerializeWithCachedSizes(
       120, this->device(), output);
   }
 
-  // repeated uint32 cache_size = 121;
-  for (int i = 0; i < this->cache_size_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(
-      121, this->cache_size(i), output);
+  // required uint32 cache_size_l1 = 121;
+  if (has_cache_size_l1()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(121, this->cache_size_l1(), output);
   }
 
   // required uint64 isa = 122;
@@ -1083,6 +1133,21 @@ void AgentMesg::SerializeWithCachedSizes(
   // required uint32 version_minor = 125;
   if (has_version_minor()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(125, this->version_minor(), output);
+  }
+
+  // required uint32 cache_size_l2 = 126;
+  if (has_cache_size_l2()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(126, this->cache_size_l2(), output);
+  }
+
+  // required uint32 cache_size_l3 = 127;
+  if (has_cache_size_l3()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(127, this->cache_size_l3(), output);
+  }
+
+  // required uint32 cache_size_l4 = 128;
+  if (has_cache_size_l4()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(128, this->cache_size_l4(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1218,10 +1283,9 @@ void AgentMesg::SerializeWithCachedSizes(
       120, this->device(), target);
   }
 
-  // repeated uint32 cache_size = 121;
-  for (int i = 0; i < this->cache_size_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteUInt32ToArray(121, this->cache_size(i), target);
+  // required uint32 cache_size_l1 = 121;
+  if (has_cache_size_l1()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(121, this->cache_size_l1(), target);
   }
 
   // required uint64 isa = 122;
@@ -1243,6 +1307,21 @@ void AgentMesg::SerializeWithCachedSizes(
   // required uint32 version_minor = 125;
   if (has_version_minor()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(125, this->version_minor(), target);
+  }
+
+  // required uint32 cache_size_l2 = 126;
+  if (has_cache_size_l2()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(126, this->cache_size_l2(), target);
+  }
+
+  // required uint32 cache_size_l3 = 127;
+  if (has_cache_size_l3()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(127, this->cache_size_l3(), target);
+  }
+
+  // required uint32 cache_size_l4 = 128;
+  if (has_cache_size_l4()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(128, this->cache_size_l4(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1400,6 +1479,36 @@ int AgentMesg::ByteSize() const {
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->device());
     }
 
+    // required uint32 cache_size_l1 = 121;
+    if (has_cache_size_l1()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->cache_size_l1());
+    }
+
+    // required uint32 cache_size_l2 = 126;
+    if (has_cache_size_l2()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->cache_size_l2());
+    }
+
+    // required uint32 cache_size_l3 = 127;
+    if (has_cache_size_l3()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->cache_size_l3());
+    }
+
+  }
+  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    // required uint32 cache_size_l4 = 128;
+    if (has_cache_size_l4()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->cache_size_l4());
+    }
+
     // required uint64 isa = 122;
     if (has_isa()) {
       total_size += 2 +
@@ -1407,8 +1516,6 @@ int AgentMesg::ByteSize() const {
           this->isa());
     }
 
-  }
-  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     // required uint32 version_major = 124;
     if (has_version_major()) {
       total_size += 2 +
@@ -1424,16 +1531,6 @@ int AgentMesg::ByteSize() const {
     }
 
   }
-  // repeated uint32 cache_size = 121;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->cache_size_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        UInt32Size(this->cache_size(i));
-    }
-    total_size += 2 * this->cache_size_size() + data_size;
-  }
-
   // repeated uint32 agent_extensions = 123;
   {
     int data_size = 0;
@@ -1469,7 +1566,6 @@ void AgentMesg::MergeFrom(const ::google::protobuf::Message& from) {
 
 void AgentMesg::MergeFrom(const AgentMesg& from) {
   GOOGLE_CHECK_NE(&from, this);
-  cache_size_.MergeFrom(from.cache_size_);
   agent_extensions_.MergeFrom(from.agent_extensions_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
@@ -1539,11 +1635,23 @@ void AgentMesg::MergeFrom(const AgentMesg& from) {
     if (from.has_device()) {
       set_device(from.device());
     }
-    if (from.has_isa()) {
-      set_isa(from.isa());
+    if (from.has_cache_size_l1()) {
+      set_cache_size_l1(from.cache_size_l1());
+    }
+    if (from.has_cache_size_l2()) {
+      set_cache_size_l2(from.cache_size_l2());
+    }
+    if (from.has_cache_size_l3()) {
+      set_cache_size_l3(from.cache_size_l3());
     }
   }
   if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    if (from.has_cache_size_l4()) {
+      set_cache_size_l4(from.cache_size_l4());
+    }
+    if (from.has_isa()) {
+      set_isa(from.isa());
+    }
     if (from.has_version_major()) {
       set_version_major(from.version_major());
     }
@@ -1567,7 +1675,7 @@ void AgentMesg::CopyFrom(const AgentMesg& from) {
 }
 
 bool AgentMesg::IsInitialized() const {
-  if ((_has_bits_[0] & 0x035fffff) != 0x035fffff) return false;
+  if ((_has_bits_[0] & 0x1bffffff) != 0x1bffffff) return false;
 
   return true;
 }
@@ -1595,7 +1703,10 @@ void AgentMesg::Swap(AgentMesg* other) {
     std::swap(queue_type_, other->queue_type_);
     std::swap(node_, other->node_);
     std::swap(device_, other->device_);
-    cache_size_.Swap(&other->cache_size_);
+    std::swap(cache_size_l1_, other->cache_size_l1_);
+    std::swap(cache_size_l2_, other->cache_size_l2_);
+    std::swap(cache_size_l3_, other->cache_size_l3_);
+    std::swap(cache_size_l4_, other->cache_size_l4_);
     std::swap(isa_, other->isa_);
     agent_extensions_.Swap(&other->agent_extensions_);
     std::swap(version_major_, other->version_major_);
