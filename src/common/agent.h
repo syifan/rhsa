@@ -14,10 +14,10 @@ namespace rhsa {
 		Agent() { agent_mesg_ = std::make_unique<AgentMesg>(); }
 
 		void SetName(const char *name) { agent_mesg_->set_name(name); }
-		const std::string &GetName() { return agent_mesg_->name(); }
+		const std::string GetName() { return agent_mesg_->name(); }
 
 		void SetVendorName(const char *name) { agent_mesg_->set_vendor_name(name); }
-		const std::string &GetVendorName() { return agent_mesg_->vendor_name(); }
+		const std::string GetVendorName() { return agent_mesg_->vendor_name(); }
 
 		void SetFeature(AgentMesg_Feature feature) { agent_mesg_->set_feature(feature); }
 		const AgentMesg_Feature GetFeature() { return agent_mesg_->feature(); } 

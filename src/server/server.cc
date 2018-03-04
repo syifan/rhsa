@@ -196,7 +196,35 @@ namespace rhsa {
 		loadVersionMajor(agent, agent_info.get());
 		loadVersionMinor(agent, agent_info.get());
 
+		std::cout << agent_info->GetAgentName() << "\n";
+		std::cout << agent_info->GetVendorName() << "\n";
+		std::cout << agent_info->GetFeature() << "\n";
+		std::cout << agent_info->GetMachineModel() << "\n";
+		std::cout << agent_info->GetProfile() << "\n";
+		std::cout << agent_info->GetDefaultFloatRoundingMode() << "\n";
 		std::cout << agent_info->GetFastF16Operation() << "\n";
+		std::cout << agent_info->GetWavefrontSize() << "\n";
+		std::cout << agent_info->GetWorkgroupMaxDimX() << "\n";
+		std::cout << agent_info->GetWorkgroupMaxDimY() << "\n";
+		std::cout << agent_info->GetWorkgroupMaxDimZ() << "\n";
+		std::cout << agent_info->GetWorkgroupMaxSize() << "\n";
+		std::cout << agent_info->GetGridMaxDimX() << "\n";
+		std::cout << agent_info->GetGridMaxDimY() << "\n";
+		std::cout << agent_info->GetGridMaxDimZ() << "\n";
+		std::cout << agent_info->GetGridMaxSize() << "\n";
+		std::cout << agent_info->GetQueuesMax() << "\n";
+		std::cout << agent_info->GetQueueMinSize() << "\n";
+		std::cout << agent_info->GetQueueMaxSize() << "\n";
+		std::cout << agent_info->GetQueueType() << "\n";
+		std::cout << agent_info->GetNode() << "\n";
+		std::cout << agent_info->GetDeviceType() << "\n";
+		std::cout << agent_info->GetCacheSize(1) << "\n";
+		std::cout << agent_info->GetCacheSize(2) << "\n";
+		std::cout << agent_info->GetCacheSize(3) << "\n";
+		std::cout << agent_info->GetCacheSize(4) << "\n";
+		std::cout << agent_info->GetISA() << "\n";
+		std::cout << agent_info->GetVersionMajor() << "\n";
+		std::cout << agent_info->GetVersionMinor() << "\n";
 
 		agents->push_back(std::move(agent_info));
 
