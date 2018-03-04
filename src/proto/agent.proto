@@ -58,7 +58,7 @@ message AgentMesg {
 	required uint32 cache_size_l3 = 127;
 	required uint32 cache_size_l4 = 128;
 	required uint64 isa = 122;
-	repeated uint32 agent_extensions = 123;
+	repeated uint32 agent_extensions = 123 [packed=true];
 	required uint32 version_major = 124;
 	required uint32 version_minor = 125;
 }

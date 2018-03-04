@@ -142,6 +142,26 @@ namespace rhsa {
 		agent_info->SetISA(handle);
 	}
 
+	void loadExtensions(hsa_agent_t agent, Agent *agent_info) {
+		uint8_t extensions[128];
+		hsa_agent_get_info(agent, HSA_AGENT_INFO_EXTENSIONS, &extensions);
+		for(int i = 0; i < 128; i++) {
+			agent_info->SetExtension(extensions[i]);
+		}
+	}
+
+	void loadVersionMajor(hsa_agent_t agent, Agent *agent_info) {
+		uint16_t version;
+		hsa_agent_get_info(agent, HSA_AGENT_INFO_VERSION_MAJOR, &version);
+		agent_info->SetVersionMinor(version);
+	}
+
+	void loadVersionMinor(hsa_agent_t agent, Agent *agent_info) {
+		uint16_t version;
+		hsa_agent_get_info(agent, HSA_AGENT_INFO_VERSION_MINOR, &version);
+		agent_info->SetVersionMinor(version);
+	}
+
 	hsa_status_t storeAgent(hsa_agent_t agent, void *data) {
 		auto agents = static_cast<std::vector<std::unique_ptr<rhsa::Agent>> *>(data);
 
@@ -151,6 +171,26 @@ namespace rhsa {
 		loadVendorName(agent, agent_info.get());
 		loadFeature(agent, agent_info.get());
 		loadMachineModel(agent, agent_info.get());
+		loadProfile(agent, agent_info.get());
+		loadDefaultFloatRoundingMode(agent, agent_info.get());
+		loadFastF16Operation(agent, agent_info.get());
+		loadWavefrontSize(agent, agent_info.get());
+		loadWorkgroupMaxDim(agent, agent_info.get());
+		loadWorkgroupMaxSize(agent, agent_info.get());
+		loadGridMaxDims(agent, agent_info.get());
+		loadGridMaxSize(agent, agent_info.get());
+		loadFBarrierMaxSize(agent, agent_info.get());
+		loadQueuesMax(agent, agent_info.get());
+		loadQueueMinSize(agent, agent_info.get());
+		loadQueueMaxSize(agent, agent_info.get());
+		loadQueueType(agent, agent_info.get());
+		loadNode(agent, agent_info.get());
+		loadDeviceType(agent, agent_info.get());
+		loadCacheSize(agent, agent_info.get());
+		loadISA(agent, agent_info.get());
+		loadExtensions(agent, agent_info.get());
+		loadVersionMajor(agent, agent_info.get());
+		loadVersionMinor(agent, agent_info.get());
 
 		std::cout << agent_info->GetFastF16Operation() << "\n";
 

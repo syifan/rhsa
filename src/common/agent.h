@@ -111,6 +111,15 @@ namespace rhsa {
 
 		void SetISA(uint64_t handle) { agent_mesg_->set_isa(handle); }
 		const uint64_t GetISA() { return agent_mesg_->isa(); }
+
+		void SetExtension(uint8_t extension) { agent_mesg_->add_agent_extensions(extension); }
+		const uint8_t GetExtensions(int index) { return agent_mesg_->agent_extensions(index); }
+
+		void SetVersionMajor(uint16_t version) { agent_mesg_->set_version_major(version); }
+		const uint16_t GetVersionMajor() { return agent_mesg_->version_major(); }
+
+		void SetVersionMinor(uint16_t version) { agent_mesg_->set_version_minor(version); }
+		const uint16_t GetVersionMinor() { return agent_mesg_->version_minor(); }
 	};
 
 }
