@@ -12,6 +12,8 @@ namespace rhsa {
 class Server : public ConnectionHandler {
   std::vector<std::unique_ptr<Agent>> agents_;
 
+  void HandleQueryAgent(Connection *conn);
+
  public:
   void Init();
   void IterateAgents();

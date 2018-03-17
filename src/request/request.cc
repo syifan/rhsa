@@ -7,15 +7,13 @@
 namespace rhsa {
 
 Request::Request() {
-  req_ = new RequestMessage();
+  req_ = std::make_unique<RequestMessage>();
 }
 
 Request::Request(const std::string &req) {
-  req_ = new RequestMessage();
+  req_ = std::make_unique<RequestMessage>();
   req_->ParseFromString(req);
 }
-
-Request::~Request() { delete req_; }
 
 std::unique_ptr<uint8_t []> Request::Encode() { 
   int size = req_->ByteSize() + 8;

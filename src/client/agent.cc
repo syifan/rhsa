@@ -18,7 +18,8 @@ hsa_status_t hsa_iterate_agents(
   auto query_req = std::make_unique<QueryAgentRequest>();
   client.conn->Send(query_req.get());
 
-  // TODO: Iterate the agents
+  auto req = client.conn->Recv();
+  std::cout << "Req received: " << req->GetPayloadCase() << "\n";
 
   std::cout << "Iterating agents\n";
   return HSA_STATUS_SUCCESS; 

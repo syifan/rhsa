@@ -6,6 +6,7 @@ list(APPEND CMAKE_MODULE_PATH
     "${PROJECT_SOURCE_DIR}/cmake")
 include(gtest)
 
+set(CMAKE_DEBUG_POSTFIX "")
 set(CMAKE_CXX_STANDARD 14)
 set(GTEST_ROOT ${PROJECT_SOURCE_DIR}/gtest/googletest)
 set(GMOCK_ROOT ${PROJECT_SOURCE_DIR}/gtest/googlemock)

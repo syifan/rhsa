@@ -237,11 +237,28 @@ namespace rhsa {
 
 	void Server::IterateAgents() { hsa_iterate_agents(storeAgent, &agents_); };
 
+  void Server::HandleQueryAgent(Connection *conn, Request *req) {
+    auto query_agent = std::make_unique<QueryAgent>(req);
+
+    for (auto &agent : agents_) {
+      query_agent->AddAgent(agent.Get());
+    }
+
+    conn->Send(query_agent);
+  }
+
 	void Server::Handle(std::unique_ptr<Connection> conn) {
 		std::cout << "Connected.\n";
 		try{
 			while(true) {
 				auto req = conn->Recv();
+        switch (req->GetPayloadCase()) {
+          case kInit:
+            break;
+          case kQueryAgent:
+            HandleQueryAgent(conn->Get(), req->Get()); 
+            break
+        }
 				std::cout << "Received: " << req->GetPayloadCase() << "\n";
 			}
 		} catch (DisconnectException &e) {

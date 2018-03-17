@@ -2,6 +2,7 @@
 #include <memory>
 
 #include "src/proto/request.pb.h"
+#include "src/common/agent.h"
 
 namespace rhsa {
 
@@ -11,12 +12,12 @@ namespace rhsa {
  */
 class Request {
  protected:
-  RequestMessage *req_;
+   std::unique_ptr<RequestMessage> req_;
 
  public:
   Request();
   Request(const std::string &req);
-  virtual ~Request();
+  virtual ~Request() {};
 
   /**
    * ByteSize returns the serialized request size in bytes.
@@ -26,6 +27,9 @@ class Request {
    */
   int ByteSize() { return req_->ByteSize() + 8; }
 
+  /**
+   * Return the payload case to tell what type of the request it is.
+   */
   int GetPayloadCase() { return (int)req_->Payload_case(); } 
 
   std::unique_ptr<uint8_t[]> Encode();
@@ -41,10 +45,30 @@ class InitRequest : public Request {
 };
 
 class QueryAgentRequest : public Request {
+ private:
+  QueryAgent *msg_;
+
  public:
+
+  /**
+   * Constructor. 
+   *
+   * This constructor is used to convert a general request to a 
+   * QueryAgentRequest. After calling this constructor, the general
+   * request is invalidated.
+   */
+  QueryAgentRequest(Request *request) {
+    req_ = std::move(request->req_);
+    msg_ = req_->mutable_queryagent();
+  }
+
   QueryAgentRequest() : Request() {
-    QueryAgent *msg = new QueryAgent();
-    req_->set_allocated_queryagent(msg); 
+    msg_ = new QueryAgent();
+    req_->set_allocated_queryagent(msg_); 
+  }
+
+  void AddAgent(Agent *agent) {
+    *msg_->add_agents() = *agent->GetAgentMesg();
   }
 };
 
