@@ -8,6 +8,7 @@
 #include "src/common/agent.h"
 #include "src/conn/disconnect_exception.h"
 #include "src/request/request.h"
+#include "src/proto/request.pb.h"
 
 namespace rhsa {
 
@@ -238,13 +239,11 @@ namespace rhsa {
 	void Server::IterateAgents() { hsa_iterate_agents(storeAgent, &agents_); };
 
   void Server::HandleQueryAgent(Connection *conn, Request *req) {
-    auto query_agent = std::make_unique<QueryAgent>(req);
-
     for (auto &agent : agents_) {
-      query_agent->AddAgent(agent.Get());
+      req->AddAgent(agent.get());
     }
 
-    conn->Send(query_agent);
+    conn->Send(req);
   }
 
 	void Server::Handle(std::unique_ptr<Connection> conn) {
@@ -253,11 +252,11 @@ namespace rhsa {
 			while(true) {
 				auto req = conn->Recv();
         switch (req->GetPayloadCase()) {
-          case kInit:
+          case RequestMessage::kInit:
             break;
-          case kQueryAgent:
-            HandleQueryAgent(conn->Get(), req->Get()); 
-            break
+          case RequestMessage::kQueryAgent:
+            HandleQueryAgent(conn.get(), req.get()); 
+            break;
         }
 				std::cout << "Received: " << req->GetPayloadCase() << "\n";
 			}

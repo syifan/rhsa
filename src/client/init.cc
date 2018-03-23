@@ -21,7 +21,8 @@ hsa_status_t hsa_init() {
   client.conn = std::move(conn);
 
 
-  auto init_req = std::make_unique<InitRequest>();
+  auto request_factory = client.request_factory.get();
+  auto init_req = request_factory->BuildInitRequest();
   client.conn->Send(init_req.get());
 
   // conn->Recv();

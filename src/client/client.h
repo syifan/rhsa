@@ -1,7 +1,10 @@
 #ifndef SRC_CLIENT_CLIENT_H_
 #define SRC_CLIENT_CLIENT_H_
 
+#include <memory>
+
 #include "src/conn/conn.h"
+#include "src/request/request_factory.h"
 
 namespace rhsa{
 
@@ -25,9 +28,17 @@ class Client {
    * The connection to the server
    */
   std::unique_ptr<Connection> conn;
+ 
+  /**
+   * The request factory
+   */
+  std::unique_ptr<RequestFactory> request_factory;
+
 
  private:
-  Client() {}
+  Client() {
+    request_factory = std::make_unique<RequestFactory>();
+  }
   ~Client() {}
 };
 

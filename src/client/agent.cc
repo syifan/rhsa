@@ -14,8 +14,9 @@ hsa_status_t hsa_iterate_agents(
   using namespace rhsa;
 
   auto &client = Client::GetInstance();
+  auto request_factory = client.request_factory.get();
 
-  auto query_req = std::make_unique<QueryAgentRequest>();
+  auto query_req = request_factory->BuildQueryAgentRequest();
   client.conn->Send(query_req.get());
 
   auto req = client.conn->Recv();

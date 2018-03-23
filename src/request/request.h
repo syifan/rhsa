@@ -1,8 +1,10 @@
+#ifndef SRC_REQUEST_REQUEST_H_
+#define SRC_REQUEST_REQUEST_H_
 #include <cstdint>
 #include <memory>
 
-#include "src/proto/request.pb.h"
 #include "src/common/agent.h"
+#include "src/proto/request.pb.h"
 
 namespace rhsa {
 
@@ -11,13 +13,15 @@ namespace rhsa {
  * It is a wrapper of the protobuf request.
  */
 class Request {
+ friend class RequestFactory;
+
  protected:
-   std::unique_ptr<RequestMessage> req_;
+  std::unique_ptr<RequestMessage> req_;
 
  public:
   Request();
   Request(const std::string &req);
-  virtual ~Request() {};
+  virtual ~Request(){};
 
   /**
    * ByteSize returns the serialized request size in bytes.
@@ -30,46 +34,22 @@ class Request {
   /**
    * Return the payload case to tell what type of the request it is.
    */
-  int GetPayloadCase() { return (int)req_->Payload_case(); } 
-
-  std::unique_ptr<uint8_t[]> Encode();
-};
-
-class InitRequest : public Request {
- public:
-  InitRequest() : Request() {
-    InitMessage *init_msg = new InitMessage();
-	  init_msg->set_type(1);
-    req_->set_allocated_init(init_msg);
-  }
-};
-
-class QueryAgentRequest : public Request {
- private:
-  QueryAgent *msg_;
-
- public:
+  int GetPayloadCase() { return (int)req_->Payload_case(); }
 
   /**
-   * Constructor. 
-   *
-   * This constructor is used to convert a general request to a 
-   * QueryAgentRequest. After calling this constructor, the general
-   * request is invalidated.
+   * Encode generate the binary representation of the request
    */
-  QueryAgentRequest(Request *request) {
-    req_ = std::move(request->req_);
-    msg_ = req_->mutable_queryagent();
-  }
+  std::unique_ptr<uint8_t[]> Encode();
 
-  QueryAgentRequest() : Request() {
-    msg_ = new QueryAgent();
-    req_->set_allocated_queryagent(msg_); 
-  }
-
+  /**
+   * Add an agent into the QueryAgent request
+   */
   void AddAgent(Agent *agent) {
-    *msg_->add_agents() = *agent->GetAgentMesg();
+    auto query_agent = req_->mutable_queryagent();
+    *query_agent->add_agents() = *agent->GetAgentMesg();
   }
 };
 
 }
+
+#endif  // SRC_REQUEST_REQUEST_H_
