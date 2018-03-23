@@ -48,6 +48,22 @@ class Request {
     auto query_agent = req_->mutable_queryagent();
     *query_agent->add_agents() = *agent->GetAgentMesg();
   }
+
+  /**
+   * Returns the number of agents included in the message.
+   */
+  int GetNumAgents() {
+    return req_->queryagent().agents_size();
+  }
+
+  /**
+   * Return an agent from the agent field
+   */
+  std::unique_ptr<Agent> GetAgent(int index) {
+    auto agent_mesg = req_->mutable_queryagent()->mutable_agents(index); 
+    auto agent = std::make_unique<Agent>(agent_mesg);
+    return std::move(agent);
+  }
 };
 
 }

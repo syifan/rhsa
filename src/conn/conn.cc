@@ -53,6 +53,10 @@ std::unique_ptr<Request> TCPConnection::Recv() {
     if (n == 0) return NULL;
   }
 
+  for (uint32_t i = 0; i < size; i++) {
+    printf("%02x ", req_buf[i]);
+  }
+
   auto req = std::make_unique<Request>(std::string((char *)req_buf));
   return std::move(req);
 }

@@ -13,6 +13,11 @@ class Agent {
  public:
   Agent() { agent_mesg_ = std::make_unique<AgentMesg>(); }
 
+  Agent(AgentMesg *msg) { 
+    agent_mesg_ = std::make_unique<AgentMesg>(); 
+    *agent_mesg_.get() = *msg;
+  }
+
   AgentMesg *GetAgentMesg() {
     return agent_mesg_.get();
   }

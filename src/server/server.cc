@@ -158,7 +158,7 @@ namespace rhsa {
 	void loadVersionMajor(hsa_agent_t agent, Agent *agent_info) {
 		uint16_t version;
 		hsa_agent_get_info(agent, HSA_AGENT_INFO_VERSION_MAJOR, &version);
-		agent_info->SetVersionMinor(version);
+		agent_info->SetVersionMajor(version);
 	}
 
 	void loadVersionMinor(hsa_agent_t agent, Agent *agent_info) {
@@ -173,6 +173,7 @@ namespace rhsa {
 		auto agent_info = std::make_unique<rhsa::Agent>();
 
 		loadDeviceType(agent, agent_info.get());
+		std::cout << agent_info->GetDeviceType() << "\n";
 		if (agent_info->GetDeviceType() == 1) {
 			loadAgentName(agent, agent_info.get());
 			loadVendorName(agent, agent_info.get());
@@ -198,35 +199,34 @@ namespace rhsa {
 			loadVersionMajor(agent, agent_info.get());
 			loadVersionMinor(agent, agent_info.get());
 
-			std::cout << agent_info->GetDeviceType() << "\n";
-			std::cout << agent_info->GetName() << "\n";
-			std::cout << agent_info->GetVendorName() << "\n";
-			std::cout << agent_info->GetFeature() << "\n";
-			std::cout << agent_info->GetMachineModel() << "\n";
-			std::cout << agent_info->GetProfile() << "\n";
-			std::cout << agent_info->GetDefaultFloatRoundingMode() << "\n";
-			std::cout << agent_info->GetFastF16Operation() << "\n";
-			std::cout << agent_info->GetWavefrontSize() << "\n";
-			std::cout << agent_info->GetWorkgroupMaxDimX() << "\n";
-			std::cout << agent_info->GetWorkgroupMaxDimY() << "\n";
-			std::cout << agent_info->GetWorkgroupMaxDimZ() << "\n";
-			std::cout << agent_info->GetWorkgroupMaxSize() << "\n";
-			std::cout << agent_info->GetGridMaxDimX() << "\n";
-			std::cout << agent_info->GetGridMaxDimY() << "\n";
-			std::cout << agent_info->GetGridMaxDimZ() << "\n";
-			std::cout << agent_info->GetGridMaxSize() << "\n";
-			std::cout << agent_info->GetQueuesMax() << "\n";
-			std::cout << agent_info->GetQueueMinSize() << "\n";
-			std::cout << agent_info->GetQueueMaxSize() << "\n";
-			std::cout << agent_info->GetQueueType() << "\n";
-			std::cout << agent_info->GetNode() << "\n";
-			std::cout << agent_info->GetCacheSize(1) << "\n";
-			std::cout << agent_info->GetCacheSize(2) << "\n";
-			std::cout << agent_info->GetCacheSize(3) << "\n";
-			std::cout << agent_info->GetCacheSize(4) << "\n";
-			std::cout << agent_info->GetISA() << "\n";
-			std::cout << agent_info->GetVersionMajor() << "\n";
-			std::cout << agent_info->GetVersionMinor() << "\n";
+      std::cout << agent_info->GetName() << "\n";
+			//std::cout << agent_info->GetVendorName() << "\n";
+			//std::cout << agent_info->GetFeature() << "\n";
+			//std::cout << agent_info->GetMachineModel() << "\n";
+			//std::cout << agent_info->GetProfile() << "\n";
+			//std::cout << agent_info->GetDefaultFloatRoundingMode() << "\n";
+			//std::cout << agent_info->GetFastF16Operation() << "\n";
+			//std::cout << agent_info->GetWavefrontSize() << "\n";
+			//std::cout << agent_info->GetWorkgroupMaxDimX() << "\n";
+			//std::cout << agent_info->GetWorkgroupMaxDimY() << "\n";
+			//std::cout << agent_info->GetWorkgroupMaxDimZ() << "\n";
+			//std::cout << agent_info->GetWorkgroupMaxSize() << "\n";
+			//std::cout << agent_info->GetGridMaxDimX() << "\n";
+			//std::cout << agent_info->GetGridMaxDimY() << "\n";
+			//std::cout << agent_info->GetGridMaxDimZ() << "\n";
+			//std::cout << agent_info->GetGridMaxSize() << "\n";
+			//std::cout << agent_info->GetQueuesMax() << "\n";
+			//std::cout << agent_info->GetQueueMinSize() << "\n";
+			//std::cout << agent_info->GetQueueMaxSize() << "\n";
+			//std::cout << agent_info->GetQueueType() << "\n";
+			//std::cout << agent_info->GetNode() << "\n";
+			//std::cout << agent_info->GetCacheSize(1) << "\n";
+			//std::cout << agent_info->GetCacheSize(2) << "\n";
+			//std::cout << agent_info->GetCacheSize(3) << "\n";
+			//std::cout << agent_info->GetCacheSize(4) << "\n";
+			//std::cout << agent_info->GetISA() << "\n";
+			//std::cout << agent_info->GetVersionMajor() << "\n";
+			//std::cout << agent_info->GetVersionMinor() << "\n";
 
 			agents->push_back(std::move(agent_info));
 		}
@@ -236,13 +236,16 @@ namespace rhsa {
 
 	void Server::Init() { hsa_init(); }
 
-	void Server::IterateAgents() { hsa_iterate_agents(storeAgent, &agents_); };
+	void Server::IterateAgents() { 
+    hsa_iterate_agents(storeAgent, &agents_); 
+  };
 
   void Server::HandleQueryAgent(Connection *conn, Request *req) {
     for (auto &agent : agents_) {
       req->AddAgent(agent.get());
     }
 
+    std::cout << "req->GetNumAgents " << req->GetNumAgents() << "\n";
     conn->Send(req);
   }
 

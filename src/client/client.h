@@ -34,6 +34,10 @@ class Client {
    */
   std::unique_ptr<RequestFactory> request_factory;
 
+  /**
+   * All the agents
+   */
+  std::vector<std::unique_ptr<Agent>> agents;
 
  private:
   Client() {
