@@ -20,7 +20,7 @@ class Request {
 
  public:
   Request();
-  Request(const std::string &req);
+  Request(const uint8_t *data, int size);
   virtual ~Request(){};
 
   /**

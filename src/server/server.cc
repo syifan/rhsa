@@ -245,7 +245,6 @@ namespace rhsa {
       req->AddAgent(agent.get());
     }
 
-    std::cout << "req->GetNumAgents " << req->GetNumAgents() << "\n";
     conn->Send(req);
   }
 

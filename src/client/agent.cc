@@ -23,7 +23,6 @@ hsa_status_t hsa_iterate_agents(
   std::cout << "Req received: " << req->GetPayloadCase() << "\n";
 
   // All the agents to the client
-  std::cout << "req->GetNumAgents " << req->GetNumAgents() << "\n";
   for(int i = 0; i < req->GetNumAgents(); i++) {
     auto agent = req->GetAgent(i);
     client.agents.push_back(std::move(agent));
@@ -31,10 +30,13 @@ hsa_status_t hsa_iterate_agents(
 
   // Traverse all the agents
   for(auto &agent : client.agents) {
-    std::cout << agent->GetName() << "\n";
+    //std::cout << agent->GetName() << "\n";
+    if (callback) {
+      hsa_agent_t agent_handle = {uint64_t(agent.get())};
+      callback(agent_handle, data);
+    }
   }
 
-  std::cout << "Iterating agents\n";
   return HSA_STATUS_SUCCESS; 
 }
 

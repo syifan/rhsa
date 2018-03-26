@@ -14,9 +14,11 @@ TCPConnection::TCPConnection(int sock) { this->sock = sock; }
 void TCPConnection::Send(Request *request) {
   auto msg = request->Encode();
 
-  for (int i = 0; i < request->ByteSize(); i++) {
-    printf("%02x ", msg[i]);
-  }
+  //std::cout << "Sending: ";
+  //for (int i = 0; i < request->ByteSize(); i++) {
+    //printf("%02x ", msg[i]);
+  //}
+  //std::cout << "\n";
 
   send(this->sock, msg.get(), request->ByteSize(), 0);
 }
@@ -37,7 +39,7 @@ std::unique_ptr<Request> TCPConnection::Recv() {
     if (n == 0) return NULL;
   }
 
-  std::cout << "Size: " << size << "\n";
+  //std::cout << "Received Size: " << size << "\n";
 
   uint8_t *req_buf = (uint8_t *)malloc(size);
   uint32_t req_buf_fullness = 0;
@@ -53,11 +55,12 @@ std::unique_ptr<Request> TCPConnection::Recv() {
     if (n == 0) return NULL;
   }
 
-  for (uint32_t i = 0; i < size; i++) {
-    printf("%02x ", req_buf[i]);
-  }
+  //for (uint32_t i = 0; i < size; i++) {
+    //printf("%02x ", req_buf[i]);
+  //}
+  //std::cout << "\n";
 
-  auto req = std::make_unique<Request>(std::string((char *)req_buf));
+  auto req = std::make_unique<Request>(req_buf, size);
   return std::move(req);
 }
 

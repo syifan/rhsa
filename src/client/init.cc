@@ -11,13 +11,22 @@
 
 extern "C" {
 
+int port() {
+  const char *port_env_str = std::getenv("RHSA_PORT");
+  if (port_env_str) {
+    return std::stoi(port_env_str);
+  }
+
+  return 9001;
+}
+
 hsa_status_t hsa_init() {
   using namespace rhsa;
 
   auto &client = Client::GetInstance();
 
   TCPConnector connector;
-  auto conn = connector.Connect("127.0.0.1", 9001);
+  auto conn = connector.Connect("127.0.0.1", port());
   client.conn = std::move(conn);
 
 

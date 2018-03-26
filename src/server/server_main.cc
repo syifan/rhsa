@@ -1,10 +1,19 @@
 #include "src/server/server.h"
 
+int port() {
+  const char *port_env_str = std::getenv("RHSA_PORT");
+  if (port_env_str) {
+    return std::stoi(port_env_str);
+  }
+
+  return 9001;
+}
+
 int main() {
   rhsa::Server server;
   server.Init();
   server.IterateAgents();
 
   rhsa::Listener listener(&server);
-  listener.Listen(9001);
+  listener.Listen(port());
 }

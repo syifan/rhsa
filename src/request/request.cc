@@ -10,9 +10,9 @@ Request::Request() {
   req_ = std::make_unique<RequestMessage>();
 }
 
-Request::Request(const std::string &req) {
+Request::Request(const uint8_t *data, int size) {
   req_ = std::make_unique<RequestMessage>();
-  req_->ParseFromString(req);
+  req_->ParseFromArray(data, size);
 }
 
 std::unique_ptr<uint8_t []> Request::Encode() { 
