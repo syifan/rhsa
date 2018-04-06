@@ -17,7 +17,7 @@ hsa_status_t hsa_iterate_agents(
   auto request_factory = client.request_factory.get();
 
   auto query_req = request_factory->BuildQueryAgentRequest();
-  client.conn->Send(query_req.get());
+ client.conn->Send(query_req.get());
 
   auto req = client.conn->Recv();
   std::cout << "Req received: " << req->GetPayloadCase() << "\n";
@@ -40,4 +40,33 @@ hsa_status_t hsa_iterate_agents(
   return HSA_STATUS_SUCCESS; 
 }
 
+hsa_status_t hsa_agent_get_info(hsa_agent_t agent, hsa_agent_info_t attribute, void *value) {
+	using namespace rhsa;
+
+	auto &client = Client::GetInstance();
+	
+	auto currentAgent = std::move(client.agents.at(agent.handle));
+
+	switch(attribute) {
+		case 0: {
+			std::string name = currentAgent->GetName();
+			value = &name;
+			break;
+		}
+		case 1: {
+			std::string vendor = currentAgent->GetVendorName();
+			value = &vendor;
+			break;
+		}
+	//	case 2:
+	//		
+	//		value = currentAgent->GetFeature();
+	//		break;
+		default:
+			std::cout << "Error getting info" << std::endl;
+	}
+
+	return HSA_STATUS_SUCCESS;
+}
+ 
 }
