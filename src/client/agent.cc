@@ -43,21 +43,25 @@ hsa_status_t hsa_iterate_agents(
 hsa_status_t hsa_agent_get_info(hsa_agent_t agent, hsa_agent_info_t attribute, void *value) {
 	using namespace rhsa;
 
-	auto &client = Client::GetInstance();
+	//auto &client = Client::GetInstance();
 	
-	auto currentAgent = std::move(client.agents.at(agent.handle));
+	// auto currentAgent = std::move(client.agents.at(agent.handle));
+  Agent *currentAgent = (Agent *)(agent.handle);
 
 	switch(attribute) {
-		case 0: {
+		case HSA_AGENT_INFO_NAME: {
 			std::string name = currentAgent->GetName();
-			value = &name;
+      strncpy((char *)value, name.c_str(), 64);
 			break;
 		}
-		case 1: {
+		case HSA_AGENT_INFO_VENDOR_NAME: {
 			std::string vendor = currentAgent->GetVendorName();
-			value = &vendor;
+      strncpy((char *)value, vendor.c_str(), 64);
 			break;
 		}
+    case HSA_AGENT_INFO_DEVICE:
+      *((uint32_t *)value) = currentAgent->GetDeviceType();
+      break;
 	//	case 2:
 	//		
 	//		value = currentAgent->GetFeature();

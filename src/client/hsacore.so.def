@@ -3,6 +3,7 @@ ROCR_1
 global:
   hsa_init;
   hsa_iterate_agents;
+  hsa_agent_get_info;
 
 local:
   *;
