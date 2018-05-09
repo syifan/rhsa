@@ -4,6 +4,7 @@ global:
   hsa_init;
   hsa_iterate_agents;
   hsa_agent_get_info;
+  hsa_queue_create;
 
 local:
   *;
