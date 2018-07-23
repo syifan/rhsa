@@ -1,11 +1,14 @@
 ROCR_1
 {
 global:
-  hsa_init;
-  hsa_iterate_agents;
-  hsa_agent_get_info;
-  hsa_queue_create;
+	hsa_init;
+	hsa_iterate_agents;
+	hsa_agent_get_info;
+	hsa_queue_create;
+	hsa_ext_program_create;
+	hsa_ext_program_add_module;
+	hsa_ext_program_finalize;
 
 local:
-  *;
+	*;
 };

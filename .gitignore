@@ -44,3 +44,5 @@ cmake_install.cmake
 # CLion
 .idea
 
+# VS Code
+.vscode

@@ -14,6 +14,7 @@ add_library(${HSA_RUNTIME_NAME} SHARED
   agent.cc
   init.cc
   queue.cc
+  program.cc
 )
 set_property(TARGET ${HSA_RUNTIME_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
 set_property(TARGET ${HSA_RUNTIME_NAME} PROPERTY VERSION ${LIB_VERSION_STRING})
