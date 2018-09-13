@@ -38,4 +38,11 @@ hsa_status_t hsa_ext_program_finalize(
 hsa_status_t hsa_ext_program_destroy(hsa_ext_program_t program) {
     return HSA_STATUS_SUCCESS;
 }
+
+hsa_status_t hsa_executable_create(hsa_profile_t profile,
+                                   hsa_executable_state_t  executable_state,
+                                   const char *options,
+                                   hsa_executable_t *executable) {
+    return hsa_executable_create(profile, executable_state, options, executable);
+}
 }

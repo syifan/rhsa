@@ -8,6 +8,7 @@ global:
 	hsa_ext_program_create;
 	hsa_ext_program_add_module;
 	hsa_ext_program_finalize;
+	hsa_executable_create;
 
 local:
 	*;
