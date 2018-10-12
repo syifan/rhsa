@@ -26,6 +26,7 @@
 #include <google/protobuf/unknown_field_set.h>
 #include "init.pb.h"
 #include "agent.pb.h"
+#include "program.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace rhsa {
@@ -65,6 +66,7 @@ class RequestMessage : public ::google::protobuf::Message {
   enum PayloadCase {
     kInit = 1000,
     kQueryAgent = 2000,
+    kProgramMesg = 3000,
     PAYLOAD_NOT_SET = 0,
   };
 
@@ -116,11 +118,21 @@ class RequestMessage : public ::google::protobuf::Message {
   inline ::rhsa::QueryAgent* release_queryagent();
   inline void set_allocated_queryagent(::rhsa::QueryAgent* queryagent);
 
+  // optional .rhsa.ProgramMesg programMesg = 3000;
+  inline bool has_programmesg() const;
+  inline void clear_programmesg();
+  static const int kProgramMesgFieldNumber = 3000;
+  inline const ::rhsa::ProgramMesg& programmesg() const;
+  inline ::rhsa::ProgramMesg* mutable_programmesg();
+  inline ::rhsa::ProgramMesg* release_programmesg();
+  inline void set_allocated_programmesg(::rhsa::ProgramMesg* programmesg);
+
   inline PayloadCase Payload_case() const;
   // @@protoc_insertion_point(class_scope:rhsa.RequestMessage)
  private:
   inline void set_has_init();
   inline void set_has_queryagent();
+  inline void set_has_programmesg();
 
   inline bool has_Payload();
   void clear_Payload();
@@ -133,6 +145,7 @@ class RequestMessage : public ::google::protobuf::Message {
   union PayloadUnion {
     ::rhsa::InitMessage* init_;
     ::rhsa::QueryAgent* queryagent_;
+    ::rhsa::ProgramMesg* programmesg_;
   } Payload_;
   ::google::protobuf::uint32 _oneof_case_[1];
 
@@ -233,6 +246,49 @@ inline void RequestMessage::set_allocated_queryagent(::rhsa::QueryAgent* queryag
   if (queryagent) {
     set_has_queryagent();
     Payload_.queryagent_ = queryagent;
+  }
+}
+
+// optional .rhsa.ProgramMesg programMesg = 3000;
+inline bool RequestMessage::has_programmesg() const {
+  return Payload_case() == kProgramMesg;
+}
+inline void RequestMessage::set_has_programmesg() {
+  _oneof_case_[0] = kProgramMesg;
+}
+inline void RequestMessage::clear_programmesg() {
+  if (has_programmesg()) {
+    delete Payload_.programmesg_;
+    clear_has_Payload();
+  }
+}
+inline const ::rhsa::ProgramMesg& RequestMessage::programmesg() const {
+  return has_programmesg() ? *Payload_.programmesg_
+                      : ::rhsa::ProgramMesg::default_instance();
+}
+inline ::rhsa::ProgramMesg* RequestMessage::mutable_programmesg() {
+  if (!has_programmesg()) {
+    clear_Payload();
+    set_has_programmesg();
+    Payload_.programmesg_ = new ::rhsa::ProgramMesg;
+  }
+  return Payload_.programmesg_;
+}
+inline ::rhsa::ProgramMesg* RequestMessage::release_programmesg() {
+  if (has_programmesg()) {
+    clear_has_Payload();
+    ::rhsa::ProgramMesg* temp = Payload_.programmesg_;
+    Payload_.programmesg_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void RequestMessage::set_allocated_programmesg(::rhsa::ProgramMesg* programmesg) {
+  clear_Payload();
+  if (programmesg) {
+    set_has_programmesg();
+    Payload_.programmesg_ = programmesg;
   }
 }
 

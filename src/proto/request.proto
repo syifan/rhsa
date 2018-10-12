@@ -4,11 +4,12 @@ package rhsa;
 
 import "init.proto";
 import "agent.proto";
+import "program.proto";
 
 message RequestMessage {
 		oneof Payload {
 			InitMessage init = 1000;
-
-      QueryAgent queryAgent = 2000;
+			QueryAgent queryAgent = 2000;
+			ProgramMesg programMesg = 3000;
 		}
 }

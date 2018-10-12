@@ -26,6 +26,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 struct RequestMessageOneofInstance {
   const ::rhsa::InitMessage* init_;
   const ::rhsa::QueryAgent* queryagent_;
+  const ::rhsa::ProgramMesg* programmesg_;
 }* RequestMessage_default_oneof_instance_ = NULL;
 
 }  // namespace
@@ -38,9 +39,10 @@ void protobuf_AssignDesc_request_2eproto() {
       "request.proto");
   GOOGLE_CHECK(file != NULL);
   RequestMessage_descriptor_ = file->message_type(0);
-  static const int RequestMessage_offsets_[3] = {
+  static const int RequestMessage_offsets_[4] = {
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(RequestMessage_default_oneof_instance_, init_),
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(RequestMessage_default_oneof_instance_, queryagent_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(RequestMessage_default_oneof_instance_, programmesg_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RequestMessage, Payload_),
   };
   RequestMessage_reflection_ =
@@ -88,11 +90,14 @@ void protobuf_AddDesc_request_2eproto() {
 
   ::rhsa::protobuf_AddDesc_init_2eproto();
   ::rhsa::protobuf_AddDesc_agent_2eproto();
+  ::rhsa::protobuf_AddDesc_program_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rrequest.proto\022\004rhsa\032\ninit.proto\032\013agent"
-    ".proto\"h\n\016RequestMessage\022\"\n\004init\030\350\007 \001(\0132"
-    "\021.rhsa.InitMessageH\000\022\'\n\nqueryAgent\030\320\017 \001("
-    "\0132\020.rhsa.QueryAgentH\000B\t\n\007Payload", 152);
+    ".proto\032\rprogram.proto\"\223\001\n\016RequestMessage"
+    "\022\"\n\004init\030\350\007 \001(\0132\021.rhsa.InitMessageH\000\022\'\n\n"
+    "queryAgent\030\320\017 \001(\0132\020.rhsa.QueryAgentH\000\022)\n"
+    "\013programMesg\030\270\027 \001(\0132\021.rhsa.ProgramMesgH\000"
+    "B\t\n\007Payload", 211);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "request.proto", &protobuf_RegisterTypes);
   RequestMessage::default_instance_ = new RequestMessage();
@@ -113,6 +118,7 @@ struct StaticDescriptorInitializer_request_2eproto {
 #ifndef _MSC_VER
 const int RequestMessage::kInitFieldNumber;
 const int RequestMessage::kQueryAgentFieldNumber;
+const int RequestMessage::kProgramMesgFieldNumber;
 #endif  // !_MSC_VER
 
 RequestMessage::RequestMessage()
@@ -124,6 +130,7 @@ RequestMessage::RequestMessage()
 void RequestMessage::InitAsDefaultInstance() {
   RequestMessage_default_oneof_instance_->init_ = const_cast< ::rhsa::InitMessage*>(&::rhsa::InitMessage::default_instance());
   RequestMessage_default_oneof_instance_->queryagent_ = const_cast< ::rhsa::QueryAgent*>(&::rhsa::QueryAgent::default_instance());
+  RequestMessage_default_oneof_instance_->programmesg_ = const_cast< ::rhsa::ProgramMesg*>(&::rhsa::ProgramMesg::default_instance());
 }
 
 RequestMessage::RequestMessage(const RequestMessage& from)
@@ -183,6 +190,10 @@ void RequestMessage::clear_Payload() {
       delete Payload_.queryagent_;
       break;
     }
+    case kProgramMesg: {
+      delete Payload_.programmesg_;
+      break;
+    }
     case PAYLOAD_NOT_SET: {
       break;
     }
@@ -203,7 +214,7 @@ bool RequestMessage::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:rhsa.RequestMessage)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(16383);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(24002);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
@@ -225,6 +236,19 @@ bool RequestMessage::MergePartialFromCodedStream(
          parse_queryAgent:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_queryagent()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24002)) goto parse_programMesg;
+        break;
+      }
+
+      // optional .rhsa.ProgramMesg programMesg = 3000;
+      case 3000: {
+        if (tag == 24002) {
+         parse_programMesg:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_programmesg()));
         } else {
           goto handle_unusual;
         }
@@ -269,6 +293,12 @@ void RequestMessage::SerializeWithCachedSizes(
       2000, this->queryagent(), output);
   }
 
+  // optional .rhsa.ProgramMesg programMesg = 3000;
+  if (has_programmesg()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3000, this->programmesg(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -291,6 +321,13 @@ void RequestMessage::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2000, this->queryagent(), target);
+  }
+
+  // optional .rhsa.ProgramMesg programMesg = 3000;
+  if (has_programmesg()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3000, this->programmesg(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -317,6 +354,13 @@ int RequestMessage::ByteSize() const {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->queryagent());
+      break;
+    }
+    // optional .rhsa.ProgramMesg programMesg = 3000;
+    case kProgramMesg: {
+      total_size += 3 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->programmesg());
       break;
     }
     case PAYLOAD_NOT_SET: {
@@ -357,6 +401,10 @@ void RequestMessage::MergeFrom(const RequestMessage& from) {
       mutable_queryagent()->::rhsa::QueryAgent::MergeFrom(from.queryagent());
       break;
     }
+    case kProgramMesg: {
+      mutable_programmesg()->::rhsa::ProgramMesg::MergeFrom(from.programmesg());
+      break;
+    }
     case PAYLOAD_NOT_SET: {
       break;
     }
@@ -383,6 +431,9 @@ bool RequestMessage::IsInitialized() const {
   }
   if (has_queryagent()) {
     if (!this->queryagent().IsInitialized()) return false;
+  }
+  if (has_programmesg()) {
+    if (!this->programmesg().IsInitialized()) return false;
   }
   return true;
 }

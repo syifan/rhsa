@@ -1,0 +1,25 @@
+syntax = "proto2";
+
+package rhsa;
+
+message CreateExecutable {
+	enum Profile {
+		HSA_PROFILE_BASE = 0;
+		HSA_PROFILE_FULL = 1;
+	}
+	
+	enum ExecutableState {
+		HSA_EXECUTABLE_STATE_UNFROZEN = 0;
+		HSA_EXECUTABLE_STATE_FROZEN = 1;
+	}
+
+	required Profile profile = 100;
+	required ExecutableState executableState = 101;
+	required string options = 102;
+}
+
+message ProgramMesg {
+	oneof Payload {
+		CreateExecutable createExecutable = 1000;
+	}
+}

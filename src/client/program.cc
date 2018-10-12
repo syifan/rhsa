@@ -1,10 +1,12 @@
 #include <cstdlib>
 #include <cstdio>
 #include "include/hsa.h"
-#include "include/hsa_ext_finalize.h"
+#include "src/proto/program.pb.h"
+#include "src/client/client.h"
+#include "src/request/request.h"
 
 extern "C" {
-
+/*
 hsa_status_t hsa_ext_program_create(
     hsa_machine_model_t machine_model,
     hsa_profile_t profile,
@@ -38,11 +40,28 @@ hsa_status_t hsa_ext_program_finalize(
 hsa_status_t hsa_ext_program_destroy(hsa_ext_program_t program) {
     return HSA_STATUS_SUCCESS;
 }
+*/
 
 hsa_status_t hsa_executable_create(hsa_profile_t profile,
                                    hsa_executable_state_t  executable_state,
                                    const char *options,
                                    hsa_executable_t *executable) {
-    return hsa_executable_create(profile, executable_state, options, executable);
+    
+  using namespace rhsa;
+
+  auto &client = Client::GetInstance();
+  auto request_factory = client.request_factory.get();
+
+  auto msg = new CreateExecutable();
+
+  msg->set_profile((CreateExecutable_Profile)profile);
+  msg->set_executablestate((CreateExecutable_ExecutableState)executable_state);
+  msg->set_options(options);
+
+  auto query_req = request_factory->BuildProgramRequest(msg, executableCreateCom);
+  client.conn->Send(query_req.get());
+
+  // placeholder
+  return HSA_STATUS_SUCCESS;
 }
 }
