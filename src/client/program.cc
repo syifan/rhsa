@@ -58,7 +58,7 @@ hsa_status_t hsa_executable_create(hsa_profile_t profile,
   msg->set_executablestate((CreateExecutable_ExecutableState)executable_state);
   msg->set_options(options);
 
-  auto query_req = request_factory->BuildProgramRequest(msg, executableCreateCom);
+  auto query_req = request_factory->BuildProgramRequest(msg, (RequestFactory::ProgramCommand)0);
   client.conn->Send(query_req.get());
 
   // placeholder
