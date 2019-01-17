@@ -4,5 +4,4 @@ add_executable(server
   server.cc
   server_main.cc
 )
-target_link_libraries(server conn request proto -lstdc++ 
-  ${PROTOBUF} ${HSA_RUNTIME})
+target_link_libraries(server conn -lstdc++ ${HSA_RUNTIME})

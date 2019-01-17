@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "src/conn/conn.h"
-#include "src/request/request_factory.h"
+//#include "src/request/request_factory.h"
 
 namespace rhsa{
 
@@ -32,16 +32,16 @@ class Client {
   /**
    * The request factory
    */
-  std::unique_ptr<RequestFactory> request_factory;
+  //std::unique_ptr<RequestFactory> request_factory;
 
   /**
    * All the agents
    */
-  std::vector<std::unique_ptr<Agent>> agents;
+  //std::vector<std::unique_ptr<Agent>> agents;
 
  private:
   Client() {
-    request_factory = std::make_unique<RequestFactory>();
+    //request_factory = std::make_unique<RequestFactory>();
   }
   ~Client() {}
 };

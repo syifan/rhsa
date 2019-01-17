@@ -1,15 +1,15 @@
-#include "include/hsa.h"
 #include <cmath>
+#include "include/hsa.h"
 
 #include "src/client/client.h"
-#include "src/request/request.h"
+//#include "src/request/request.h"
 
 extern "C" {
 
 struct rhsaQueue {
   uint32_t features;
 
-  void * base_address;
+  void *base_address;
   uint32_t reserved0;
 
   uint64_t doorbell_signal;
@@ -20,10 +20,10 @@ struct rhsaQueue {
 
 bool isPowerOfTwo(uint32_t val) {
   double exp = 1;
-  uint32_t twoPow = (uint32_t) std::pow(2, exp);
-  while(val < twoPow) {
+  uint32_t twoPow = (uint32_t)std::pow(2, exp);
+  while (val < twoPow) {
     exp++;
-    twoPow = (uint32_t) std::pow(2, exp);
+    twoPow = (uint32_t)std::pow(2, exp);
   }
 
   if (val == twoPow) {
@@ -43,14 +43,14 @@ hsa_status_t hsa_queue_create(
   //   return HSA_STATUS_ERROR_INVALID_ARGUMENT;
   // }
 
-  struct rhsaQueue newQueue = {.features = 0,
-                          .base_address = 0,
-                          .reserved0 = 0,
-                          .doorbell_signal = 0,
-                          .size = 0,
-                          .reserved1 = 0,
-                          .id = 0};
-  *queue = (hsa_queue_t *) &newQueue;
+  //struct rhsaQueue newQueue = {.features = 0,
+                               //.base_address = 0,
+                               //.reserved0 = 0,
+                               //.doorbell_signal = 0,
+                               //.size = 0,
+                               //.reserved1 = 0,
+                               //.id = 0};
+  //*queue = (hsa_queue_t *)&newQueue;
 
   return HSA_STATUS_SUCCESS;
 }

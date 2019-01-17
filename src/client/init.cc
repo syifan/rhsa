@@ -7,7 +7,7 @@
 
 #include "src/client/client.h"
 #include "src/conn/connector.h"
-#include "src/request/request.h"
+//#include "src/request/request.h"
 
 extern "C" {
 
@@ -21,18 +21,18 @@ int port() {
 }
 
 hsa_status_t hsa_init() {
-  using namespace rhsa;
+  //using namespace rhsa;
 
-  auto &client = Client::GetInstance();
+  //auto &client = Client::GetInstance();
 
-  TCPConnector connector;
-  auto conn = connector.Connect("127.0.0.1", port());
-  client.conn = std::move(conn);
+  //TCPConnector connector;
+  //auto conn = connector.Connect("127.0.0.1", port());
+  //client.conn = std::move(conn);
 
 
-  auto request_factory = client.request_factory.get();
-  auto init_req = request_factory->BuildInitRequest();
-  client.conn->Send(init_req.get());
+  //auto request_factory = client.request_factory.get();
+  //auto init_req = request_factory->BuildInitRequest();
+  //client.conn->Send(init_req.get());
 
   // conn->Recv();
 

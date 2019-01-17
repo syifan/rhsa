@@ -1,9 +1,9 @@
 #include <cstdlib>
 #include <cstdio>
 #include "include/hsa.h"
-#include "src/proto/program.pb.h"
+//#include "src/proto/program.pb.h"
 #include "src/client/client.h"
-#include "src/request/request.h"
+//#include "src/request/request.h"
 
 extern "C" {
 /*
@@ -47,19 +47,19 @@ hsa_status_t hsa_executable_create(hsa_profile_t profile,
                                    const char *options,
                                    hsa_executable_t *executable) {
     
-  using namespace rhsa;
+  //using namespace rhsa;
 
-  auto &client = Client::GetInstance();
-  auto request_factory = client.request_factory.get();
+  //auto &client = Client::GetInstance();
+  //auto request_factory = client.request_factory.get();
 
-  auto msg = new CreateExecutable();
+  //auto msg = new CreateExecutable();
 
-  msg->set_profile((CreateExecutable_Profile)profile);
-  msg->set_executablestate((CreateExecutable_ExecutableState)executable_state);
-  msg->set_options(options);
+  //msg->set_profile((CreateExecutable_Profile)profile);
+  //msg->set_executablestate((CreateExecutable_ExecutableState)executable_state);
+  //msg->set_options(options);
 
-  auto query_req = request_factory->BuildProgramRequest(msg, (RequestFactory::ProgramCommand)0);
-  client.conn->Send(query_req.get());
+  //auto query_req = request_factory->BuildProgramRequest(msg, (RequestFactory::ProgramCommand)0);
+  //client.conn->Send(query_req.get());
 
   // placeholder
   return HSA_STATUS_SUCCESS;

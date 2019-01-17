@@ -5,5 +5,5 @@ add_library(conn
   connector.cc
   listener.cc
 )
-target_link_libraries(conn request)
+target_link_libraries(conn)
 set_property(TARGET conn PROPERTY POSITION_INDEPENDENT_CODE ON)

@@ -19,10 +19,10 @@ add_library(${HSA_RUNTIME_NAME} SHARED
 set_property(TARGET ${HSA_RUNTIME_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
 set_property(TARGET ${HSA_RUNTIME_NAME} PROPERTY VERSION ${LIB_VERSION_STRING})
 set_property(TARGET ${HSA_RUNTIME_NAME} PROPERTY SOVERSION "${VERSION_MAJOR}")
-target_link_libraries(${HSA_RUNTIME_NAME} conn proto ${PROTOBUF})
+target_link_libraries(${HSA_RUNTIME_NAME} conn)
 
 if (${ENABLE_TESTING})
   add_executable(client_test init_test.cc agent_test.cc)
-  target_link_libraries(client_test gtest_main gmock request ${HSA_RUNTIME_NAME})
+  target_link_libraries(client_test gtest_main gmock  ${HSA_RUNTIME_NAME})
   add_test(NAME client_test COMMAND client_test)
 endif ()

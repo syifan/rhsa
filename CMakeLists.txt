@@ -13,7 +13,7 @@ set(GMOCK_ROOT ${PROJECT_SOURCE_DIR}/gtest/googlemock)
 
 include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories("${PROJECT_SOURCE_DIR}")
-include_directories("/opt/rocm/include")
+#include_directories("/opt/rocm/include")
 include_directories("${GTEST_ROOT}/include")
 include_directories("${GMOCK_ROOT}/include")
 
@@ -22,7 +22,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -pthread")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-find_library(PROTOBUF protobuf)
+#find_library(PROTOBUF protobuf)
 find_library(HSA_RUNTIME hsa-runtime64
   HINTS /opt/rocm/lib/
 )
