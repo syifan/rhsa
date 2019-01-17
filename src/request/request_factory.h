@@ -15,7 +15,7 @@ class RequestFactory {
     auto msg = new InitMessage();
     req->req_->set_allocated_init(msg); 
     msg->set_type(1);
-    return std::move(req);
+    return req;
 
   }
 
@@ -26,7 +26,7 @@ class RequestFactory {
     auto req = std::make_unique<Request>();
     auto msg = new QueryAgent();
     req->req_->set_allocated_queryagent(msg); 
-    return std::move(req);
+    return req;
   }
 
   enum ProgramCommand {
@@ -42,7 +42,7 @@ class RequestFactory {
         break;
     }
     req->req_->set_allocated_programmesg(programMsg);
-    return std::move(req);
+    return req;
   }
 };
 

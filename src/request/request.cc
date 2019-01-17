@@ -24,7 +24,7 @@ std::unique_ptr<uint8_t []> Request::Encode() {
   coded_output.WriteLittleEndian64(req_->ByteSize());
   req_->SerializeToCodedStream(&coded_output);
 
-  return std::move(buf);
+  return buf;
 }
 
 }

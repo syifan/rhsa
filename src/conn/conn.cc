@@ -61,7 +61,7 @@ std::unique_ptr<Request> TCPConnection::Recv() {
   //std::cout << "\n";
 
   auto req = std::make_unique<Request>(req_buf, size);
-  return std::move(req);
+  return req;
 }
 
 void TCPConnection::Close() {

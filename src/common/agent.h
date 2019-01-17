@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include "src/proto/agent.pb.h"
+#include "src/proto/request.pb.h"
 
 namespace rhsa {
 

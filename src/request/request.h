@@ -62,7 +62,7 @@ class Request {
   std::unique_ptr<Agent> GetAgent(int index) {
     auto agent_mesg = req_->mutable_queryagent()->mutable_agents(index); 
     auto agent = std::make_unique<Agent>(agent_mesg);
-    return std::move(agent);
+    return agent;
   }
 };
 

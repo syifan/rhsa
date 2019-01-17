@@ -1,9 +1,9 @@
 #include <cstdlib>
 #include <cstdio>
 #include "include/hsa.h"
-#include "src/proto/program.pb.h"
 #include "src/client/client.h"
 #include "src/request/request.h"
+#include "src/proto/request.pb.h"
 
 extern "C" {
 /*
