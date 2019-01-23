@@ -10,6 +10,8 @@
 
 namespace rhsa {
 
+TCPConnector::TCPConnector(MsgEncoder *encoder) : encoder_(encoder) {}
+
 std::unique_ptr<Connection> TCPConnector::Connect(const std::string &ip,
                                                   int port) {
   int sock;
@@ -33,9 +35,8 @@ std::unique_ptr<Connection> TCPConnector::Connect(const std::string &ip,
 
   std::cout << "Connection established.\n";
 
-  auto conn = std::make_unique<TCPConnection>(sock);
-
+  auto conn = std::make_unique<TCPConnection>(sock, encoder_);
   return std::move(conn);
 }
 
-}
+}  // namespace rhsa

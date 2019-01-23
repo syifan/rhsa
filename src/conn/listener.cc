@@ -1,11 +1,11 @@
 #include "src/conn/listener.h"
 
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <unistd.h>
 #include <cstring>
 #include <iostream>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
 
 namespace rhsa {
 
@@ -13,9 +13,8 @@ void SimpleConnectionHandler::Handle(std::unique_ptr<Connection> conn) {
   std::cout << "Connected.\n";
 }
 
-Listener::Listener(ConnectionHandler *connection_handler) {
-  connection_handler_ = connection_handler;
-}
+Listener::Listener(ConnectionHandler *connection_handler, MsgEncoder *encoder)
+    : connection_handler_(connection_handler), encoder_(encoder) {}
 
 void Listener::Listen(int port) {
   int sock;
@@ -46,14 +45,15 @@ void Listener::Listen(int port) {
   }
 
   while (true) {
-    client_sock = accept(sock, (struct sockaddr *)&addr, (socklen_t *)&addr_len);
+    client_sock =
+        accept(sock, (struct sockaddr *)&addr, (socklen_t *)&addr_len);
     if (client_sock < 0) {
       perror("Failed to accept incomming connection.");
       exit(-1);
     }
-  
-    auto conn = std::make_unique<TCPConnection>(client_sock);
+
+    auto conn = std::make_unique<TCPConnection>(client_sock, encoder_);
     connection_handler_->Handle(std::move(conn));
   }
 }
-}
+}  // namespace rhsa

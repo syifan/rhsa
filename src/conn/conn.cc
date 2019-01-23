@@ -5,25 +5,28 @@
 #include <iostream>
 
 #include "src/conn/disconnect_exception.h"
-#include "src/request/request.h"
+#include "src/proto/msg.pb.h"
 
 namespace rhsa {
 
-TCPConnection::TCPConnection(int sock) { this->sock = sock; }
-
-void TCPConnection::Send(Request *request) {
-  auto msg = request->Encode();
-
-  //std::cout << "Sending: ";
-  //for (int i = 0; i < request->ByteSize(); i++) {
-    //printf("%02x ", msg[i]);
-  //}
-  //std::cout << "\n";
-
-  send(this->sock, msg.get(), request->ByteSize(), 0);
+TCPConnection::TCPConnection(int sock, MsgEncoder *encoder) {
+  this->sock = sock;
+  this->encoder = encoder;
 }
 
-std::unique_ptr<Request> TCPConnection::Recv() {
+void TCPConnection::Send(const Msg &msg) {
+  auto buf = this->encoder->Encode(msg);
+
+  // std::cout << "Sending: ";
+  // for (int i = 0; i < request->ByteSize(); i++) {
+  // printf("%02x ", msg[i]);
+  //}
+  // std::cout << "\n";
+
+  send(this->sock, buf.get(), msg.ByteSize(), 0);
+}
+
+std::unique_ptr<Msg> TCPConnection::Recv() {
   uint64_t size;
   uint8_t *size_buf = (uint8_t *)&size;
   uint32_t size_buf_fullness = 0;
@@ -39,7 +42,7 @@ std::unique_ptr<Request> TCPConnection::Recv() {
     if (n == 0) return NULL;
   }
 
-  //std::cout << "Received Size: " << size << "\n";
+  // std::cout << "Received Size: " << size << "\n";
 
   uint8_t *req_buf = (uint8_t *)malloc(size);
   uint32_t req_buf_fullness = 0;
@@ -55,17 +58,15 @@ std::unique_ptr<Request> TCPConnection::Recv() {
     if (n == 0) return NULL;
   }
 
-  //for (uint32_t i = 0; i < size; i++) {
-    //printf("%02x ", req_buf[i]);
+  // for (uint32_t i = 0; i < size; i++) {
+  // printf("%02x ", req_buf[i]);
   //}
-  //std::cout << "\n";
+  // std::cout << "\n";
 
-  auto req = std::make_unique<Request>(req_buf, size);
-  return req;
+  auto msg = this->encoder->Decode(req_buf, size);
+  return msg;
 }
 
-void TCPConnection::Close() {
-  close(this->sock);
-}
+void TCPConnection::Close() { close(this->sock); }
 
-}
+}  // namespace rhsa

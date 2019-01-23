@@ -6,6 +6,8 @@ list(APPEND CMAKE_MODULE_PATH
     "${PROJECT_SOURCE_DIR}/cmake")
 include(gtest)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 set(CMAKE_DEBUG_POSTFIX "")
 set(CMAKE_CXX_STANDARD 14)
 set(GTEST_ROOT ${PROJECT_SOURCE_DIR}/gtest/googletest)
@@ -13,6 +15,7 @@ set(GMOCK_ROOT ${PROJECT_SOURCE_DIR}/gtest/googlemock)
 
 include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories("${PROJECT_SOURCE_DIR}")
+include_directories("${PROJECT_BINARY_DIR}")
 include_directories("/opt/rocm/include")
 include_directories("${GTEST_ROOT}/include")
 include_directories("${GMOCK_ROOT}/include")

@@ -76,10 +76,12 @@ int load_module_from_file(const char* file_name, hsa_ext_module_t* module) {
  * and sets the value of data to the agent handle if it is.
  */
 static hsa_status_t get_gpu_agent(hsa_agent_t agent, void *data) {
+    printf("Data %p\n", data);
     hsa_status_t status;
     hsa_device_type_t device_type;
     status = hsa_agent_get_info(agent, HSA_AGENT_INFO_DEVICE, &device_type);
     if (HSA_STATUS_SUCCESS == status && HSA_DEVICE_TYPE_GPU == device_type) {
+        printf("GPU found\n");
         hsa_agent_t* ret = (hsa_agent_t*)data;
         *ret = agent;
         return HSA_STATUS_INFO_BREAK;
@@ -148,6 +150,7 @@ int main(int argc, char **argv) {
      * the get_gpu_agent callback.
      */
     hsa_agent_t agent;
+    printf("Agent %p\n", &agent);
     err = hsa_iterate_agents(get_gpu_agent, &agent);
     if(err == HSA_STATUS_INFO_BREAK) { err = HSA_STATUS_SUCCESS; }
     check(Getting a gpu agent, err);

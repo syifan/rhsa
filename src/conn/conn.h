@@ -2,35 +2,35 @@
 #define SRC_CONN_CONN_H_
 
 #include <memory>
-#include "gmock/gmock.h"
+#include "src/proto/encoder.h"
 
 namespace rhsa {
 
-class Request;
+class Msg;
 
 class Connection {
  public:
-  virtual void Send(Request* req) = 0;
-  virtual std::unique_ptr<Request> Recv() = 0;
+  virtual void Send(const Msg &msg) = 0;
+  virtual std::unique_ptr<Msg> Recv() = 0;
   virtual void Close() = 0;
   virtual ~Connection() {}
 };
 
 class TCPConnection : public Connection {
   int sock;
+  MsgEncoder *encoder;
 
  public:
+  TCPConnection(int sock, MsgEncoder *encoder);
 
-  TCPConnection(int sock);
-
-  void Send(Request *req) override;
-  std::unique_ptr<Request> Recv() override;
+  void Send(const Msg &msg) override;
+  std::unique_ptr<Msg> Recv() override;
   void Close() override;
   ~TCPConnection() {
     // Free resources;
   }
 };
 
-}
+}  // namespace rhsa
 
 #endif  // SRC_CONN_CONN_H_

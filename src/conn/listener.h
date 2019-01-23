@@ -5,7 +5,7 @@
 namespace rhsa {
 
 /**
- * A ConnectionHandler is a general interface to define the action to trigger 
+ * A ConnectionHandler is a general interface to define the action to trigger
  * for incomming connection.
  */
 class ConnectionHandler {
@@ -17,7 +17,7 @@ class ConnectionHandler {
 };
 
 /**
- * A SimpleConnectionHandler is a handler that just print connection 
+ * A SimpleConnectionHandler is a handler that just print connection
  * information and close the connection.
  */
 class SimpleConnectionHandler : public ConnectionHandler {
@@ -32,6 +32,7 @@ class SimpleConnectionHandler : public ConnectionHandler {
  */
 class Listener {
   ConnectionHandler *connection_handler_;
+  MsgEncoder *encoder_;
 
  public:
   /**
@@ -40,7 +41,7 @@ class Listener {
    * @param connection_handler The Connection handler that defines the action
    * to deal with a new connection.
    */
-  Listener(ConnectionHandler *connection_handler);
+  Listener(ConnectionHandler *connection_handler, MsgEncoder *encoder);
 
   /**
    * Listen monitors a port for incomming connections. This function will
@@ -48,4 +49,5 @@ class Listener {
    */
   void Listen(int port);
 };
-}
+
+}  // namespace rhsa

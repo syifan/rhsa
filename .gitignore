@@ -48,3 +48,4 @@ cmake_install.cmake
 .vscode
 
 *.bc
+.ropeproject
