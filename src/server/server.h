@@ -11,12 +11,13 @@ namespace rhsa {
 
 class Server : public ConnectionHandler {
 
-  //std::vector<std::unique_ptr<Agent>> agents_;
+  std::vector<std::unique_ptr<Agent>> agents_;
   //void HandleQueryAgent(Connection *conn, Request *req);
   
+  void IterateAgents();
+
  public:
   void Init();
-  //void IterateAgents();
   virtual void Handle(std::unique_ptr<Connection> conn) override;
 };
 
