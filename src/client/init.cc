@@ -23,6 +23,8 @@ int port() {
 hsa_status_t hsa_init() {
   using namespace rhsa;
 
+  printf("API hsa_init\n");
+
   auto &client = Client::GetInstance();
 
   TCPConnector connector(&client.encoder);
@@ -33,12 +35,14 @@ hsa_status_t hsa_init() {
   //auto request_factory = client.request_factory.get();
   //auto init_req = request_factory->BuildInitRequest();
   //client.conn->Send(init_req.get());
-  
+
+  printf("hsa_init sending\n");
   auto msg = std::make_unique<Msg>();
   auto init_connection = new ReqInitConnection();
+  init_connection->set_type(0);
   msg->set_allocated_initconnection(init_connection);
   client.conn->Send(*msg);
-
+  printf("hsa_init send done\n");
 
 
   // conn->Recv();

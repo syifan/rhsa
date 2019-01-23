@@ -1,3 +1,4 @@
+#include "src/proto/encoder.h"
 #include "src/server/server.h"
 
 int port() {
@@ -11,9 +12,11 @@ int port() {
 
 int main() {
   rhsa::Server server;
-  server.Init();
-  server.IterateAgents();
+  rhsa::MsgEncoderImpl encoder;
 
-  rhsa::Listener listener(&server);
+  server.Init();
+  //server.IterateAgents();
+
+  rhsa::Listener listener(&server, &encoder);
   listener.Listen(port());
 }

@@ -5,18 +5,18 @@
 #include <vector>
 
 #include "src/conn/listener.h"
-#include "src/common/agent.h"
+#include "src/proto/msg.pb.h"
 
 namespace rhsa {
 
 class Server : public ConnectionHandler {
-  std::vector<std::unique_ptr<Agent>> agents_;
 
-  void HandleQueryAgent(Connection *conn, Request *req);
-
+  //std::vector<std::unique_ptr<Agent>> agents_;
+  //void HandleQueryAgent(Connection *conn, Request *req);
+  
  public:
   void Init();
-  void IterateAgents();
+  //void IterateAgents();
   virtual void Handle(std::unique_ptr<Connection> conn) override;
 };
 

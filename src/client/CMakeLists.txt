@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-set(HSA_RUNTIME_NAME "hsa-runtime64")
+set(HSA_RUNTIME_NAME "hsa_runtime64")
 set(VERSION_MAJOR "1")
 set(VERSION_MINOR "1")
 set(VERSION_PATCH "6")

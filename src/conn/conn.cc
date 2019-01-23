@@ -17,13 +17,13 @@ TCPConnection::TCPConnection(int sock, MsgEncoder *encoder) {
 void TCPConnection::Send(const Msg &msg) {
   auto buf = this->encoder->Encode(msg);
 
-  // std::cout << "Sending: ";
-  // for (int i = 0; i < request->ByteSize(); i++) {
-  // printf("%02x ", msg[i]);
-  //}
-  // std::cout << "\n";
+  std::cout << "Sending: ";
+  for (int i = 0; i < msg.ByteSize() + 8; i++) {
+    printf("%02x ", buf[i]);
+  }
+  std::cout << "\n";
 
-  send(this->sock, buf.get(), msg.ByteSize(), 0);
+  send(this->sock, buf.get(), msg.ByteSize() + 8, 0);
 }
 
 std::unique_ptr<Msg> TCPConnection::Recv() {
@@ -42,7 +42,7 @@ std::unique_ptr<Msg> TCPConnection::Recv() {
     if (n == 0) return NULL;
   }
 
-  // std::cout << "Received Size: " << size << "\n";
+  std::cout << "Received Size: " << size << "\n";
 
   uint8_t *req_buf = (uint8_t *)malloc(size);
   uint32_t req_buf_fullness = 0;
@@ -58,10 +58,10 @@ std::unique_ptr<Msg> TCPConnection::Recv() {
     if (n == 0) return NULL;
   }
 
-  // for (uint32_t i = 0; i < size; i++) {
-  // printf("%02x ", req_buf[i]);
-  //}
-  // std::cout << "\n";
+  for (uint32_t i = 0; i < size; i++) {
+    printf("%02x ", req_buf[i]);
+  }
+  std::cout << "\n";
 
   auto msg = this->encoder->Decode(req_buf, size);
   return msg;

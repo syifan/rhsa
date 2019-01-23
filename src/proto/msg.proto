@@ -11,7 +11,7 @@ message Msg {
 }
 
 message ReqInitConnection {
-	required uint32 type = 1;
+  required int32 type = 1;
 }
 
 /*message AgentMesg {*/
