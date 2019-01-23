@@ -235,8 +235,8 @@ hsa_status_t storeAgent(hsa_agent_t agent, void *data) {
   return HSA_STATUS_SUCCESS;
 }
 
-void Server::Init() { 
-  hsa_init(); 
+void Server::Init() {
+  hsa_init();
   IterateAgents();
 }
 
@@ -250,6 +250,17 @@ void Server::IterateAgents() { hsa_iterate_agents(storeAgent, &agents_); };
 // conn->Send(req);
 //}
 
+void Server::HandleInitConnection(Connection *conn, Msg *msg) {
+  auto rsp = std::make_unique<Msg>();
+  auto rsp_init_connection = new RspInitConnection();
+  rsp->set_allocated_rspinitconnection(rsp_init_connection);
+  for (auto& a : this->agents_) {
+    auto agent = rsp_init_connection->add_agents();
+    agent->CopyFrom(*a);
+  }
+  conn->Send(*rsp);
+}
+
 void Server::Handle(std::unique_ptr<Connection> conn) {
   std::cout << "Connected and handling.\n";
   try {
@@ -257,8 +268,8 @@ void Server::Handle(std::unique_ptr<Connection> conn) {
       auto msg = conn->Recv();
       std::cout << "Received: " << msg->Payload_case() << "\n";
       switch (msg->Payload_case()) {
-        case Msg::kInitConnection:
-          printf("Init Connection Msg Received\n");
+        case Msg::kReqInitConnection:
+          HandleInitConnection(conn.get(), msg.get());
           break;
         default:
           throw "Unknown message type received.";

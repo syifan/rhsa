@@ -4,15 +4,20 @@ package rhsa;
 
 message Msg {
 		oneof Payload {
-			ReqInitConnection initConnection = 1000;
+			ReqInitConnection reqInitConnection = 1000;
+      RspInitConnection rspInitConnection = 1001;
 			/*QueryAgent queryAgent = 2000;*/
 			/*ProgramMesg programMesg = 3000;*/
 		}
 }
 
 message ReqInitConnection {
-  required int32 type = 1;
 }
+
+message RspInitConnection {
+  repeated Agent agents = 1;
+}
+
 
 message Agent {
   required string name = 100;

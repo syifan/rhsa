@@ -16,6 +16,8 @@ class Server : public ConnectionHandler {
   
   void IterateAgents();
 
+  void HandleInitConnection(Connection *conn, Msg *msg);
+
  public:
   void Init();
   virtual void Handle(std::unique_ptr<Connection> conn) override;

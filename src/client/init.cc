@@ -38,9 +38,8 @@ hsa_status_t hsa_init() {
 
   printf("hsa_init sending\n");
   auto msg = std::make_unique<Msg>();
-  auto init_connection = new ReqInitConnection();
-  init_connection->set_type(0);
-  msg->set_allocated_initconnection(init_connection);
+  auto req_init_connection = new ReqInitConnection();
+  msg->set_allocated_reqinitconnection(req_init_connection);
   client.conn->Send(*msg);
   printf("hsa_init send done\n");
 
