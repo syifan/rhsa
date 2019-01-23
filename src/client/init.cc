@@ -7,7 +7,7 @@
 
 #include "src/client/client.h"
 #include "src/conn/connector.h"
-#include "src/request/request.h"
+#include "src/proto/msg.pb.h"
 
 extern "C" {
 
@@ -25,14 +25,21 @@ hsa_status_t hsa_init() {
 
   auto &client = Client::GetInstance();
 
-  TCPConnector connector;
+  TCPConnector connector(&client.encoder);
   auto conn = connector.Connect("127.0.0.1", port());
   client.conn = std::move(conn);
 
 
-  auto request_factory = client.request_factory.get();
-  auto init_req = request_factory->BuildInitRequest();
-  client.conn->Send(init_req.get());
+  //auto request_factory = client.request_factory.get();
+  //auto init_req = request_factory->BuildInitRequest();
+  //client.conn->Send(init_req.get());
+  
+  auto msg = std::make_unique<Msg>();
+  auto init_connection = new ReqInitConnection();
+  msg->set_allocated_initconnection(init_connection);
+  client.conn->Send(*msg);
+
+
 
   // conn->Recv();
 

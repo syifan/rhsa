@@ -2,7 +2,6 @@
 #include <cmath>
 
 #include "src/client/client.h"
-#include "src/request/request.h"
 
 extern "C" {
 

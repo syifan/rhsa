@@ -35,7 +35,7 @@ class TCPConnector final : public Connector {
 
  public:
 
-  TCPConnector(MsgEncoder *encoder);
+  explicit TCPConnector(MsgEncoder *encoder);
 
   std::unique_ptr<Connection> Connect(const std::string &ip, int port) override;
 };

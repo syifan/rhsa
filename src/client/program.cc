@@ -2,8 +2,6 @@
 #include <cstdio>
 #include "include/hsa.h"
 #include "src/client/client.h"
-#include "src/request/request.h"
-#include "src/proto/request.pb.h"
 
 extern "C" {
 /*
@@ -42,26 +40,26 @@ hsa_status_t hsa_ext_program_destroy(hsa_ext_program_t program) {
 }
 */
 
-hsa_status_t hsa_executable_create(hsa_profile_t profile,
-                                   hsa_executable_state_t  executable_state,
-                                   const char *options,
-                                   hsa_executable_t *executable) {
+//hsa_status_t hsa_executable_create(hsa_profile_t profile,
+                                   //hsa_executable_state_t  executable_state,
+                                   //const char *options,
+                                   //hsa_executable_t *executable) {
     
-  using namespace rhsa;
+  //using namespace rhsa;
 
-  auto &client = Client::GetInstance();
-  auto request_factory = client.request_factory.get();
+  //auto &client = Client::GetInstance();
+  //auto request_factory = client.request_factory.get();
 
-  auto msg = new CreateExecutable();
+  //auto msg = new CreateExecutable();
 
-  msg->set_profile((CreateExecutable_Profile)profile);
-  msg->set_executablestate((CreateExecutable_ExecutableState)executable_state);
-  msg->set_options(options);
+  //msg->set_profile((CreateExecutable_Profile)profile);
+  //msg->set_executablestate((CreateExecutable_ExecutableState)executable_state);
+  //msg->set_options(options);
 
-  auto query_req = request_factory->BuildProgramRequest(msg, (RequestFactory::ProgramCommand)0);
-  client.conn->Send(query_req.get());
+  //auto query_req = request_factory->BuildProgramRequest(msg, (RequestFactory::ProgramCommand)0);
+  //client.conn->Send(query_req.get());
 
-  // placeholder
-  return HSA_STATUS_SUCCESS;
-}
+  //// placeholder
+  //return HSA_STATUS_SUCCESS;
+//}
 }
