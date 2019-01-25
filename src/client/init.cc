@@ -1,24 +1,17 @@
 #include <stdio.h>
+#include <boost/fiber/fiber.hpp>
 #include <cstring>
-#include <memory>
 #include <iostream>
+#include <memory>
 
 #include "include/hsa.h"
 
 #include "src/client/client.h"
-#include "src/conn/connector.h"
+#include "src/client/receiver.h"
+#include "src/client/rsp_handler.h"
 #include "src/proto/msg.pb.h"
 
 extern "C" {
-
-int port() {
-  const char *port_env_str = std::getenv("RHSA_PORT");
-  if (port_env_str) {
-    return std::stoi(port_env_str);
-  }
-
-  return 9001;
-}
 
 hsa_status_t hsa_init() {
   using namespace rhsa;
@@ -27,14 +20,14 @@ hsa_status_t hsa_init() {
 
   auto &client = Client::GetInstance();
 
-  TCPConnector connector(&client.encoder);
-  auto conn = connector.Connect("127.0.0.1", port());
-  client.conn = std::move(conn);
+  auto succeed = client.EstablishConnection();
+  if (!succeed) {
+    printf("Establish connection to server failed\n");
+    return HSA_STATUS_ERROR_OUT_OF_RESOURCES;
+  }
 
-
-  //auto request_factory = client.request_factory.get();
-  //auto init_req = request_factory->BuildInitRequest();
-  //client.conn->Send(init_req.get());
+  RspHandler rsp_handler;
+  client.receiver->RegisterHandler(&rsp_handler);
 
   printf("hsa_init sending\n");
   auto msg = std::make_unique<Msg>();
@@ -43,10 +36,17 @@ hsa_status_t hsa_init() {
   client.conn->Send(*msg);
   printf("hsa_init send done\n");
 
+  printf("start receiving %p\n", &rsp_handler.chan);
+  auto rsp = rsp_handler.chan.value_pop();
+  printf("rsp type %d\n", rsp->Payload_case());
 
-  // conn->Recv();
+  // printf("rsp type %d\n", rsp->Payload_case());
+  rsp_handler.chan.push(std::unique_ptr<Msg>(nullptr));
+  client.receiver->UnregisterHandler(&rsp_handler);
 
+  std::this_thread::sleep_for(std::chrono::seconds(1));
+
+  printf("hsa_init returning\n");
   return HSA_STATUS_SUCCESS;
 }
-
 }

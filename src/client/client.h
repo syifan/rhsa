@@ -4,6 +4,7 @@
 #include <memory>
 #include <vector>
 
+#include "src/client/receiver.h"
 #include "src/conn/conn.h"
 #include "src/proto/encoder.h"
 
@@ -25,11 +26,15 @@ class Client {
   Client &operator=(Client const &) = delete;
   Client &operator=(Client &&) = delete;
 
+  int Port();
+  bool EstablishConnection();
+
   /**
    * The connection to the server
    */
   std::unique_ptr<Connection> conn;
   MsgEncoderImpl encoder;
+  std::unique_ptr<Receiver> receiver;
 
  private:
   Client() {}
